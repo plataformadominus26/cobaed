@@ -13,5 +13,15 @@ Reglas:
 - No subas datos de alumnos, fotos, logs ni credenciales (ver `.gitignore`).
 
 ## Flujo de trabajo
-1. Los cambios se hacen y se prueban en Villas, luego `git commit` + `git push`.
-2. Cada plantel se actualiza con `git pull`.
+1. Los cambios se hacen y se prueban en **Villas**, luego `git commit` + `git push`.
+2. Los demás planteles se actualizan **solos cada 5 minutos** (`deploy/actualizar.sh` en cron).
+   Si un archivo tiene error de sintaxis o alguien modificó el servidor a mano, la actualización
+   se detiene y lo anota en `~/logs/cobaed_actualizar.log` del plantel.
+3. Cambios a la base de datos: un archivo nuevo en `deploy/migraciones/` (ver su README).
+   Cada plantel lo aplica solo al actualizarse.
+
+## Agregar un plantel nuevo
+1. En el panel del servidor crea el sitio y la base de datos (vacía) del plantel.
+2. Con el usuario del plantel, copia `deploy/nuevo_plantel.sh` y ejecútalo: `bash nuevo_plantel.sh`.
+3. Te pedirá el nombre, la carpeta, los datos de la base y te mostrará una llave para agregarla en
+   GitHub (Settings → Deploy keys, sin permiso de escritura). Al terminar muestra el usuario de acceso.
