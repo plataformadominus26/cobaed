@@ -22,6 +22,8 @@ docs/*.csv
 # --- Respaldos y copias ---
 *.zip
 *.sql
+!deploy/esquema.sql
+!deploy/migraciones/*.sql
 *.sql.gz
 *.bak
 _backup_*/
