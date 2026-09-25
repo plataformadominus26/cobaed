@@ -1,35 +1,38 @@
 <?php
   include_once("rbh/conexion1.php");
   include_once("rbh.php");
-   if(isset($_REQUEST["imei"])){
 
-    $imei = $_REQUEST["imei"];
-    $atkn = $_REQUEST["atkn"];
-
-    $sql="update alumnos set imei='$imei' where token='$atkn' ";
-    if($db->query($sql)){
-        echo "IMEI registrado correctamente.". $sql;
-    }else{
-        echo "Error al registrar IMEI.";
-    }
+  // Liga el QR con el dispositivo. Solo la primera vez: después no se puede reemplazar desde aquí.
+  if(isset($_REQUEST["imei"])){
+    $imei = (string)$_REQUEST["imei"];
+    $tkn  = (string)($_REQUEST["atkn"] ?? "");
+    $st = $db->prepare("UPDATE alumnos SET imei=? WHERE token=? AND (imei='' OR imei IS NULL)");
+    $st->bind_param("ss", $imei, $tkn);
+    $st->execute();
+    echo $st->affected_rows > 0 ? "IMEI registrado correctamente." : "Este QR ya está registrado en otro dispositivo.";
     exit;
   }
 
-     
+    $token = (string)($_REQUEST["atkn"] ?? "");
     $dbToken ="error";
     $dbNombre ="error";
-    $dbPassword ="error";
+    $dbPassword ="";
     $dbImei ="error";
-    $atkn=$_REQUEST["atkn"];
 
-
-    $sql="select * from alumnos where token='$atkn' ";
-     if($row = $db->query($sql)->fetch_array()) {
+    $st = $db->prepare("SELECT token, nombre, pwd, imei FROM alumnos WHERE token=? LIMIT 1");
+    $st->bind_param("s", $token);
+    $st->execute();
+    if($token !== "" && $row = $st->get_result()->fetch_assoc()) {
         $dbToken = $row['token'];
         $dbNombre = $row['nombre'];
-        $dbPassword = $row['pwd'];
         $dbImei = $row['imei']?:'No registrado';
-    }  
+        // La contraseña solo se muestra mientras el QR no esté ligado a un dispositivo.
+        if($dbImei === 'No registrado') $dbPassword = $row['pwd'];
+    }
+    $dbToken = htmlspecialchars($dbToken, ENT_QUOTES, 'UTF-8');
+    $dbNombre = htmlspecialchars($dbNombre, ENT_QUOTES, 'UTF-8');
+    $dbPassword = htmlspecialchars($dbPassword, ENT_QUOTES, 'UTF-8');
+    $dbImei = htmlspecialchars($dbImei, ENT_QUOTES, 'UTF-8');
  ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -434,7 +437,7 @@
             if(yo==""&&dbImei=="No registrado"){
                 localStorage["cobaed_aTkn"]=$("#dbToken").val();
                 localStorage["cobaed_aNombre"]=$("#dbNombre").val();
-                $.post("enrollallumni.php",{imei:imei,atkn:qr},function(data){
+                $.post("enrollalumni.php",{imei:imei,atkn:qr},function(data){
                     console.log(data);
                 });
                 caso="nuevo";

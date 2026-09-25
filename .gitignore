@@ -8,6 +8,9 @@ rbh/rbh_config.txt
 # --- Llaves de Firebase / credenciales ---
 *service-account*.json
 *firebase-adminsdk*.json
+*.key
+*.secret
+*.pem
 
 # --- Datos de cada plantel (fotos, archivos subidos, listas) ---
 uploads/

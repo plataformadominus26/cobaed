@@ -61,7 +61,7 @@ function registerPushToken($db, $rtdbUrl, $serviceAccountPath)
         . rawurlencode((string)$deviceId) . '.json';
 
     $ok = rtdbRequestWithServiceAccount('PUT', $rtdbUrl, $serviceAccountPath, $path, $payload);
-    @file_put_contents(__DIR__ . '/push_register_log.txt', date('c') . ' registerPushToken alumno=' . $row['token'] . ' device=' . $deviceId . ' ok=' . ($ok ? '1' : '0') . PHP_EOL, FILE_APPEND);
+    @file_put_contents(cobaed_log('push_register_log.txt'), date('c') . ' registerPushToken alumno=' . $row['token'] . ' device=' . $deviceId . ' ok=' . ($ok ? '1' : '0') . PHP_EOL, FILE_APPEND);
 
     return json_encode(['ok' => (bool)$ok, 'device_id' => $deviceId]);
 }
@@ -101,7 +101,7 @@ function pushDiag()
         . ' alumno=' . $alumnoToken
         . ' extra=' . $extra
         . PHP_EOL;
-    @file_put_contents(__DIR__ . '/push_register_log.txt', $line, FILE_APPEND);
+    @file_put_contents(cobaed_log('push_register_log.txt'), $line, FILE_APPEND);
     return json_encode(['ok' => true]);
 }
 

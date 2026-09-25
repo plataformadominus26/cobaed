@@ -1,4 +1,5 @@
-<?php 
+<?php
+require_once __DIR__ . '/config.php'; // cobaed_log() 
 
 function right($value, $count){return substr($value, ($count*-1));}
 function left($string, $count){return substr($string, 0, $count);}
@@ -56,7 +57,7 @@ function dump($Data,$File= "dump.txt",$tipo='w'){
     $xData="Depurar --> ".$fecha.$Data.PHP_EOL; 
     $Data=$xData.PHP_EOL;
     if (!$File)	$File = "dump.txt"; 
-       $Handle = fopen($File, $tipo);
+       $Handle = fopen(cobaed_log($File), $tipo);
        fwrite($Handle,$Data);  
        fclose($Handle); 
 }

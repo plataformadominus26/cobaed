@@ -139,7 +139,12 @@ function guardarAsistencia(mysqli $db, array $datos): bool {
         $datos["checkin"], $datos["checkout"], $datos["estado"],
         $datos["area_id"], $datos["rems"], $datos["maestro_id"]
     );
-    return $st->execute();
+    try {
+        return $st->execute();
+    } catch (mysqli_sql_exception $e) {
+        if ($e->getCode() === 1062) return true;   // ya estaba registrado (índice único)
+        throw $e;
+    }
 }
 
 /** ¿Existe ya un registro para esta clase/día? Evita duplicados al sincronizar. */
@@ -214,7 +219,7 @@ if ($accion === 'syncBatch') {
         $fecha      = $rec["fecha"] ?? '';
         $checkin    = $rec["checkin"] ?? '';
         $checkout   = $rec["checkout"] ?? '';
-        $token      = substr((string)($rec["token"] ?? nuevoToken()), 0, 15);
+        $token      = substr((string)($rec["token"] ?? nuevoToken()), 0, 32);
 
         if (!$maestro_id || !$area_id || !in_array($estado, [EST_FALTA, EST_RETRASO, EST_ASISTE], true)
             || !preg_match('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $fecha)
@@ -251,7 +256,7 @@ if ($accion === 'syncBatch') {
 if ($accion === 'bootstrap') {
     $book_id = (int)$user["book_id"];
 
-    $st = $db->prepare("SELECT usuario_id, token, nombre, email, pwd, book_id FROM usuarios WHERE book_id=? AND activo=1 ORDER BY nombre");
+    $st = $db->prepare("SELECT usuario_id, nombre, book_id FROM usuarios WHERE book_id=? AND activo=1 ORDER BY nombre");
     $st->bind_param("i", $book_id);
     $st->execute();
     $usuarios = $st->get_result()->fetch_all(MYSQLI_ASSOC);

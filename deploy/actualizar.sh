@@ -36,6 +36,15 @@ for f in $(git diff --name-only --diff-filter=AM "$LOCAL" "$REMOTO" -- '*.php');
     fi
 done
 
+# Llaves que la versión nueva deja de incluir: guardarlas en ~/secure antes de que git las borre
+mkdir -p "$HOME/secure" && chmod 700 "$HOME/secure"
+for f in $(git diff --name-only --diff-filter=D "$LOCAL" "$REMOTO" -- '*.key' '*.secret' '*service-account*.json' '*firebase-adminsdk*.json'); do
+    if [ -f "$f" ] && [ ! -e "$HOME/secure/$(basename "$f")" ]; then
+        cp -p "$f" "$HOME/secure/$(basename "$f")" && chmod 600 "$HOME/secure/$(basename "$f")"
+        log "Llave rescatada: $f -> ~/secure/$(basename "$f")"
+    fi
+done
+
 if ! git merge -q --ff-only "$REMOTO" 2>>"$LOG"; then
     log "ERROR: falló la actualización a ${REMOTO:0:7}"
     exit 1

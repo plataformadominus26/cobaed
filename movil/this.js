@@ -18,6 +18,14 @@
 const API          = "this.php";
 const LS_TOKEN     = "cobaed_token";
 const LS_NOMBRE    = "cobaed_nombre";
+const LS_OFFLINE   = "cobaed_offline";
+
+/** SHA-256 de usuario+contraseña, para validar el acceso sin red sin guardar la contraseña. */
+async function huellaCredenciales(u, p) {
+    const datos = new TextEncoder().encode("cobaed-offline\n" + u.toLowerCase() + "\n" + p);
+    const hash = await crypto.subtle.digest("SHA-256", datos);
+    return Array.from(new Uint8Array(hash)).map((b) => b.toString(16).padStart(2, "0")).join("");
+}
 const TZ_PLANTEL   = -6 * 60;   // minutos respecto a UTC
 const RESCAN_MS    = 2500;      // pausa tras un escaneo para no repetirlo
 
@@ -213,7 +221,7 @@ async function resolverQr(textoQr) {
     if (navigator.onLine) {
         try {
             const r = await api("resolverQr", { qr: textoQr });
-            if (r && r.auth === false) { cerrarSesion(); return null; }
+            if (r && r.auth === false) { cerrarSesion(true); return null; }
             if (r) { r.origen = "servidor"; r.qr_texto = textoQr; return r; }
         } catch (e) {
             console.warn("resolverQr en línea falló, uso local:", e.message);
@@ -533,7 +541,7 @@ async function sincronizar(silencioso = false) {
 
         // 2. Descargar catálogo fresco (docentes, salones, horarios).
         const boot = await api("bootstrap", {}, 30000);
-        if (boot && boot.auth === false) { cerrarSesion(); return; }
+        if (boot && boot.auth === false) { cerrarSesion(true); return; }
         if (boot && boot.ok) {
             await reemplazar("usuarios", boot.usuarios);
             await reemplazar("areas",    boot.areas);
@@ -567,8 +575,9 @@ async function sincronizar(silencioso = false) {
 // ---------------------------------------------------------------------------
 // Sesión
 // ---------------------------------------------------------------------------
-function cerrarSesion() {
+function cerrarSesion(invalida) {
     detenerEscaner();
+    if (invalida === true) localStorage.removeItem(LS_OFFLINE);
     localStorage.removeItem(LS_TOKEN);
     localStorage.removeItem(LS_NOMBRE);
     localStorage.removeItem("cobaed_uid");
@@ -603,15 +612,22 @@ async function entrar(ev) {
             if (!r || !r.ok) throw new Error(r && r.msg ? r.msg : "Credenciales incorrectas");
             localStorage.setItem(LS_TOKEN, r.token);
             localStorage.setItem(LS_NOMBRE, r.nombre || "");
+            // Huella de TUS credenciales para poder entrar sin red más adelante (nunca la contraseña).
+            try {
+                localStorage.setItem(LS_OFFLINE, JSON.stringify({
+                    h: await huellaCredenciales(u, p), token: r.token, nombre: r.nombre || ""
+                }));
+            } catch (e) { /* sin crypto.subtle: no habrá acceso sin red */ }
             abrirApp();
             sincronizar(true);
         } else {
-            // Sin red: validar contra la copia local descargada antes.
-            const us = await localDB.query("usuarios", { email: u, pwd: p });
-            if (!us.length) throw new Error("Sin conexión y sin datos guardados para este usuario");
-            localStorage.setItem(LS_TOKEN, us[0].token);
-            localStorage.setItem(LS_NOMBRE, us[0].nombre || "");
-            localStorage.setItem("cobaed_uid", us[0].usuario_id);
+            // Sin red: solo entra quien ya inició sesión antes con internet en este equipo.
+            const guardado = JSON.parse(localStorage.getItem(LS_OFFLINE) || "null");
+            if (!guardado || guardado.h !== await huellaCredenciales(u, p)) {
+                throw new Error("Sin conexión: entra una vez con internet en este equipo");
+            }
+            localStorage.setItem(LS_TOKEN, guardado.token);
+            localStorage.setItem(LS_NOMBRE, guardado.nombre || "");
             abrirApp();
         }
     } catch (e) {

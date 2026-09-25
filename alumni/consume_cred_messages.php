@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+require_once __DIR__ . '/../config.php'; // ubica llaves de Firebase fuera de la carpeta web
 
 /**
  * Consumer de cola RTDB -> FCM v1 para mensajes de credencial.

@@ -1,8 +1,12 @@
 <?php
+// Diagnóstico de llaves de Firebase. Solo por línea de comandos: php alumni/firebase_diag.php
+if (PHP_SAPI !== 'cli') { http_response_code(404); exit; }
+require_once __DIR__ . '/../config.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
 $paths = array(
+    (string)getenv('COBAED_FIREBASE_SERVICE_ACCOUNT'),
     __DIR__ . '/cobaedlomas-service-account.json',
     __DIR__ . '/../../cam/cobaedlomas-firebase-adminsdk-fbsvc-69bc07f243.json',
     __DIR__ . '/../../cam/cobaedlomas-firebase-adminsdk-fbsvc-896c424477.json',

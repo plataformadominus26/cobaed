@@ -9,13 +9,13 @@
      asistencias viejas, que es justo lo que no debe pasar.
    ========================================================================== */
 
-const CACHE = "cobaed-asistencia-v4";
+const CACHE = "cobaed-asistencia-v5";
 
 const SHELL = [
     "./",
     "./index.html",
     "./movil.css?v=4",
-    "./this.js?v=4",
+    "./this.js?v=5",
     "./manifest.json",
     "./assets/css/bootstrap-icons.min.css",
     "./assets/css/fonts/bootstrap-icons.woff",

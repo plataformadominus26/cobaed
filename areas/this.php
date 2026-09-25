@@ -5,7 +5,7 @@
     include_once '../rbh/conexion1.php';
     include_once '../rbh.php';
     $tabla = "usuarios";
-    file_put_contents('rq.txt', print_r($_REQUEST, true), FILE_APPEND);
+    file_put_contents(cobaed_log('rq.txt'), print_r($_REQUEST, true), FILE_APPEND);
 
 
     if(isset($_REQUEST["fetchFiltros"])){

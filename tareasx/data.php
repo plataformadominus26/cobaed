@@ -10,7 +10,7 @@
     dump($sql,"data.txt");
     $row=$db->query($sql)->fetch_array();
     $miBook=$row["book_id"];
-    file_put_contents("r.txt",PHP_EOL."Book: ".print_r($_REQUEST,true));
+    file_put_contents(cobaed_log('r.txt'),PHP_EOL."Book: ".print_r($_REQUEST,true));
  
     $datos=$_REQUEST;
  

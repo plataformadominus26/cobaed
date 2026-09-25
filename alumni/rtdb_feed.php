@@ -2,7 +2,8 @@
 header('Content-Type: application/json; charset=utf-8');
 
 $rtdbUrl = 'https://cobaedlomas-default-rtdb.firebaseio.com';
-$serviceAccountPath = __DIR__ . '/../../cam/cobaedlomas-firebase-adminsdk-fbsvc-69bc07f243.json';
+require_once __DIR__ . '/../config.php';
+$serviceAccountPath = getenv('COBAED_FIREBASE_SERVICE_ACCOUNT') ?: __DIR__ . '/../../cam/cobaedlomas-firebase-adminsdk-fbsvc-69bc07f243.json';
 
 if (!function_exists('curl_init')) {
     echo json_encode(['ok' => false, 'error' => 'cURL extension not available']);

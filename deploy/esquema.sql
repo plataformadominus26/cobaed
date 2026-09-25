@@ -99,6 +99,28 @@ CREATE TABLE `areas_trn` (
   PRIMARY KEY (`area_trn_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `attendance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `attendance` (
+  `attendance_id` int NOT NULL AUTO_INCREMENT,
+  `token` varchar(32) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `fecha` datetime DEFAULT NULL,
+  `usuario_id` int DEFAULT NULL COMMENT 'quien registra (prefecto) o empleado en checador',
+  `checkin` time DEFAULT NULL,
+  `checkout` time DEFAULT NULL,
+  `estado` tinyint DEFAULT NULL COMMENT '1=falta 2=retraso 3=asiste',
+  `area_id` int DEFAULT NULL,
+  `rems` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `maestro_id` int DEFAULT NULL,
+  `dia` date GENERATED ALWAYS AS (cast(`fecha` as date)) STORED,
+  `creado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`attendance_id`),
+  UNIQUE KEY `uq_clase` (`maestro_id`,`area_id`,`dia`,`checkin`),
+  KEY `idx_usuario_fecha` (`usuario_id`,`fecha`),
+  KEY `idx_maestro_fecha` (`maestro_id`,`fecha`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `cat_parentescos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;

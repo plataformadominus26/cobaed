@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../config.php'; // cobaed_log()
 /*
 hudochenkov/sshpass/sshpass;     
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -104,7 +105,7 @@ $MODULES = [
     }
 
     // Debug logging
-    file_put_contents(__DIR__ . "/api_debug.txt", 
+    file_put_contents(cobaed_log('api_debug.txt'), 
         "Action: $action\nParams: " . json_encode($params) . "\nModules: " . json_encode($MODULES) . "\n\n", 
         LOCK_EX
     );
@@ -112,7 +113,7 @@ $MODULES = [
     loadModuleForAction($action, $MODULES); 
  
     if (!function_exists($action)) {
-        $logFile = __DIR__ . '/api_action.txt';
+        $logFile = cobaed_log('api_action.txt');
         $defined = get_defined_functions();
         $userFuncs = $defined['user'] ?? [];
         $entry = [
@@ -154,7 +155,7 @@ $MODULES = [
                 
                 
                 // Debug logging
-                file_put_contents(__DIR__ . "/api_load.txt", 
+                file_put_contents(cobaed_log('api_load.txt'), 
                     "Checking: $file for action: $action\nExists: " . (file_exists($file) ? 'YES' : 'NO') . "\n\n", 
                     FILE_APPEND | LOCK_EX
                 );
@@ -165,7 +166,7 @@ $MODULES = [
                     
                     // Verificar si la función existe después de incluir
                    /* if (function_exists($action)) {
-                        file_put_contents(__DIR__ . "/api_success.txt", 
+                        file_put_contents(cobaed_log('api_success.txt'), 
                             "SUCCESS: Loaded $file - Function $action now exists\n", 
                             FILE_APPEND | LOCK_EX
                         );
@@ -182,7 +183,7 @@ $MODULES = [
         $response = ['ok' => true, 'data' => $data];
         $response['debug'] = $debug; // Temporal para debugging
         echo json_encode($response, JSON_UNESCAPED_UNICODE);
-/*        file_put_contents(__DIR__ . "/api.txt", 
+/*        file_put_contents(cobaed_log('api.txt'), 
             date('Y-m-d H:i:s') . " - Response: " . json_encode($response, JSON_UNESCAPED_UNICODE) . "\n", 
             FILE_APPEND | LOCK_EX
         );*/

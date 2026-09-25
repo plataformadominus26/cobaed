@@ -9,7 +9,7 @@
     $RTDB_URL = 'https://cobaedlomas-default-rtdb.firebaseio.com';
     $SERVICE_ACCOUNT_PATH = resolveServiceAccountPath();
     if (isset($_FILES)) {
-        file_put_contents('files.txt', print_r($_FILES, true));
+        file_put_contents(cobaed_log('files.txt'), print_r($_FILES, true));
     }
     if (isset($_REQUEST["eliminar"])) {
         $alumnoToken = $db->real_escape_string($_REQUEST["eliminar"]);
@@ -156,7 +156,7 @@
     // 1. REGLA DE ORO: Las cabeceras siempre antes de cualquier echo o warning
     header('Content-Type: application/json');
 
-    file_put_contents('request_debug.txt', print_r($_REQUEST, true));
+    file_put_contents(cobaed_log('request_debug.txt'), print_r($_REQUEST, true));
     
     $row = $db->query("select * from usuarios where token='".$db->real_escape_string($_REQUEST["registrar"])."'")->fetch_assoc();
     
@@ -183,7 +183,7 @@
         $query_final = "update $tabla set ".$sql_fields." where token='".$db->real_escape_string($_REQUEST["token"])."'";
     }
 
-    file_put_contents('sql_debug.txt', $query_final . PHP_EOL, FILE_APPEND);
+    file_put_contents(cobaed_log('sql_debug.txt'), $query_final . PHP_EOL, FILE_APPEND);
 
     if (!empty($sql_fields) && $db->query($query_final)) {
         $response = array(
@@ -279,7 +279,7 @@
         $idDb = $db->real_escape_string($idName);
 
         $sql = "UPDATE $tabla SET foto='$mDb', foto_thumb='$thDb', foto_id='$idDb' WHERE token='$tDb'";
-        file_put_contents("upload_debug.txt", "Foto subida y procesada para token: $sql\n", FILE_APPEND);
+        file_put_contents(cobaed_log('upload_debug.txt'), "Foto subida y procesada para token: $sql\n", FILE_APPEND);
         $db->query($sql);
 
     }
@@ -359,7 +359,7 @@
         $idDb = $db->real_escape_string($idName);
 
         $sql = "UPDATE $tabla SET foto='$mDb', foto_thumb='$thDb', foto_id='$idDb' WHERE token='$tDb'";
-        file_put_contents("upload_debug.txt", "Foto RTDB procesada para token: $sql\n", FILE_APPEND);
+        file_put_contents(cobaed_log('upload_debug.txt'), "Foto RTDB procesada para token: $sql\n", FILE_APPEND);
         $db->query($sql);
     }
 

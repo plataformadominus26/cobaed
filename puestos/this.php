@@ -72,7 +72,7 @@
    
     
     if(isset($_REQUEST["registrar"])){
-        file_put_contents('request_debug.txt', print_r($_REQUEST, true));
+        file_put_contents(cobaed_log('request_debug.txt'), print_r($_REQUEST, true));
         $row=$db->query("select * from usuarios where token='".$_REQUEST["registrar"]."'")->fetch_assoc();
          $coma="";
         $sql="";

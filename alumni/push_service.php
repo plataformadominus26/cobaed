@@ -75,6 +75,11 @@ function cobaedPushTriggerConsumerAsync($consumerUrl, $consumerKey, $limit)
 
 function cobaedPushReadConsumerKey($alumniDir)
 {
+    $env = getenv('COBAED_FCM_CONSUMER_KEY');
+    if ($env) {
+        return trim($env);
+    }
+
     $files = array(
         rtrim($alumniDir, '/\\') . '/consume_cred_messages.key',
         rtrim($alumniDir, '/\\') . '/.consume_cred_messages.key',
