@@ -1,0 +1,846 @@
+<!-- Intercambio de libros y Club de Lectura Virtual -->
+<section class="c-card mb-5 c-library-section">
+  <div class="c-card-header">
+    <div class="c-tag libros">
+      <i class="bi bi-book-half me-2 c-card-icon"></i> Biblioteca Virtual & Club de Lectura
+    </div>
+    <div class="c-library-actions">
+      <button class="btn btn-sm btn-outline-primary">
+        <i class="bi bi-plus-circle"></i> Sugerir Libro
+      </button>
+      <button class="btn btn-sm btn-outline-success">
+        <i class="bi bi-calendar-event"></i> Próxima Reunión
+      </button>
+    </div>
+  </div>
+  
+  <div class="c-card-body">
+    <!-- Pestañas de navegación -->
+    <div class="c-library-tabs mb-4">
+      <button class="c-tab active" data-tab="disponibles">Libros Disponibles</button>
+      <button class="c-tab" data-tab="club">Club de Lectura</button>
+      <button class="c-tab" data-tab="mis-libros">Mis Préstamos</button>
+    </div>
+    
+    <!-- Contenido de pestaña: Libros Disponibles -->
+    <div class="c-tab-content active" id="disponibles">
+      <div class="c-book-grid">
+        <!-- Libro 1 -->
+        <div class="c-book-card">
+          <div class="c-book-cover">
+            <div class="c-book-thumb" style="background: linear-gradient(135deg, #ffd166, #ff9e6d);">
+              El<br>Principito
+            </div>
+            <div class="c-book-badge disponible">Disponible</div>
+          </div>
+          <div class="c-book-info">
+            <h6 class="c-book-title">El Principito</h6>
+            <p class="c-book-author">Antoine de Saint-Exupéry</p>
+            <div class="c-book-meta">
+              <span class="c-book-meta-item"><i class="bi bi-clock"></i> 96 páginas</span>
+              <span class="c-book-meta-item"><i class="bi bi-star-fill"></i> 4.8</span>
+            </div>
+            <p class="c-book-summary">Un piloto perdido en el desierto conoce a un pequeño príncipe de otro planeta...</p>
+            <div class="c-book-actions">
+              <button class="btn btn-warning btn-sm c-btn-pill">
+                <i class="bi bi-bookmark-check"></i> Solicitar
+              </button>
+              <button class="btn btn-outline-secondary btn-sm c-btn-pill">
+                <i class="bi bi-info-circle"></i> Resumen
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Libro 2 -->
+        <div class="c-book-card">
+          <div class="c-book-cover">
+            <div class="c-book-thumb" style="background: linear-gradient(135deg, #06d6a0, #4cc9f0);">
+              Cien<br>Años de<br>Soledad
+            </div>
+            <div class="c-book-badge prestado">Prestado</div>
+          </div>
+          <div class="c-book-info">
+            <h6 class="c-book-title">Cien Años de Soledad</h6>
+            <p class="c-book-author">Gabriel García Márquez</p>
+            <div class="c-book-meta">
+              <span class="c-book-meta-item"><i class="bi bi-clock"></i> 471 páginas</span>
+              <span class="c-book-meta-item"><i class="bi bi-star-fill"></i> 4.9</span>
+            </div>
+            <p class="c-book-summary">La saga de la familia Buendía en el pueblo mítico de Macondo...</p>
+            <div class="c-book-actions">
+              <button class="btn btn-secondary btn-sm c-btn-pill" disabled>
+                <i class="bi bi-hourglass-split"></i> En Espera
+              </button>
+              <button class="btn btn-outline-secondary btn-sm c-btn-pill">
+                <i class="bi bi-chat-left-text"></i> Reseñas
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Libro 3 -->
+        <div class="c-book-card">
+          <div class="c-book-cover">
+            <div class="c-book-thumb" style="background: linear-gradient(135deg, #7209b7, #f72585);">
+              El<br>Alquimista
+            </div>
+            <div class="c-book-badge disponible">Disponible</div>
+          </div>
+          <div class="c-book-info">
+            <h6 class="c-book-title">El Alquimista</h6>
+            <p class="c-book-author">Paulo Coelho</p>
+            <div class="c-book-meta">
+              <span class="c-book-meta-item"><i class="bi bi-clock"></i> 208 páginas</span>
+              <span class="c-book-meta-item"><i class="bi bi-star-fill"></i> 4.7</span>
+            </div>
+            <p class="c-book-summary">Santiago, un joven pastor, emprende un viaje en busca de un tesoro...</p>
+            <div class="c-book-actions">
+              <button class="btn btn-warning btn-sm c-btn-pill">
+                <i class="bi bi-bookmark-check"></i> Solicitar
+              </button>
+              <button class="btn btn-outline-secondary btn-sm c-btn-pill">
+                <i class="bi bi-people"></i> Club
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contenido de pestaña: Club de Lectura -->
+    <div class="c-tab-content" id="club">
+      <div class="c-club-section">
+        <div class="c-club-header">
+          <div class="c-club-current">
+            <h6 class="c-club-title">Lectura Actual del Club</h6>
+            <div class="c-club-book">
+              <div class="c-club-thumb" style="background: linear-gradient(135deg, #4361ee, #4cc9f0);">
+                La<br>Sombra<br>del<br>Viento
+              </div>
+              <div class="c-club-info">
+                <h5>La Sombra del Viento</h5>
+                <p class="c-club-author">Carlos Ruiz Zafón</p>
+                <div class="c-club-progress">
+                  <div class="c-progress-bar">
+                    <div class="c-progress-fill" style="width: 65%"></div>
+                  </div>
+                  <span>65% leído por el club</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-club-events">
+          <h6 class="c-club-subtitle">Próximos Eventos</h6>
+          <div class="c-club-event">
+            <div class="c-event-date">
+              <div class="c-event-day">15</div>
+              <div class="c-event-month">MAY</div>
+            </div>
+            <div class="c-event-details">
+              <h6>Discusión: Capítulos 5-8</h6>
+              <p><i class="bi bi-clock"></i> 16:00 hrs | <i class="bi bi-camera-video"></i> Zoom</p>
+            </div>
+            <button class="btn btn-primary btn-sm c-btn-pill">
+              <i class="bi bi-calendar-plus"></i> Unirme
+            </button>
+          </div>
+          
+          <div class="c-club-event">
+            <div class="c-event-date">
+              <div class="c-event-day">22</div>
+              <div class="c-event-month">MAY</div>
+            </div>
+            <div class="c-event-details">
+              <h6>Votación: Próximo Libro</h6>
+              <p><i class="bi bi-clock"></i> Todo el día | <i class="bi bi-chat-square-text"></i> Foro</p>
+            </div>
+            <button class="btn btn-outline-primary btn-sm c-btn-pill">
+              <i class="bi bi-check2-circle"></i> Votar
+            </button>
+          </div>
+        </div>
+        
+        <div class="c-club-discussion">
+          <h6 class="c-club-subtitle">Discusión Reciente</h6>
+          <div class="c-discussion-post">
+            <div class="c-discussion-avatar">MG</div>
+            <div class="c-discussion-content">
+              <h6>María González</h6>
+              <p>¿Qué opinan del personaje de Julián Carax?</p>
+              <div class="c-discussion-meta">
+                <span><i class="bi bi-heart"></i> 12</span>
+                <span><i class="bi bi-chat-left"></i> 5 respuestas</span>
+                <span>Hace 2 horas</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-outline-secondary btn-sm w-100 mt-3">
+            <i class="bi bi-chat-left-dots"></i> Unirse a la Discusión
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contenido de pestaña: Mis Préstamos -->
+    <div class="c-tab-content" id="mis-libros">
+      <div class="c-my-books">
+        <div class="c-book-loan">
+          <div class="c-loan-status prestamo-activo">
+            <i class="bi bi-bookmark-check-fill"></i> Activo
+          </div>
+          <div class="c-loan-book">
+            <div class="c-loan-thumb" style="background: linear-gradient(135deg, #ff9e6d, #ff6b6b);">
+              Rayuela
+            </div>
+            <div class="c-loan-details">
+              <h6>Rayuela</h6>
+              <p class="c-loan-author">Julio Cortázar</p>
+              <div class="c-loan-deadline">
+                <i class="bi bi-calendar-check"></i> Vence: 25 Mayo 2023
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-success btn-sm c-btn-pill">
+            <i class="bi bi-arrow-clockwise"></i> Renovar
+          </button>
+        </div>
+        
+        <div class="c-book-loan">
+          <div class="c-loan-status prestamo-pendiente">
+            <i class="bi bi-hourglass-split"></i> En Espera
+          </div>
+          <div class="c-loan-book">
+            <div class="c-loan-thumb" style="background: linear-gradient(135deg, #4cc9f0, #4361ee);">
+              1984
+            </div>
+            <div class="c-loan-details">
+              <h6>1984</h6>
+              <p class="c-loan-author">George Orwell</p>
+              <div class="c-loan-deadline">
+                <i class="bi bi-people"></i> Posición 3 en la lista
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-outline-secondary btn-sm c-btn-pill">
+            <i class="bi bi-x-circle"></i> Cancelar
+          </button>
+        </div>
+        
+        <div class="c-history">
+          <h6 class="c-history-title">Historial de Lectura</h6>
+          <div class="c-history-item">
+            <div class="c-history-thumb" style="background: linear-gradient(135deg, #ccc, #999);">
+              CR
+            </div>
+            <div class="c-history-details">
+              <h6>Crónica de una Muerte Anunciada</h6>
+              <p>Devuelto: 10 Abril 2023 | Calificación: ★★★★★</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Solicitar Nuevo Libro -->
+    <div class="c-book-request mt-4">
+      <h6 class="c-request-title">
+        <i class="bi bi-search me-2"></i>¿No encuentras el libro que buscas?
+      </h6>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Título, autor o ISBN del libro que deseas...">
+        <button class="btn btn-primary">
+          <i class="bi bi-send"></i> Solicitar
+        </button>
+      </div>
+      <div class="c-request-note mt-2">
+        <small><i class="bi bi-info-circle"></i> Revisaremos tu solicitud y lo agregaremos a la biblioteca si es posible.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* CSS Específico para la sección de biblioteca - NO afecta otros elementos */
+  .c-library-section {
+    --c-book-primary: #4361ee;
+    --c-book-secondary: #7209b7;
+    --c-book-accent: #ffd166;
+    --c-book-success: #06d6a0;
+    --c-book-warning: #ff9e6d;
+    --c-book-danger: #f72585;
+  }
+  
+  .c-library-section .c-library-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Tabs de navegación */
+  .c-library-section .c-library-tabs {
+    display: flex;
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 20px;
+  }
+  
+  .c-library-section .c-tab {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    color: #6c757d;
+    position: relative;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  
+  .c-library-section .c-tab:hover {
+    color: var(--c-book-primary);
+  }
+  
+  .c-library-section .c-tab.active {
+    color: var(--c-book-primary);
+  }
+  
+  .c-library-section .c-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--c-book-primary);
+  }
+  
+  /* Contenido de pestañas */
+  .c-library-section .c-tab-content {
+    display: none;
+  }
+  
+  .c-library-section .c-tab-content.active {
+    display: block;
+  }
+  
+  /* Grid de libros */
+  .c-library-section .c-book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .c-library-section .c-book-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #e9ecef;
+  }
+  
+  .c-library-section .c-book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .c-library-section .c-book-cover {
+    position: relative;
+    flex-shrink: 0;
+  }
+  
+  .c-library-section .c-book-thumb {
+    width: 80px;
+    height: 120px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+    color: white;
+    line-height: 1.2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .c-library-section .c-book-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .c-library-section .c-book-badge.disponible {
+    background-color: var(--c-book-success);
+  }
+  
+  .c-library-section .c-book-badge.prestado {
+    background-color: var(--c-book-warning);
+  }
+  
+  .c-library-section .c-book-info {
+    flex-grow: 1;
+    min-width: 0;
+  }
+  
+  .c-library-section .c-book-title {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #212529;
+  }
+  
+  .c-library-section .c-book-author {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 8px;
+  }
+  
+  .c-library-section .c-book-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+    color: #6c757d;
+  }
+  
+  .c-library-section .c-book-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  
+  .c-library-section .c-book-summary {
+    font-size: 0.85rem;
+    color: #495057;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .c-library-section .c-book-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .c-library-section .c-btn-pill {
+    border-radius: 20px !important;
+  }
+  
+  /* Sección Club de Lectura */
+  .c-library-section .c-club-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .c-library-section .c-club-current {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .c-library-section .c-club-title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--c-book-primary);
+  }
+  
+  .c-library-section .c-club-book {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .c-library-section .c-club-thumb {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: center;
+    color: white;
+    line-height: 1.3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+  }
+  
+  .c-library-section .c-club-info h5 {
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  
+  .c-library-section .c-club-author {
+    color: #6c757d;
+    margin-bottom: 15px;
+  }
+  
+  .c-library-section .c-club-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .c-library-section .c-progress-bar {
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .c-library-section .c-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--c-book-primary), var(--c-book-secondary));
+    border-radius: 4px;
+  }
+  
+  /* Eventos del club */
+  .c-library-section .c-club-events {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  
+  .c-library-section .c-club-subtitle {
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--c-book-secondary);
+  }
+  
+  .c-library-section .c-club-event {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .c-library-section .c-club-event:last-child {
+    border-bottom: none;
+  }
+  
+  .c-library-section .c-event-date {
+    background: var(--c-book-primary);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 60px;
+    flex-shrink: 0;
+  }
+  
+  .c-library-section .c-event-day {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  
+  .c-library-section .c-event-month {
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+  
+  .c-library-section .c-event-details {
+    flex-grow: 1;
+  }
+  
+  .c-library-section .c-event-details h6 {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .c-library-section .c-event-details p {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin: 0;
+  }
+  
+  /* Discusión del club */
+  .c-library-section .c-club-discussion {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  
+  .c-library-section .c-discussion-post {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+  }
+  
+  .c-library-section .c-discussion-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--c-book-primary), var(--c-book-secondary));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  
+  .c-library-section .c-discussion-content h6 {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .c-library-section .c-discussion-content p {
+    margin-bottom: 8px;
+    color: #495057;
+  }
+  
+  .c-library-section .c-discussion-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.8rem;
+    color: #6c757d;
+  }
+  
+  /* Mis Préstamos */
+  .c-library-section .c-my-books {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .c-library-section .c-book-loan {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .c-library-section .c-loan-status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  
+  .c-library-section .c-loan-status.prestamo-activo {
+    background-color: rgba(6, 214, 160, 0.1);
+    color: var(--c-book-success);
+  }
+  
+  .c-library-section .c-loan-status.prestamo-pendiente {
+    background-color: rgba(255, 158, 109, 0.1);
+    color: var(--c-book-warning);
+  }
+  
+  .c-library-section .c-loan-book {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1;
+  }
+  
+  .c-library-section .c-loan-thumb {
+    width: 60px;
+    height: 90px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+  
+  .c-library-section .c-loan-details h6 {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .c-library-section .c-loan-author {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 8px;
+  }
+  
+  .c-library-section .c-loan-deadline {
+    font-size: 0.8rem;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  /* Historial */
+  .c-library-section .c-history {
+    margin-top: 20px;
+  }
+  
+  .c-library-section .c-history-title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--c-book-secondary);
+  }
+  
+  .c-library-section .c-history-item {
+    display: flex;
+    gap: 15px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .c-library-section .c-history-thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+  
+  .c-library-section .c-history-details h6 {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+  }
+  
+  .c-library-section .c-history-details p {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin: 0;
+  }
+  
+  /* Solicitar libro */
+  .c-library-section .c-book-request {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px dashed #dee2e6;
+  }
+  
+  .c-library-section .c-request-title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--c-book-primary);
+    display: flex;
+    align-items: center;
+  }
+  
+  .c-library-section .c-request-note {
+    color: #6c757d;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .c-library-section .c-book-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .c-library-section .c-club-book,
+    .c-library-section .c-book-loan {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .c-library-section .c-club-event,
+    .c-library-section .c-book-loan {
+      flex-wrap: wrap;
+    }
+    
+    .c-library-section .c-library-tabs {
+      flex-wrap: wrap;
+    }
+    
+    .c-library-section .c-tab {
+      flex: 1;
+      text-align: center;
+      min-width: 120px;
+    }
+  }
+</style>
+
+<script>
+  // Script solo para esta sección - NO afecta otros elementos
+  document.addEventListener('DOMContentLoaded', function() {
+    const librarySection = document.querySelector('.c-library-section');
+    if (!librarySection) return;
+    
+    // Funcionalidad de tabs
+    const tabs = librarySection.querySelectorAll('.c-tab');
+    const tabContents = librarySection.querySelectorAll('.c-tab-content');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const tabId = this.getAttribute('data-tab');
+        
+        // Remover clase active de todos
+        tabs.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        // Activar tab clickeado
+        this.classList.add('active');
+        librarySection.querySelector(`#${tabId}`).classList.add('active');
+      });
+    });
+    
+    // Botones de acción de libros
+    librarySection.querySelectorAll('.c-book-actions button').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const bookCard = this.closest('.c-book-card');
+        const bookTitle = bookCard.querySelector('.c-book-title').textContent;
+        
+        if (this.textContent.includes('Solicitar')) {
+          alert(`¡Solicitud enviada para "${bookTitle}"!\nTe notificaremos cuando esté disponible.`);
+        } else if (this.textContent.includes('Resumen')) {
+          alert(`Resumen de "${bookTitle}"\n\nEsta es una breve descripción del libro...`);
+        }
+      });
+    });
+    
+    // Solicitar nuevo libro
+    const requestButton = librarySection.querySelector('.c-book-request .btn-primary');
+    const requestInput = librarySection.querySelector('.c-book-request input');
+    
+    if (requestButton && requestInput) {
+      requestButton.addEventListener('click', function() {
+        const bookRequest = requestInput.value.trim();
+        if (bookRequest) {
+          alert(`¡Solicitud enviada para: "${bookRequest}"!\nEl equipo de biblioteca revisará tu petición.`);
+          requestInput.value = '';
+        } else {
+          alert('Por favor, escribe el título, autor o ISBN del libro que deseas solicitar.');
+        }
+      });
+      
+      requestInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          requestButton.click();
+        }
+      });
+    }
+  });
+</script>

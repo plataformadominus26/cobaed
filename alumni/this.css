@@ -1,0 +1,64 @@
+/* Estilos para el Avatar Grande Lateral */
+.modal-user-sidebar {
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.avatar-wrapper {
+    position: relative;
+    width: 180px; /* Tamaño significativo */
+    height: 180px;
+    margin-bottom: 20px;
+}
+
+.avatar-preview {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.avatar-edit-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: var(--cobaed-gold, #C49A50); /* Tu color dorado */
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.avatar-edit-btn:hover {
+    transform: scale(1.1);
+    background: #b08945;
+}
+
+/* Ajuste de Tabs */
+.nav-tabs .nav-link {
+    color: #495057;
+    font-weight: 500;
+}
+.nav-tabs .nav-link.active {
+    color: var(--cobaed-green, #005931);
+    border-top: 3px solid var(--cobaed-green, #005931);
+    font-weight: bold;
+}
+
+

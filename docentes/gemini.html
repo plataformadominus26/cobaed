@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>App Docente COBAED</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        /* Estilos App Mobile-First */
+        body {
+            background-color: #f4f6f9;
+            padding-top: 70px; /* Espacio para el Header fijo */
+            padding-bottom: 80px; /* Espacio para el Footer fijo */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        /* Ocultar todas las pestañas por defecto */
+        .app-tab {
+            display: none;
+        }
+        
+        /* Mostrar la pestaña activa */
+        .app-tab.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        /* Header Estilo App */
+        .navbar-app {
+            background-color: #007bff; /* Color institucional primario */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer Estilo App */
+        .footer-nav {
+            background-color: white;
+            border-top: 1px solid #dee2e6;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+            z-index: 1040;
+        }
+        
+        .footer-btn {
+            color: #6c757d;
+            border: none;
+            background: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.75rem;
+            padding: 8px 0;
+        }
+        
+        .footer-btn i {
+            font-size: 1.4rem;
+            margin-bottom: 2px;
+        }
+        
+        .footer-btn.active {
+            color: #0d6efd;
+            font-weight: bold;
+        }
+
+        /* Estilos Tarjetas de Menú */
+        .menu-card {
+            border: none;
+            border-radius: 12px;
+            transition: transform 0.2s;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .menu-card:active {
+            transform: scale(0.98);
+            background-color: #e9ecef;
+        }
+        
+        /* Iconos de menú */
+        .menu-icon {
+            font-size: 1.5rem;
+            padding: 10px;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+
+        /* Animación simple */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-container {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-dark navbar-app fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="bi bi-mortarboard-fill me-2"></i> 
+                COBAED
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideMenu">
+                <span class="bi bi-list fs-1"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="sideMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menú Principal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" onclick="navigate('tab-profile')"><i class="bi bi-person-circle me-2"></i> Mi Perfil</li>
+                <li class="list-group-item" onclick="navigate('tab-settings')"><i class="bi bi-gear me-2"></i> Configuración</li>
+                <li class="list-group-item text-danger" onclick="logout()"><i class="bi bi-box-arrow-right me-2"></i> Cerrar Sesión</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+
+        <div id="tab-login" class="app-tab">
+            <div class="login-container">
+                <div class="card shadow-sm border-0 w-100" style="max-width: 400px;">
+                    <div class="card-body p-4 text-center">
+                        <div class="mb-4 text-primary">
+                            <i class="bi bi-person-circle" style="font-size: 4rem;"></i>
+                        </div>
+                        <h4 class="mb-3">Bienvenido Docente</h4>
+                        <form id="loginForm">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="username" placeholder="Usuario" required>
+                                <label for="username">Usuario / Matrícula</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                                <label for="password">Contraseña</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 btn-lg rounded-pill shadow-sm">
+                                Entrar <i class="bi bi-arrow-right-short"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-menu" class="app-tab">
+            <h5 class="text-secondary mb-3 ps-2 border-start border-4 border-primary">Panel de Control</h5>
+            
+            <div class="accordion shadow-sm" id="accordionMenu">
+                
+                <div class="accordion-item border-0 mb-3 rounded overflow-hidden">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fw-bold bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDir" aria-expanded="true">
+                            <i class="bi bi-building-fill me-2 text-primary"></i> Reportes Dirección
+                        </button>
+                    </h2>
+                    <div id="collapseDir" class="accordion-collapse collapse show" data-bs-parent="#accordionMenu">
+                        <div class="accordion-body p-0 bg-light">
+                            <div class="list-group list-group-flush">
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Misión y Visión', 'bi-file-earmark-text')">
+                                    <i class="bi bi-file-earmark-text fs-4 me-3 text-secondary"></i> Misión, Visión, Calidad
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Encuesta Satisfacción', 'bi-bar-chart-line')">
+                                    <i class="bi bi-bar-chart-line fs-4 me-3 text-info"></i> Resultados Encuesta
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Estadísticos por Grupo', 'bi-graph-up')">
+                                    <i class="bi bi-graph-up fs-4 me-3 text-success"></i> Estadísticos por Grupo
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Estilos de Aprendizaje', 'bi-people')">
+                                    <i class="bi bi-people fs-4 me-3 text-warning"></i> Estilos de Aprendizaje
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Tutorías Académicas', 'bi-person-video3')">
+                                    <i class="bi bi-person-video3 fs-4 me-3 text-primary"></i> Tutorías Académicas
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Alumnos en Riesgo', 'bi-exclamation-triangle')">
+                                    <i class="bi bi-exclamation-triangle fs-4 me-3 text-danger"></i> Alumnos en Riesgo
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Estatus Académico', 'bi-stoplights')">
+                                    <i class="bi bi-stoplights fs-4 me-3 text-secondary"></i> Estatus Académico
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Situaciones Especiales', 'bi-info-circle')">
+                                    <i class="bi bi-info-circle fs-4 me-3 text-info"></i> Situaciones Especiales
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Docente Responsable', 'bi-person-badge')">
+                                    <i class="bi bi-person-badge fs-4 me-3 text-dark"></i> Docente Responsable
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Calendarios', 'bi-calendar-event')">
+                                    <i class="bi bi-calendar-event fs-4 me-3 text-danger"></i> Calendarios
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Convocatorias', 'bi-megaphone')">
+                                    <i class="bi bi-megaphone fs-4 me-3 text-warning"></i> Convocatorias
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Horario de Grupo', 'bi-clock')">
+                                    <i class="bi bi-clock fs-4 me-3 text-primary"></i> Horario de Grupo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border-0 mb-3 rounded overflow-hidden">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDoc" aria-expanded="false">
+                            <i class="bi bi-chat-square-text-fill me-2 text-success"></i> Comentarios Docentes
+                        </button>
+                    </h2>
+                    <div id="collapseDoc" class="accordion-collapse collapse" data-bs-parent="#accordionMenu">
+                        <div class="accordion-body p-0 bg-light">
+                            <div class="list-group list-group-flush">
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Recomendaciones Grupales', 'bi-chat-quote')">
+                                    <i class="bi bi-chat-quote fs-4 me-3 text-primary"></i> Recomendaciones Grupales
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Recomendaciones Individuales', 'bi-person-check')">
+                                    <i class="bi bi-person-check fs-4 me-3 text-success"></i> Rec. Individuales
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Reporte Indisciplina', 'bi-slash-circle')">
+                                    <i class="bi bi-slash-circle fs-4 me-3 text-danger"></i> Reporte Indisciplina
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Limpieza y Mantenimiento', 'bi-broom')">
+                                    <i class="bi bi-broom fs-4 me-3 text-info"></i> Limpieza y Mant.
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Tareas y Evaluaciones', 'bi-journal-check')">
+                                    <i class="bi bi-journal-check fs-4 me-3 text-warning"></i> Tareas y Evaluaciones
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Incidencias', 'bi-clipboard-x')">
+                                    <i class="bi bi-clipboard-x fs-4 me-3 text-secondary"></i> Reporte Incidencias
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex align-items-center" onclick="openModule('Pase de Salida', 'bi-door-open')">
+                                    <i class="bi bi-door-open fs-4 me-3 text-dark"></i> Registrar Pase Salida
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="tab-viewer" class="app-tab">
+            <div class="d-flex align-items-center mb-3">
+                <button class="btn btn-outline-secondary btn-sm me-3 rounded-circle" onclick="navigate('tab-menu')">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+                <h5 class="m-0 text-truncate" id="viewer-title">Título del Módulo</h5>
+            </div>
+            
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <i id="viewer-icon" class="bi bi-file-text display-1 text-muted"></i>
+                    </div>
+                    
+                    <div id="viewer-content">
+                        <p class="text-muted text-center">Contenido del reporte o formulario para esta sección.</p>
+                        
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle me-1"></i> 
+                            Funcionalidad lista para conectar con Backend.
+                        </div>
+
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Comentarios / Observaciones</label>
+                                <textarea class="form-control" rows="4"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Adjuntar Evidencia (PDF/IMG)</label>
+                                <input class="form-control" type="file">
+                            </div>
+                            <button type="button" class="btn btn-success w-100">
+                                <i class="bi bi-save me-1"></i> Guardar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <nav class="navbar fixed-bottom footer-nav">
+        <div class="container-fluid d-flex justify-content-around">
+            <button class="footer-btn active" onclick="navigate('tab-menu')" id="btn-home">
+                <i class="bi bi-grid-fill"></i>
+                <span>Menú</span>
+            </button>
+            <button class="footer-btn" onclick="openModule('Horario de Grupo', 'bi-clock')">
+                <i class="bi bi-clock-history"></i>
+                <span>Horario</span>
+            </button>
+            <button class="footer-btn" onclick="openModule('Tareas y Evaluaciones', 'bi-journal-check')">
+                <i class="bi bi-journal-text"></i>
+                <span>Tareas</span>
+            </button>
+            <button class="footer-btn text-danger" onclick="logout()">
+                <i class="bi bi-power"></i>
+                <span>Salir</span>
+            </button>
+        </div>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Lógica de Inicio (Check LocalStorage)
+            checkSession();
+
+            // Manejo de Login
+            $('#loginForm').on('submit', function(e) {
+                e.preventDefault();
+                // Simulación de login exitoso
+                localStorage.setItem('cobaed_login', 'true');
+                navigate('tab-menu');
+            });
+        });
+
+        // Función para cambiar de pestañas (Tabs)
+        function navigate(tabId) {
+            // Ocultar todas las tabs
+            $('.app-tab').removeClass('active');
+            
+            // Mostrar la seleccionada
+            $('#' + tabId).addClass('active');
+
+            // Actualizar estado del footer si es necesario
+            $('.footer-btn').removeClass('active');
+            if(tabId === 'tab-menu') {
+                $('#btn-home').addClass('active');
+            }
+            
+            // Scroll al top
+            window.scrollTo(0,0);
+        }
+
+        // Función para verificar sesión
+        function checkSession() {
+            const isLoggedIn = localStorage.getItem('cobaed_login');
+            
+            // Ocultar elementos de navegación si no está logueado
+            if (isLoggedIn) {
+                navigate('tab-menu');
+                $('.navbar-app, .footer-nav').show(); // Mostrar header/footer
+            } else {
+                navigate('tab-login');
+                $('.navbar-app, .footer-nav').hide(); // Ocultar header/footer en login
+            }
+        }
+
+        // Función de Logout
+        function logout() {
+            if(confirm("¿Desea cerrar sesión?")) {
+                localStorage.removeItem('cobaed_login');
+                checkSession();
+            }
+        }
+
+        // Función Dinámica para abrir los módulos
+        // Simula que cada opción es una Tab distinta reciclando la vista #tab-viewer
+        function openModule(title, iconClass) {
+            // Setear datos
+            $('#viewer-title').text(title);
+            $('#viewer-icon').attr('class', 'bi ' + iconClass + ' display-1 text-muted');
+            
+            // Navegar a la vista
+            navigate('tab-viewer');
+        }
+    </script>
+</body>
+</html>

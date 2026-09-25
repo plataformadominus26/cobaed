@@ -1,0 +1,33 @@
+# --- Configuración propia de cada plantel (NO se comparte) ---
+config.local.php
+api/conexion.php
+app_docentes/conexion1.php
+app_alumnos/conexion1.php
+rbh/rbh_config.txt
+
+# --- Llaves de Firebase / credenciales ---
+*service-account*.json
+*firebase-adminsdk*.json
+
+# --- Datos de cada plantel (fotos, archivos subidos, listas) ---
+uploads/
+docs/*.xlsx
+docs/*.xls
+docs/*.csv
+
+# --- Logs y archivos de depuración que genera el sistema ---
+*.txt
+*.log
+
+# --- Respaldos y copias ---
+*.zip
+*.sql
+*.sql.gz
+*.bak
+_backup_*/
+**/_backup_*/
+alumni../
+
+# Contiene usuario/contraseña de Firebase en texto plano (pendiente de corregir)
+assets/js/xe3_java.js
+movil/assets/js/xe3_java.js

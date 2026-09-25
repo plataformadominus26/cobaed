@@ -1,0 +1,55 @@
+ body { background-color: #f4f6f9; }
+        
+        /* Simulación de Móvil para Preview */
+        .mobile-preview-container {
+            width: 375px; /* Ancho iPhone estándar */
+            height: 700px;
+            background: #fff;
+            border: 8px solid #222;
+            border-radius: 30px;
+            margin: 0 auto;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .mobile-header-notch {
+            position: sticky;
+            top: 0;
+            height: 30px;
+            background: #222;
+            z-index: 10;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Cards de Selección de Template */
+        .template-option {
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .template-option:hover {
+            border-color: var(--cobaed-gold, #C49A50);
+            background-color: #fff9e6;
+        }
+        
+        .template-option.active {
+            border-color: var(--cobaed-green, #005931);
+            background-color: #e8f5e9;
+            box-shadow: 0 0 0 3px rgba(0, 89, 49, 0.1);
+        }
+        
+        /* Ocultar inputs de archivo feos */
+        .custom-file-upload {
+            border: 2px dashed #ccc;
+            display: inline-block;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 8px;
+        }

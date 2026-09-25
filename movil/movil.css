@@ -1,0 +1,312 @@
+/* ==========================================================================
+   Control de Asistencia Docente - COBAED
+   Tema visual único de la app móvil. Diseñado para uso a una mano, de pie,
+   en pasillo: objetivos táctiles grandes y estados legibles a un vistazo.
+   ========================================================================== */
+
+:root {
+    --cbd-verde:     #1b5e43;
+    --cbd-verde-osc: #124030;
+    --cbd-arena:     #f1f5f2;
+    --cbd-texto:     #1a221d;
+    --cbd-suave:     #6b7a72;
+    --cbd-linea:     #dfe7e2;
+    --cbd-ok:        #288854;
+    --cbd-retraso:   #b8730c;
+    --cbd-falta:     #b3261e;
+    --cbd-radio:     18px;
+    --cbd-sombra:    0 2px 14px rgba(26, 34, 29, .09);
+    --cbd-safe-top:    env(safe-area-inset-top, 0px);
+    --cbd-safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+/* El atributo hidden debe ganarle a cualquier display de más abajo
+   (flex, grid). Sin esto, ocultar un elemento desde JS no surte efecto. */
+[hidden] { display: none !important; }
+
+body {
+    margin: 0;
+    background: var(--cbd-arena);
+    color: var(--cbd-texto);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    /* La barra inferior es fija: dejamos aire para que nada quede debajo. */
+    padding-bottom: calc(76px + var(--cbd-safe-bottom));
+    overscroll-behavior-y: contain;
+}
+
+/* ---------- Encabezado ---------- */
+.cbd-header {
+    background: var(--cbd-verde);
+    color: #fff;
+    padding: calc(12px + var(--cbd-safe-top)) 16px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+.cbd-header__logo { height: 34px; width: auto; flex: none; }
+.cbd-header__txt  { line-height: 1.15; min-width: 0; }
+.cbd-header__tit  { font-size: .95rem; font-weight: 600; margin: 0; }
+.cbd-header__sub  {
+    font-size: .74rem; margin: 2px 0 0; opacity: .75;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cbd-header__net  { margin-left: auto; font-size: 1.1rem; flex: none; }
+.cbd-header__net.off { color: #ffb4ad; }
+
+/* ---------- Contenedor de vistas ---------- */
+.cbd-vista { display: none; padding: 16px; max-width: 640px; margin: 0 auto; }
+.cbd-vista.activa { display: block; }
+
+/* ---------- Escáner ---------- */
+.cbd-scanner {
+    position: relative;
+    border-radius: var(--cbd-radio);
+    overflow: hidden;
+    background: #0e1713;
+    aspect-ratio: 1 / 1;
+    box-shadow: var(--cbd-sombra);
+}
+.cbd-scanner video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cbd-scanner__marco {
+    position: absolute; inset: 14%;
+    border: 3px solid rgba(255, 255, 255, .85);
+    border-radius: 14px;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .42);
+    pointer-events: none;
+}
+.cbd-scanner__ayuda {
+    position: absolute; left: 0; right: 0; bottom: 10px;
+    text-align: center; color: #fff; font-size: .82rem;
+    text-shadow: 0 1px 4px rgba(0,0,0,.7);
+    pointer-events: none; padding: 0 12px;
+}
+/* Estado apagado: evita pedir cámara hasta que la persona lo decida. */
+.cbd-scanner__off {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; color: #fff; text-align: center; padding: 20px;
+}
+
+/* ---------- Tarjeta de resultado ---------- */
+.cbd-card {
+    background: #fff;
+    border-radius: var(--cbd-radio);
+    box-shadow: var(--cbd-sombra);
+    padding: 18px;
+    margin-top: 16px;
+}
+.cbd-card--vacia { text-align: center; color: var(--cbd-suave); }
+
+.cbd-salon {
+    font-size: .76rem; text-transform: uppercase; letter-spacing: .08em;
+    color: var(--cbd-suave); margin: 0 0 4px;
+}
+.cbd-maestro { font-size: 1.32rem; font-weight: 650; margin: 0 0 10px; line-height: 1.2; }
+.cbd-bloque {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--cbd-arena); border-radius: 999px;
+    padding: 5px 12px; font-size: .86rem; font-variant-numeric: tabular-nums;
+}
+
+/* Aviso (sin clase / duplicado / QR ajeno) */
+.cbd-aviso {
+    display: flex; gap: 10px; align-items: flex-start;
+    border-radius: 12px; padding: 12px 14px; font-size: .9rem; line-height: 1.35;
+}
+.cbd-aviso i { font-size: 1.05rem; line-height: 1.2; flex: none; }
+.cbd-aviso--info { background: #eef4fb; color: #1d4e7a; }
+.cbd-aviso--warn { background: #fdf3e3; color: #7a4d06; }
+.cbd-aviso--err  { background: #fdecea; color: #8c1d16; }
+
+/* ---------- Botones de estado ---------- */
+.cbd-acciones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+.cbd-btn {
+    border: 0; border-radius: 14px; padding: 15px 6px;
+    color: #fff; font-weight: 600; font-size: .92rem;
+    display: flex; flex-direction: column; align-items: center; gap: 5px;
+    transition: transform .08s ease, filter .15s ease;
+    min-height: 74px;
+}
+.cbd-btn i { font-size: 1.3rem; }
+.cbd-btn:active { transform: scale(.96); }
+.cbd-btn:disabled { filter: grayscale(.75); opacity: .42; }
+.cbd-btn--falta   { background: var(--cbd-falta); }
+.cbd-btn--retraso { background: var(--cbd-retraso); }
+.cbd-btn--asiste  { background: var(--cbd-ok); }
+
+.cbd-comentario { margin-top: 14px; }
+.cbd-comentario input {
+    width: 100%; border: 1px solid var(--cbd-linea); border-radius: 12px;
+    padding: 12px 14px; font-size: .92rem; background: #fff; color: var(--cbd-texto);
+}
+.cbd-comentario input:focus { outline: 2px solid var(--cbd-verde); border-color: transparent; }
+
+/* ---------- Panel de registro (se desliza sobre la cámara) ----------
+   Fijo al borde inferior: los tres botones de estado quedan siempre a la
+   vista al detectar un QR, sin depender del alto de la pantalla ni del
+   scroll de la página. Si el contenido no cabe, se desplaza sólo el
+   cuerpo del panel, nunca la fila de acciones.                        */
+.cbd-panel-fondo {
+    position: fixed; inset: 0; z-index: 40;
+    background: rgba(12, 20, 16, .45);
+    animation: cbd-fade .18s ease;
+}
+
+.cbd-panel {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -6px 26px rgba(12, 20, 16, .22);
+    padding: 10px 18px calc(14px + var(--cbd-safe-bottom));
+    max-height: 82vh;
+    max-height: 82dvh;              /* evita el salto por la barra del navegador */
+    display: flex; flex-direction: column;
+    animation: cbd-subir .22s cubic-bezier(.22, .68, .36, 1);
+}
+@supports not (max-height: 1dvh) { .cbd-panel { max-height: 82vh; } }
+
+.cbd-panel__asa {
+    width: 42px; height: 4px; border-radius: 999px;
+    background: var(--cbd-linea);
+    margin: 0 auto 12px; flex: none;
+}
+.cbd-panel__cerrar {
+    position: absolute; top: 10px; right: 12px;
+    width: 34px; height: 34px; border: 0; border-radius: 50%;
+    background: var(--cbd-arena); color: var(--cbd-suave);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .9rem; z-index: 2;
+}
+.cbd-panel__cerrar:active { transform: scale(.94); }
+
+/* Sólo esta zona hace scroll; las acciones quedan fijas abajo. */
+.cbd-panel__cuerpo {
+    overflow-y: auto; -webkit-overflow-scrolling: touch;
+    padding-right: 2px; min-height: 0;
+}
+.cbd-panel .cbd-aviso      { margin-top: 12px; }
+.cbd-panel .cbd-acciones   { flex: none; margin-top: 14px; }
+
+@keyframes cbd-subir { from { transform: translateY(100%) } to { transform: translateY(0) } }
+
+/* Pantallas muy bajas (o teclado abierto): compacta lo prescindible. */
+@media (max-height: 620px) {
+    .cbd-panel { max-height: 90vh; max-height: 90dvh; }
+    .cbd-maestro { font-size: 1.12rem; margin-bottom: 8px; }
+    .cbd-btn { min-height: 62px; padding: 11px 6px; font-size: .86rem; }
+    .cbd-btn i { font-size: 1.15rem; }
+    .cbd-panel__asa { margin-bottom: 8px; }
+}
+
+/* ---------- Confirmación a pantalla completa ---------- */
+.cbd-flash {
+    position: fixed; inset: 0; z-index: 60;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 14px; color: #fff; text-align: center; padding: 28px;
+    animation: cbd-fade .18s ease;
+}
+.cbd-flash[hidden] { display: none !important; }
+.cbd-flash i { font-size: 4.2rem; }
+.cbd-flash__tit { font-size: 1.45rem; font-weight: 650; margin: 0; }
+.cbd-flash__sub { font-size: 1rem; opacity: .9; margin: 0; }
+.cbd-flash--asiste  { background: var(--cbd-ok); }
+.cbd-flash--retraso { background: var(--cbd-retraso); }
+.cbd-flash--falta   { background: var(--cbd-falta); }
+@keyframes cbd-fade { from { opacity: 0 } to { opacity: 1 } }
+
+/* ---------- Historial ---------- */
+.cbd-resumen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+.cbd-tile {
+    background: #fff; border-radius: 14px; padding: 12px 8px; text-align: center;
+    box-shadow: var(--cbd-sombra);
+}
+.cbd-tile__n { font-size: 1.5rem; font-weight: 680; line-height: 1; font-variant-numeric: tabular-nums; }
+.cbd-tile__l { font-size: .72rem; color: var(--cbd-suave); margin-top: 4px; }
+.cbd-tile--asiste  .cbd-tile__n { color: var(--cbd-ok); }
+.cbd-tile--retraso .cbd-tile__n { color: var(--cbd-retraso); }
+.cbd-tile--falta   .cbd-tile__n { color: var(--cbd-falta); }
+
+.cbd-reg {
+    background: #fff; border-radius: 14px; padding: 13px 15px; margin-bottom: 10px;
+    box-shadow: var(--cbd-sombra); border-left: 5px solid var(--cbd-linea);
+}
+.cbd-reg--asiste  { border-left-color: var(--cbd-ok); }
+.cbd-reg--retraso { border-left-color: var(--cbd-retraso); }
+.cbd-reg--falta   { border-left-color: var(--cbd-falta); }
+.cbd-reg__top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.cbd-reg__mtro { font-weight: 600; font-size: .97rem; }
+.cbd-reg__hora { font-size: .8rem; color: var(--cbd-suave); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cbd-reg__meta { font-size: .82rem; color: var(--cbd-suave); margin-top: 3px; }
+.cbd-reg__rems { font-size: .84rem; margin-top: 6px; font-style: italic; color: #46554e; }
+.cbd-reg__pend { font-size: .72rem; color: var(--cbd-retraso); margin-top: 5px; }
+
+.cbd-vacio { text-align: center; color: var(--cbd-suave); padding: 44px 20px; }
+.cbd-vacio i { font-size: 2.6rem; opacity: .35; display: block; margin-bottom: 10px; }
+
+/* ---------- Login ---------- */
+.cbd-login { max-width: 360px; margin: 8vh auto 0; padding: 0 20px; }
+.cbd-login__marca { text-align: center; margin-bottom: 26px; }
+.cbd-login__marca img { height: 62px; }
+.cbd-login__marca h1 { font-size: 1.18rem; font-weight: 640; margin: 14px 0 2px; }
+.cbd-login__marca p  { font-size: .86rem; color: var(--cbd-suave); margin: 0; }
+.cbd-campo { margin-bottom: 13px; }
+.cbd-campo label { display: block; font-size: .8rem; color: var(--cbd-suave); margin-bottom: 5px; }
+.cbd-campo input {
+    width: 100%; border: 1px solid var(--cbd-linea); border-radius: 12px;
+    padding: 13px 14px; font-size: 1rem; background: #fff; color: var(--cbd-texto);
+}
+.cbd-campo input:focus { outline: 2px solid var(--cbd-verde); border-color: transparent; }
+.cbd-login__btn {
+    width: 100%; border: 0; border-radius: 12px; background: var(--cbd-verde);
+    color: #fff; padding: 14px; font-size: 1rem; font-weight: 600; margin-top: 6px;
+}
+.cbd-login__btn:disabled { opacity: .6; }
+.cbd-login__err {
+    background: #fdecea; color: #8c1d16; border-radius: 10px;
+    padding: 10px 12px; font-size: .87rem; margin-bottom: 12px;
+}
+
+/* ---------- Barra inferior ---------- */
+.cbd-nav {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+    background: #fff; border-top: 1px solid var(--cbd-linea);
+    display: flex; padding-bottom: var(--cbd-safe-bottom);
+}
+.cbd-nav button {
+    flex: 1; border: 0; background: none; color: var(--cbd-suave);
+    padding: 9px 4px; font-size: .68rem;
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+}
+.cbd-nav button i { font-size: 1.32rem; }
+.cbd-nav button.activo { color: var(--cbd-verde); font-weight: 600; }
+.cbd-nav button .cbd-badge {
+    position: absolute; transform: translate(14px, -4px);
+    background: var(--cbd-retraso); color: #fff;
+    border-radius: 999px; font-size: .62rem; padding: 1px 5px; font-weight: 700;
+}
+
+/* ---------- Aviso flotante ---------- */
+.cbd-toast {
+    position: fixed; left: 50%; transform: translateX(-50%);
+    bottom: calc(86px + var(--cbd-safe-bottom)); z-index: 70;
+    background: var(--cbd-texto); color: #fff;
+    padding: 11px 17px; border-radius: 999px; font-size: .87rem;
+    box-shadow: 0 4px 18px rgba(0,0,0,.24); max-width: 90vw; text-align: center;
+}
+.cbd-toast[hidden] { display: none !important; }
+
+.cbd-spin {
+    width: 18px; height: 18px; border: 2px solid rgba(255,255,255,.45);
+    border-top-color: #fff; border-radius: 50%;
+    animation: cbd-rot .7s linear infinite; display: inline-block; vertical-align: -3px;
+}
+@keyframes cbd-rot { to { transform: rotate(360deg) } }
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

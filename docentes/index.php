@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COBAED - Portal Docente</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --cobaed-primary: #2c3e50;
+            --cobaed-secondary: #3498db;
+            --cobaed-accent: #e74c3c;
+            --cobaed-light: #ecf0f1;
+            --cobaed-success: #27ae60;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            padding-top: 56px;
+            padding-bottom: 70px;
+        }
+        
+        .app-header {
+            background: linear-gradient(135deg, var(--cobaed-primary) 0%, #34495e 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1030;
+        }
+        
+        .logo-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 5px 10px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .option-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
+        }
+        
+        .icon-wrapper {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .app-footer {
+            background-color: white;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            padding: 10px 0;
+            z-index: 1020;
+        }
+        
+        .footer-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 5px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            color: #6c757d;
+        }
+        
+        .footer-btn.active {
+            color: var(--cobaed-secondary);
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        
+        .footer-btn:hover {
+            color: var(--cobaed-primary);
+            background-color: rgba(0,0,0,0.05);
+        }
+        
+        .footer-btn i {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+        
+        .footer-btn span {
+            font-size: 0.75rem;
+        }
+        
+        .login-card {
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-control:focus {
+            border-color: var(--cobaed-secondary);
+            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+        }
+        
+        .btn-cobaed {
+            background-color: var(--cobaed-secondary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        
+        .btn-cobaed:hover {
+            background-color: #2980b9;
+            color: white;
+        }
+        
+        .btn-cobaed-danger {
+            background-color: var(--cobaed-accent);
+            color: white;
+        }
+        
+        .btn-cobaed-danger:hover {
+            background-color: #c0392b;
+            color: white;
+        }
+        
+        .module-header {
+            background-color: var(--cobaed-light);
+            border-left: 4px solid var(--cobaed-secondary);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
+        }
+        
+        .content-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .qr-scan-area {
+            border: 2px dashed #dee2e6;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .qr-scan-area:hover {
+            border-color: var(--cobaed-secondary);
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6c757d;
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header navbar navbar-dark fixed-top">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <div class="logo-container me-2">
+                    <span class="fw-bold text-primary">COBAED</span>
+                </div>
+                <span class="navbar-brand mb-0 h1 fs-5">Portal Docente</span>
+            </div>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+                <i class="bi bi-three-dots-vertical"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title">Menú</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action" onclick="switchTab(1)">
+                    <i class="bi bi-box-arrow-in-right me-2"></i> Iniciar Sesión
+                </a>
+                <a href="#" class="list-group-item list-group-item-action" onclick="switchTab(2)">
+                    <i class="bi bi-grid me-2"></i> Menú Principal
+                </a>
+                <a href="#" class="list-group-item list-group-item-action" onclick="switchTab(3)">
+                    <i class="bi bi-file-text me-2"></i> Reportes
+                </a>
+                <a href="#" class="list-group-item list-group-item-action" onclick="switchTab(4)">
+                    <i class="bi bi-chat-dots me-2"></i> Comentarios
+                </a>
+                <hr>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-gear me-2"></i> Configuración
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-question-circle me-2"></i> Ayuda
+                </a>
+                <a href="#" class="list-group-item list-group-item-action" onclick="logout()">
+                    <i class="bi bi-box-arrow-right me-2 text-danger"></i> Cerrar Sesión
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content (Tabs) -->
+    <main class="container mt-3">
+        <!-- Tab 1: Login -->
+        <div id="tab1" class="tab-content active">
+            <div class="login-card">
+                <div class="card-body p-4">
+                    <div class="text-center mb-4">
+                        <div class="logo-container mb-3">
+                            <span class="fw-bold fs-4 text-primary">COBAED</span>
+                        </div>
+                        <h3 class="fw-bold">Portal Docente</h3>
+                        <p class="text-muted">Ingrese sus credenciales para acceder</p>
+                    </div>
+                    
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Usuario</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control" id="username" placeholder="Ingrese su usuario" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Recordar mis datos</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-cobaed w-100 mb-3">Iniciar Sesión</button>
+                        
+                        <div class="text-center">
+                            <p class="text-muted mb-0">¿Problemas para ingresar?</p>
+                            <a href="#" class="text-decoration-none">Contactar al administrador</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <p class="text-muted">O escanee el código QR del docente</p>
+                <div class="qr-scan-area mx-auto" style="max-width: 300px;" onclick="simulateQRScan()">
+                    <i class="bi bi-qr-code fs-1 text-muted"></i>
+                    <p class="mt-2">Toca para simular escaneo de QR</p>
+                    <small class="text-muted">(Simulación para demostración)</small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 2: Options Menu -->
+        <div id="tab2" class="tab-content">
+            <div class="module-header">
+                <h4 class="fw-bold mb-1">Menú de Opciones</h4>
+                <p class="mb-0">Seleccione una opción para continuar</p>
+            </div>
+            
+            <div class="row g-3">
+                <!-- Reportes Alimentados por la Dirección -->
+                <div class="col-12">
+                    <h5 class="fw-bold text-primary mb-3">REPORTES ALIMENTADOS POR LA DIRECCIÓN</h5>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card option-card shadow-sm" onclick="openModule('mision')">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="icon-wrapper bg-primary bg-opacity-10 text-primary me-3">
+                                    <i class="bi bi-building"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Misión, Visión y Política</h6>
+                                    <p class="text-muted small mb-0">Documentos institucionales</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card option-card shadow-sm" onclick="openModule('encuestas')">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="icon-wrapper bg-success bg-opacity-10 text-success me-3">
+                                    <i class="bi bi-clipboard-data"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Encuestas de Satisfacción</h6>
+                                    <p class="text-muted small mb-0">Resultados de encuestas al cliente</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card option-card shadow-sm" onclick="openModule('estadisticas')">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="icon-wrapper bg-info bg-opacity-10 text-info me-3">
+                                    <i class="bi bi-bar-chart"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Estadísticas por Grupo</h6>
+                                    <p class="text-muted small mb-0">Reportes estadísticos detallados</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card option-card shadow-sm" onclick="openModule('aprendizaje')">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="icon-wrapper bg-warning bg-opacity-10 text-warning me-3">
+                                    <i class="bi bi-lightbulb"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Estilos de Aprendizaje</h6>
+                                    <p class="text-muted small mb-0">Reportes por grupo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card option-card shadow-sm" onclick="openModule('tutorias')">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="icon-wrapper bg-secondary bg-opacity-10 text-secondary me-3">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Tutorías Académicas</h6>
+                                    <p class="text-muted small mb-0">Reporte de tutorías</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comentarios agregados por docentes -->
+                <div class="col-12 mt-4">
+                    <h5 class="fw-bold text-primary mb-3">COMENTARIOS AGREGADOS POR DOCENTES</h5>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card option-card shadow-sm" onclick="openModule('recomendaciones')">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="icon-wrapper bg-danger bg-opacity-10 text-danger me-3">
+                                    <i class="bi bi-chat-left-text"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Recomendaciones</h6>
+                                    <p class="text-muted small mb-0">Académicas y socioemocionales</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card option-card shadow-sm" onclick="openModule('indisciplina')">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="icon-wrapper bg-warning bg-opacity-10 text-warning me-3">
+                                    <i class="bi bi-exclamation-triangle"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Indisciplina Grupal</h6>
+                                    <p class="text-muted small mb-0">Reporte de conducta</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card option-card shadow-sm" onclick="openModule('tareas')">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="icon-wrapper bg-success bg-opacity-10 text-success me-3">
+                                    <i class="bi bi-journal-text"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Tareas y Trabajos</h6>
+                                    <p class="text-muted small mb-0">Registro de actividades</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 3: Reports (Example) -->
+        <div id="tab3" class="tab-content">
+            <div class="d-flex align-items-center mb-3">
+                <button class="btn btn-sm btn-outline-secondary me-2" onclick="switchTab(2)">
+                    <i class="bi bi-arrow-left"></i> Volver
+                </button>
+                <h4 class="fw-bold mb-0" id="moduleTitle">Reportes</h4>
+            </div>
+            
+            <div class="content-section" id="moduleContent">
+                <div class="empty-state">
+                    <i class="bi bi-folder2-open"></i>
+                    <h5>Seleccione un módulo</h5>
+                    <p>El contenido del módulo seleccionado aparecerá aquí</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 4: Comments (Example) -->
+        <div id="tab4" class="tab-content">
+            <div class="d-flex align-items-center mb-3">
+                <button class="btn btn-sm btn-outline-secondary me-2" onclick="switchTab(2)">
+                    <i class="bi bi-arrow-left"></i> Volver
+                </button>
+                <h4 class="fw-bold mb-0">Comentarios y Observaciones</h4>
+            </div>
+            
+            <div class="content-section">
+                <h5 class="fw-bold mb-3">Registrar nuevo comentario</h5>
+                
+                <div class="mb-3">
+                    <label for="commentType" class="form-label">Tipo de comentario</label>
+                    <select class="form-select" id="commentType">
+                        <option selected>Seleccione una opción</option>
+                        <option value="recomendacion">Recomendación académica</option>
+                        <option value="indisciplina">Reporte de indisciplina</option>
+                        <option value="tarea">Registro de tarea</option>
+                        <option value="incidencia">Reporte de incidencia</option>
+                        <option value="pase">Pase de salida</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="commentGroup" class="form-label">Grupo</label>
+                    <select class="form-select" id="commentGroup">
+                        <option selected>Seleccione un grupo</option>
+                        <option value="1">Grupo 101</option>
+                        <option value="2">Grupo 102</option>
+                        <option value="3">Grupo 201</option>
+                        <option value="4">Grupo 202</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="commentText" class="form-label">Comentario</label>
+                    <textarea class="form-control" id="commentText" rows="4" placeholder="Escriba su comentario aquí..."></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="fileUpload" class="form-label">Adjuntar archivo (opcional)</label>
+                    <input class="form-control" type="file" id="fileUpload">
+                </div>
+                
+                <button class="btn btn-cobaed w-100">Guardar Comentario</button>
+            </div>
+            
+            <div class="content-section">
+                <h5 class="fw-bold mb-3">Comentarios recientes</h5>
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">Recomendación para Grupo 101</h6>
+                            <small class="text-muted">Hace 2 días</small>
+                        </div>
+                        <p class="mb-1">Se recomienda reforzar el tema de ecuaciones cuadráticas con ejercicios prácticos.</p>
+                        <small class="text-muted">Por: Prof. Juan Pérez</small>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">Reporte de indisciplina</h6>
+                            <small class="text-muted">Hace 5 días</small>
+                        </div>
+                        <p class="mb-1">Varios alumnos llegaron tarde a la clase sin justificación.</p>
+                        <small class="text-muted">Por: Prof. Ana García</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="app-footer fixed-bottom d-none">
+        <div class="container">
+            <div class="d-flex justify-content-around">
+                <a href="#" class="footer-btn active" onclick="switchTab(2)">
+                    <i class="bi bi-grid"></i>
+                    <span>Menú</span>
+                </a>
+                
+                <a href="#" class="footer-btn" onclick="switchTab(3)">
+                    <i class="bi bi-file-text"></i>
+                    <span>Reportes</span>
+                </a>
+                
+                <a href="#" class="footer-btn" onclick="switchTab(4)">
+                    <i class="bi bi-chat-dots"></i>
+                    <span>Comentarios</span>
+                </a>
+                
+                <a href="#" class="footer-btn" onclick="logout()">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Salir</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    <script>
+        // Check if user is already logged in via localStorage
+        $(document).ready(function() {
+            switchTab(2); // Default to login tab
+            // Check if cobaed_logo exists in localStorage
+             
+            if(!localStorage.getItem('cobaed_tTkn')) {
+                location.href = 'reject.php';
+            }
+            // Handle login form submission
+            $('#loginForm').submit(function(e) {
+                e.preventDefault();
+                
+                const username = $('#username').val();
+                const password = $('#password').val();
+                
+                // Simple validation
+                if (username && password) {
+                    // Simulate login process
+                    localStorage.setItem('cobaed_logo', 'true');
+                    localStorage.setItem('cobaed_user', username);
+                    
+                    // Show success message
+                    alert('¡Inicio de sesión exitoso!');
+                    
+                    // Switch to tab 2
+                    switchTab(2);
+                } else {
+                    alert('Por favor, complete todos los campos.');
+                }
+            });
+        });
+        
+        // Function to switch between tabs
+        function switchTab(tabNumber) {
+            // Hide all tabs
+            $('.tab-content').removeClass('active');
+            
+            // Show selected tab
+            $(`#tab${tabNumber}`).addClass('active');
+            
+            // Update footer button active state
+            $('.footer-btn').removeClass('active');
+            
+            // Set appropriate footer button as active
+            if (tabNumber === 2) {
+                $('.footer-btn:nth-child(1)').addClass('active');
+            } else if (tabNumber === 3) {
+                $('.footer-btn:nth-child(2)').addClass('active');
+            } else if (tabNumber === 4) {
+                $('.footer-btn:nth-child(3)').addClass('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Function to open a module (for tab 3)
+        function openModule(moduleName) {
+            // Switch to tab 3
+            switchTab(3);
+            
+            // Define module content
+            const modules = {
+                'mision': {
+                    title: 'Misión, Visión y Política de Calidad',
+                    content: `
+                        <h5 class="fw-bold mb-3">Documentos Institucionales</h5>
+                        <div class="list-group mb-3">
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Misión COBAED 2024
+                                <span class="badge bg-primary rounded-pill">PDF</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Visión Institucional
+                                <span class="badge bg-primary rounded-pill">PDF</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Objetivos de Calidad
+                                <span class="badge bg-primary rounded-pill">PDF</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Política de Calidad
+                                <span class="badge bg-primary rounded-pill">PDF</span>
+                            </a>
+                        </div>
+                        <p class="text-muted">Documentos oficiales proporcionados por la dirección del plantel.</p>
+                    `
+                },
+                'encuestas': {
+                    title: 'Encuestas de Satisfacción',
+                    content: `
+                        <h5 class="fw-bold mb-3">Resultados de Encuestas al Cliente</h5>
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle me-2"></i>
+                            Los resultados se actualizan trimestralmente.
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Satisfacción General</h6>
+                                        <div class="d-flex align-items-center">
+                                            <div class="progress flex-grow-1 me-2" style="height: 20px;">
+                                                <div class="progress-bar bg-success" style="width: 85%">85%</div>
+                                            </div>
+                                            <span class="fw-bold">8.5/10</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Calidad Docente</h6>
+                                        <div class="d-flex align-items-center">
+                                            <div class="progress flex-grow-1 me-2" style="height: 20px;">
+                                                <div class="progress-bar bg-success" style="width: 90%">90%</div>
+                                            </div>
+                                            <span class="fw-bold">9.0/10</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-primary mt-2">
+                            <i class="bi bi-download me-2"></i>Descargar Reporte Completo
+                        </button>
+                    `
+                },
+                'recomendaciones': {
+                    title: 'Recomendaciones Académicas',
+                    content: `
+                        <h5 class="fw-bold mb-3">Registrar Recomendación</h5>
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de recomendación</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="recType" id="recAcademica" checked>
+                                <label class="form-check-label" for="recAcademica">Académica</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="recType" id="recSocioemocional">
+                                <label class="form-check-label" for="recSocioemocional">Socioemocional</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="recType" id="recActitudinal">
+                                <label class="form-check-label" for="recActitudinal">Actitudinal</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Destinatario</label>
+                            <select class="form-select">
+                                <option selected>Todo el grupo</option>
+                                <option>Estudiantes individuales</option>
+                                <option>Padres de familia</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Recomendación</label>
+                            <textarea class="form-control" rows="4" placeholder="Escriba su recomendación aquí..."></textarea>
+                        </div>
+                        <button class="btn btn-cobaed">Guardar Recomendación</button>
+                    `
+                }
+            };
+            
+            // Set module content if exists, otherwise show default
+            if (modules[moduleName]) {
+                $('#moduleTitle').text(modules[moduleName].title);
+                $('#moduleContent').html(modules[moduleName].content);
+            } else {
+                $('#moduleTitle').text('Módulo no disponible');
+                $('#moduleContent').html(`
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-triangle me-2"></i>
+                        Este módulo está en desarrollo o no está disponible temporalmente.
+                    </div>
+                    <button class="btn btn-outline-secondary" onclick="switchTab(2)">
+                        <i class="bi bi-arrow-left me-2"></i>Volver al menú
+                    </button>
+                `);
+            }
+        }
+        
+        // Function to simulate QR scanning
+        function simulateQRScan() {
+            // Simulate QR scan by setting localStorage and switching to tab 2
+            localStorage.setItem('cobaed_logo', 'true');
+            localStorage.setItem('cobaed_user', 'docente_qr');
+            
+            alert('QR escaneado correctamente. Acceso concedido al portal docente.');
+            switchTab(2);
+        }
+        
+        // Function to logout
+        function logout() {
+           
+        }
+        
+        // PWA installation prompt (simplified)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+
+    footer {
+        background-color: #f8f9fa;
+        padding: 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        position:fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    /* PROPER FONT DECLARATION */
+    @font-face {
+        font-family: 'Technology';
+        src: url('https://sinpendientes.com/assets/fonts/Technology.woff2') format('woff2'),
+             url('https://sinpendientes.com/assets/fonts/Technology.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap; /* Important for performance */
+    }
+
+     @font-face {
+        font-family: '10pix';
+        src: url('https://sinpendientes.com/assets/fonts/10Pixel-Bold.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap; /* Important for performance */
+    }
+.lcd-digit {
+        display: inline-block;
+        font-family: 'Technology', monospace;
+        min-width: 0.6em;
+        text-align: center;
+        background-color: #1a1a1a;
+        color: lime;
+        margin: 0 1px;
+        padding: 0 2px;
+        border-radius: 2px;
+    }
+    
+    .lcd-separator {
+        display: inline-block;
+        font-family: 'Technology', monospace;
+        color: lime;
+        padding: 0 1px;
+    }
+    .lcd-clock {
+      /*  display: inline-block;*/
+        padding: 5px 15px;
+        background-color: #1a1a1a !important;
+        border: 3px solid #333;
+        border-radius: 5px;
+        box-shadow: inset 0 0 10px #000;
+        color: lime !important;
+        font-family: '10Pix', monospace !important; /* Consistent name + better fallback */
+        font-size: 3rem !important;
+        letter-spacing: 1px;
+        text-shadow: 1px 2px 5px rgba(100,241,19,1);
+    }
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .qr-code {
+            width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 1px solid #eee;
+            padding: 10px;
+        }
+        
+        .manual-checkin {
+            border-top: 1px dashed #ccc;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+        
+        .refresh-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .qr-wrapper {
+            position: relative;
+        }
+        
+        
+        
+        
+        .qr-code {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+ .avatar-sm {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+}
+.recent-checkins {
+    max-width: 320px;
+}
+.list-group-item {
+    border-left: 0;
+    border-right: 0;
+}
+.list-group-item:first-child {
+    border-top: 0;
+}       
+         
+body {
+    margin: 0;
+    padding: 6.5em 0 4em 0; /* Top padding for header, bottom for footer */
+}
+
+header {
+    font-size: 1.5rem !important;
+    height: 4em !important;
+    background-color: #0071e2 !important;
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: roboto Verdana, Geneva, Tahoma, sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+ }
+
+footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 4em !important;
+ }
+
+.qr-container {
+    height: calc(100vh - 10em) !important; /* 100vh minus header and footer */
+    border: 1px solid red !important;
+    box-sizing: border-box;
+}
+#sidebarToggle {
+    position: fixed;
+     
+    right: 1em;
+    z-index: 1001;
+    background-color: #4092e4 !important;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+ .transition-all {
+    transition: all 0.5s ease-in-out;
+}
+

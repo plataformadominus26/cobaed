@@ -1,0 +1,133 @@
+ /* Enhanced CSS */
+        .tab-content {
+            min-height: 300px;
+            margin-top: 20px;
+        }
+        
+        .footer-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #ec2345;
+            padding: 10px 0;
+            z-index: 100;
+        }
+        
+        .btn-footer {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .right-columns {
+            position: fixed;
+            right: 20px;
+            top: 7em; 
+            
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .right-column .btn {
+             
+            white-space: nowrap;
+            font-size: smaller;;
+        }
+        
+        .card-container {
+            font-size: 1em  !important;
+            padding: 0em 0em 10em !important ;/* Space for footer */
+            
+             
+            
+            
+        }
+        
+        .card {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid #dee2e6;
+            max-width: 90% !;
+            
+        }
+        
+        .card-body {
+            padding: 15px;
+        }
+        
+        .scanner-container {
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        #reader {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .citizen-info {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #iLogo{
+            height: 3.5em;
+            position: absolute; 
+            top: 0.5em; 
+            right: 1em;
+        }
+
+    .card-container .card p{
+       
+        max-width:100%;
+        overflow:hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .card-container .card{
+        max-width: 100% !important;
+    }
+
+    .instructions {
+        position: sticky; 
+        top: 5.5em;
+         z-index: 1;
+        background-color: #f8f9fa;
+         width:100%;
+         padding-top: 10px;
+        
+        }
+    #list{
+        width:100%;
+    }
+    
+    .table-row td{
+        font-size: 0.8em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #iLogo {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width:auto;
+                height: 2em;
+                background: white;
+            }

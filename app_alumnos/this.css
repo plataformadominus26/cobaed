@@ -1,0 +1,500 @@
+ 
+        /* =========================================
+   FEED SCOPE - Estilos exclusivos del Muro
+   ========================================= */
+.feed-scope .feed-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    margin-bottom: 25px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: transform 0.2s;
+}
+
+/* --- HEADER DEL POST (Común) --- */
+.feed-scope .feed-header {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.feed-scope .poster-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.feed-scope .poster-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--cobaed-gold, #C49A50);
+}
+
+.feed-scope .poster-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #005931; /* Verde Cobaed */
+    margin: 0;
+    line-height: 1.2;
+}
+
+.feed-scope .post-date {
+    font-size: 0.75rem;
+    color: #999;
+    margin: 0;
+}
+
+/* --- CUERPO DEL POST (Variaciones) --- */
+.feed-scope .feed-body {
+    padding: 0 20px 15px 20px;
+    color: #444;
+}
+
+/* Variación 1: Solo Texto (Tipo Nota) */
+.feed-scope .text-highlight {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #2c3e50;
+}
+
+.feed-scope .text-highlight.large {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #005931;
+}
+
+/* Variación 2: Multimedia (Imagen Header) */
+.feed-scope .media-cover {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-top: -10px; /* Pegarlo al header si se desea, o separar */
+    margin-bottom: 15px;
+    border-radius: 12px;
+}
+
+.feed-scope .post-title {
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+/* Variación 3: Documento PDF Incrustado (Estilo Tarjeta) */
+.feed-scope .doc-embed-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.feed-scope .doc-embed-card:active {
+    background-color: #e2e6ea;
+}
+
+.feed-scope .doc-icon {
+    font-size: 2.5rem;
+    color: #dc3545; /* Rojo PDF */
+}
+
+.feed-scope .doc-info h6 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.feed-scope .doc-info span {
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+/* --- FOOTER DEL POST (Acciones) --- */
+.feed-scope .feed-footer {
+    padding: 12px 20px;
+    border-top: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+}
+
+.feed-scope .action-btn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    transition: all 0.2s;
+}
+
+.feed-scope .action-btn:active {
+    background-color: #f0f0f0;
+}
+
+.feed-scope .rating-box {
+    color: #ffc107; /* Amarillo Estrella */
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   NUEVAS VARIACIONES: CAROUSEL Y MOSAICO
+   ========================================= */
+
+/* --- VARIACIÓN 4: CAROUSEL HORIZONTAL --- */
+/* Contenedor scrollable */
+.feed-scope .media-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding-bottom: 10px; /* Espacio para scrollbar sutil si aparece */
+    margin-top: 10px;
+    margin-bottom: 15px;
+    /* Snapping para sensación nativa */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* Ocultar scrollbar visualmente pero mantener funcionalidad */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+}
+.feed-scope .media-carousel::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+}
+
+/* Items individuales del carrusel */
+.feed-scope .carousel-item-wrapper {
+    flex: 0 0 85%; /* Muestra el 85% del ancho para invitar a hacer scroll */
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    scroll-snap-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.feed-scope .carousel-item-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* --- VARIACIÓN 5: MOSAICO GRID (Clásico 3+) --- */
+/*
+   Diseño base de 2x2.
+   Ideal para 4 fotos o más.
+   Altura fija para consistencia.
+*/
+.feed-scope .mosaic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 140px); /* Altura fija por fila */
+    gap: 6px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.feed-scope .mosaic-item {
+    position: relative; /* Necesario para el overlay */
+    width: 100%;
+    height: 100%;
+}
+
+.feed-scope .mosaic-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* El Overlay para el contador "3+" */
+.feed-scope .mosaic-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 89, 49, 0.7); /* Verde Cobaed semitransparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 1.8rem;
+    backdrop-filter: blur(2px); /* Efecto moderno de desenfoque */
+}
+
+/* --- AYUDAS VISUALES (Opcionales) --- */
+/* Pequeño indicador de que es un álbum */
+.feed-scope .album-indicator {
+    font-size: 0.8rem;
+    color: var(--cobaed-green);
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+ #mainApp {
+    background-image: url('../assets/img/doodlecobaed.png');
+    background-repeat: repeat;
+    background-size: 100%;
+ }
+:root {
+    --green-campestre: #3aa76d;
+    --gold-campestre: #d4af37;
+    --safe-top: env(safe-area-inset-top);
+    --safe-bottom: env(safe-area-inset-bottom);
+    --header-height: calc(70px + var(--safe-top));
+    --footer-height: calc(80px + var(--safe-bottom));
+}
+
+/* 1. Estructura de Layout Fijo (App-Like) */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Bloquea scroll global */
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--green-campestre); /* Evita destellos blancos en el notch */
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 2. Header con soporte para Notch */
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    padding-top: var(--safe-top) !important;
+    background-color: var(--green-campestre);
+    border-bottom: 2px solid var(--gold-campestre);
+    z-index: 1030;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+/* 3. Contenedor Principal (Único área de scroll) */
+main {
+    position: absolute;
+    top: var(--header-height);
+    bottom: var(--footer-height);
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: #f8f9fa;
+    padding: 15px 0;
+}
+
+/* 4. Footer Fijo con soporte para Gestos */
+.app-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--footer-height);
+    padding-bottom: var(--safe-bottom) !important;
+    background: white;
+    border-top: 1px solid #dee2e6;
+    z-index: 1030;
+}
+
+/* 5. Componentes de UI Personalizados */
+.bg-campestre { background-color: var(--green-campestre) !important; }
+.text-gold { color: var(--gold-campestre) !important; }
+
+.nav-link { font-size: 0.75rem; color: #6c757d; }
+.nav-link.active { color: var(--green-campestre) !important; font-weight: 600; }
+.nav-link i { font-size: 1.4rem; display: block; }
+
+.card-custom { 
+    border: none; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+    transition: transform 0.2s; 
+}
+.card-custom:active { transform: scale(0.98); }
+
+.status-badge { font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; }
+
+/* 6. Animaciones y Modales */
+.tab-pane.fade {
+    transform: translateY(10px);
+    transition: all 0.25s ease-out;
+}
+.tab-pane.fade.show {
+    transform: translateY(0);
+}
+
+.rounded-top-5 {
+    border-top-left-radius: 30px !important;
+    border-top-right-radius: 30px !important;
+}
+    
+#imgPerfil {
+    width: 3em;
+    height: 3em;
+    object-fit: cover;
+}
+
+
+/* tab inicio */
+
+/* Encapsulamiento para Tab Inicio */
+#tab-inicio .text-campestre { color: #3aa76d !important; }
+
+/* Contenedor de "Detalles" del Club (Info de contacto) */
+#tab-inicio .info-club-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* Tipos de Contenido (Feed) */
+#tab-inicio .feed-item { margin-bottom: 25px; }
+
+/* 1. Banner de Comunicado */
+#tab-inicio .comunicado-card {
+    background: linear-gradient(135deg, #3aa76d 0%, #2a7a50 100%);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 2. Blog/Noticias (Estilo Facebook/Insta) */
+#tab-inicio .blog-entry {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+#tab-inicio .blog-img {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* 3. Galería de Fotos */
+#tab-inicio .gallery-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+}
+#tab-inicio .gallery-scroll::-webkit-scrollbar { display: none; }
+#tab-inicio .gallery-item {
+    min-width: 140px;
+    height: 140px;
+    border-radius: 15px;
+    background-size: cover;
+    object-fit: cover;
+}
+
+ 
+/* Estilos atados al Drawer de Invitados */#drawerPases .btn-campestre { background-color: #3aa76d; color: white; border: none; }
+/* Contenedor para evitar scroll horizontal durante la animación */
+#pasesTabContent {
+    overflow: hidden;
+    position: relative;
+}
+
+/* Estado base: Fuera de la vista 
+#drawerPases .tab-pane {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    opacity: 0;
+}*/
+
+/* Animación para el Tab de Registro de Pase (Entra desde la izquierda) 
+#content-registro-pase.fade:not(.show) {
+    transform: translateX(-100%);
+}*/
+
+/* Animación para el Tab de Nuevo Invitado (Entra desde la derecha) */
+#content-nuevo-invitado.fade:not(.show) {
+    transform: translateX(100%);
+}
+
+/* Estado Activo: En el centro */
+#drawerPases .tab-pane.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Reutilizamos la lógica de Swipe del drawer anterior */
+#reservaTabContent { overflow: hidden; position: relative; }
+
+#drawerReservas .tab-pane {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    opacity: 0;
+}
+
+#content-reserva-form.fade:not(.show) { transform: translateX(-100%); }
+#content-reserva-confirm.fade:not(.show) { transform: translateX(100%); }
+#drawerReservas .tab-pane.show { transform: translateX(0); opacity: 1; }
+
+/* Estilo de los slots de tiempo */
+.btn-check:checked + .btn-outline-primary {
+    background-color: var(--bs-primary);
+    color: white;
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+}
+
+.calendar-mini input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+/* tab mapa */
+
+
+/* Asegurar que Leaflet se mantenga debajo de los menús */
+#mapContainer {
+    z-index: 1;
+}
+
+#tab-mapa .gallery-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding-bottom: 15px;
+    scrollbar-width: none; /* Firefox */
+}
+
+#tab-mapa .gallery-scroll::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+#tab-mapa .gallery-item {
+    min-width: 160px;
+    height: 160px;
+    border-radius: 18px;
+    object-fit: cover;
+    background: #eee;
+}
+
+#tab-mapa .text-campestre { color: #3aa76d !important; }

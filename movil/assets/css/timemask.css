@@ -1,0 +1,12 @@
+.time-mask{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  letter-spacing: .02em;
+  padding: .5rem .65rem;
+  border: 1px solid #c9c9d0;
+  border-radius: .5rem;
+  width: 14ch;               /* fits “00:00 - 00:00” */
+  outline: none;
+  transition: box-shadow .15s ease,border-color .15s ease;
+}
+.time-mask:focus{ border-color:#7c93ff; box-shadow:0 0 0 .2rem rgba(124,147,255,.2); }
+.time-mask::placeholder{ color:#a9a9b3; }

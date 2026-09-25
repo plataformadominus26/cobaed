@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COBAED - Sistema de Gestión Docente</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            padding-top: 56px;
+            padding-bottom: 70px;
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .tab-content {
+            min-height: calc(100vh - 126px);
+        }
+        
+        .footer-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #dee2e6;
+            z-index: 1000;
+        }
+        
+        .footer-nav .btn {
+            border-radius: 0;
+            font-size: 0.75rem;
+        }
+        
+        .offcanvas-header {
+            background: #0d6efd;
+            color: white;
+        }
+        
+        .list-group-item.active {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        
+        .module-card {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="cobaed_logo.png" alt="COBAED Logo" id="headerLogo">
+                <span>COBAED</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="menuOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menú Principal</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action" data-tab="reportes">
+                    <i class="bi bi-file-earmark-text me-2"></i> Reportes de Dirección
+                </a>
+                <a href="#" class="list-group-item list-group-item-action" data-tab="comentarios">
+                    <i class="bi bi-chat-left-text me-2"></i> Comentarios Docentes
+                </a>
+                <a href="#" class="list-group-item list-group-item-action" data-tab="perfil">
+                    <i class="bi bi-person me-2"></i> Mi Perfil
+                </a>
+                <hr>
+                <a href="#" class="list-group-item list-group-item-action text-danger" id="menuLogout">
+                    <i class="bi bi-box-arrow-right me-2"></i> Cerrar Sesión
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content">
+        <!-- Tab 1: Login -->
+        <div class="tab-pane fade show active" id="loginTab">
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow">
+                            <div class="card-body p-4">
+                                <div class="text-center mb-4">
+                                    <img src="cobaed_logo.png" alt="COBAED" class="img-fluid mb-3" style="max-height: 100px;">
+                                    <h4 class="fw-bold text-primary">COBAED</h4>
+                                    <p class="text-muted">Sistema de Gestión Docente</p>
+                                </div>
+                                <form id="loginForm">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Usuario</label>
+                                        <input type="text" class="form-control" id="username" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="password" required>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">Recordar sesión</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Reportes de Dirección -->
+        <div class="tab-pane fade" id="reportesTab">
+            <div class="container py-3">
+                <h5 class="mb-3 fw-bold">Reportes Alimentados por la Dirección del Plantel</h5>
+                
+                <div class="accordion" id="reportesAccordion">
+                    <!-- Misión, Visión, Objetivos -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mision">
+                                <i class="bi bi-flag me-2"></i> Misión, Visión, Objetivos de Calidad
+                            </button>
+                        </h2>
+                        <div id="mision" class="accordion-collapse collapse" data-bs-parent="#reportesAccordion">
+                            <div class="accordion-body">
+                                <div class="mb-3">
+                                    <h6>Misión</h6>
+                                    <p id="misionTexto" class="text-muted">Contenido de la misión...</p>
+                                </div>
+                                <div class="mb-3">
+                                    <h6>Visión</h6>
+                                    <p id="visionTexto" class="text-muted">Contenido de la visión...</p>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-file-pdf me-1"></i> Descargar PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Encuesta Satisfacción -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#encuesta">
+                                <i class="bi bi-graph-up me-2"></i> Encuesta de Satisfacción al Cliente
+                            </button>
+                        </h2>
+                        <div id="encuesta" class="accordion-collapse collapse" data-bs-parent="#reportesAccordion">
+                            <div class="accordion-body">
+                                <img src="encuesta_resultados.jpg" class="img-fluid rounded" alt="Resultados">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reportes Estadísticos -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#estadisticos">
+                                <i class="bi bi-bar-chart me-2"></i> Reportes Estadísticos por Grupo
+                            </button>
+                        </h2>
+                        <div id="estadisticos" class="accordion-collapse collapse" data-bs-parent="#reportesAccordion">
+                            <div class="accordion-body">
+                                <div class="mb-3">
+                                    <img src="estadisticas_grupo.jpg" class="img-fluid rounded mb-2" alt="Estadísticas">
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-file-pdf me-1"></i> Descargar Reporte PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estilos de Aprendizaje -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#estilos">
+                                <i class="bi bi-book me-2"></i> Estilos de Aprendizaje por Grupo
+                            </button>
+                        </h2>
+                        <div id="estilos" class="accordion-collapse collapse" data-bs-parent="#reportesAccordion">
+                            <div class="accordion-body">
+                                <img src="estilos_aprendizaje.jpg" class="img-fluid rounded" alt="Estilos">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tutorías Académicas -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tutorias">
+                                <i class="bi bi-people me-2"></i> Tutorías Académicas
+                            </button>
+                        </h2>
+                        <div id="tutorias" class="accordion-collapse collapse" data-bs-parent="#reportesAccordion">
+                            <div class="accordion-body">
+                                <div class="mb-3">
+                                    <img src="tutorias.jpg" class="img-fluid rounded mb-2" alt="Tutorías">
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-file-pdf me-1"></i> Descargar Reporte PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alumnos en Riesgo -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#riesgo">
+                                <i class="bi bi-exclamation-triangle me-2"></i> Alumnos en Riesgo Académico
+                            </button>
+                        </h2>
+                        <div id="riesgo" class="accordion-collapse collapse" data-bs-parent="#reportesAccordion">
+                            <div class="accordion-body">
+                                <button class="btn btn-sm btn-outline-danger">
+                                    <i class="bi bi-file-pdf me-1"></i> Ver Reporte PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estatus Académico -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#estatus">
+                                <i class="bi bi-clipboard-check me-2"></i> Estatus Académico del Alumno
+                            </button>
+                        </h2>
+                        <div id="estatus" class="accordion-collapse collapse" data-bs-parent="#reportesAccordion">
+                            <div class="accordion-body">
+                                <p class="text-muted">Baja, suspensión temporal, conducta</p>
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-file-pdf me-1"></i> Ver Reporte PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Situaciones Especiales -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#especiales">
+                                <i class="bi bi-info-circle me-2"></i> Situaciones Especiales
+                            </button>
+                        </h2>
+                        <div id="especiales" class="accordion-collapse collapse" data-bs-parent="#reportesAccordion">
+                            <div class="accordion-body">
+                                <textarea class="form-control" rows="4" readonly>Alumnos con situación especial...</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Docente Responsable -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#responsable">
+                                <i class="bi bi-person-badge me-2"></i> Docente Responsable de Grupo
+                            </button>
+                        </h2>
+                        <div id="responsable" class="accordion-collapse collapse" data-bs-parent="#reportesAccordion">
+                            <div class="accordion-body">
+                                <p id="docenteResponsable" class="mb-0">Nombre del docente responsable...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calendarios -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#calendarios">
+                                <i class="bi bi-calendar-event me-2"></i> Calendarios de Actividades
+                            </button>
+                        </h2>
+                        <div id="calendarios" class="accordion-collapse collapse" data-bs-parent="#reportesAccordion">
+                            <div class="accordion-body">
+                                <img src="calendario.jpg" class="img-fluid rounded mb-2" alt="Calendario">
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-download me-1"></i> Descargar Documento
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Convocatorias -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#convocatorias">
+                                <i class="bi bi-megaphone me-2"></i> Convocatorias para Adjudicación de Horas
+                            </button>
+                        </h2>
+                        <div id="convocatorias" class="accordion-collapse collapse" data-bs-parent="#reportesAccordion">
+                            <div class="accordion-body">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <i class="bi bi-file-earmark-text me-2"></i> Convocatoria 2024-01.pdf
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Horario de Grupo -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#horario">
+                                <i class="bi bi-clock me-2"></i> Horario de Grupo
+                            </button>
+                        </h2>
+                        <div id="horario" class="accordion-collapse collapse" data-bs-parent="#reportesAccordion">
+                            <div class="accordion-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm">
+                                        <thead class="table-primary">
+                                            <tr>
+                                                <th>Hora</th>
+                                                <th>Lunes</th>
+                                                <th>Martes</th>
+                                                <th>Miércoles</th>
+                                                <th>Jueves</th>
+                                                <th>Viernes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>7:00-8:00</td>
+                                                <td>Materia 1</td>
+                                                <td>Materia 2</td>
+                                                <td>Materia 3</td>
+                                                <td>Materia 1</td>
+                                                <td>Materia 2</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Comentarios de Docentes -->
+        <div class="tab-pane fade" id="comentariosTab">
+            <div class="container py-3">
+                <h5 class="mb-3 fw-bold">Comentarios Agregados por los Docentes</h5>
+                
+                <div class="accordion" id="comentariosAccordion">
+                    <!-- Recomendaciones Grupales -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#recGrupal">
+                                <i class="bi bi-people-fill me-2"></i> Recomendaciones por Grupo
+                            </button>
+                        </h2>
+                        <div id="recGrupal" class="accordion-collapse collapse" data-bs-parent="#comentariosAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Recomendaciones Académicas</label>
+                                        <textarea class="form-control" rows="3" placeholder="Ingrese recomendaciones académicas..."></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Recomendaciones Socioemocionales</label>
+                                        <textarea class="form-control" rows="3" placeholder="Ingrese recomendaciones socioemocionales..."></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Recomendaciones Actitudinales</label>
+                                        <textarea class="form-control" rows="3" placeholder="Ingrese recomendaciones actitudinales..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-save me-1"></i> Guardar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recomendaciones Individuales -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#recIndividual">
+                                <i class="bi bi-person-fill me-2"></i> Recomendaciones Individuales
+                            </button>
+                        </h2>
+                        <div id="recIndividual" class="accordion-collapse collapse" data-bs-parent="#comentariosAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Seleccionar Alumno</label>
+                                        <select class="form-select">
+                                            <option selected>Seleccione un alumno...</option>
+                                            <option value="1">Alumno 1</option>
+                                            <option value="2">Alumno 2</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Recomendación</label>
+                                        <textarea class="form-control" rows="4" placeholder="Ingrese recomendación individual..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-save me-1"></i> Guardar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Indisciplina Grupal -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#indisciplina">
+                                <i class="bi bi-exclamation-octagon me-2"></i> Reporte de Indisciplina Grupal
+                            </button>
+                        </h2>
+                        <div id="indisciplina" class="accordion-collapse collapse" data-bs-parent="#comentariosAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Descripción del Incidente</label>
+                                        <textarea class="form-control" rows="4" placeholder="Describa la situación de indisciplina..."></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Fecha</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                    <button type="submit" class="btn btn-warning">
+                                        <i class="bi bi-save me-1"></i> Registrar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Limpieza y Mantenimiento -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#limpieza">
+                                <i class="bi bi-tools me-2"></i> Limpieza y Mantenimiento
+                            </button>
+                        </h2>
+                        <div id="limpieza" class="accordion-collapse collapse" data-bs-parent="#comentariosAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Tipo de Reporte</label>
+                                        <select class="form-select">
+                                            <option>Limpieza</option>
+                                            <option>Mantenimiento</option>
+                                            <option>Ambos</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Descripción</label>
+                                        <textarea class="form-control" rows="4" placeholder="Describa la situación..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-save me-1"></i> Enviar Reporte
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tareas y Trabajos -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tareas">
+                                <i class="bi bi-journal-text me-2"></i> Tareas, Trabajos, Evaluaciones
+                            </button>
+                        </h2>
+                        <div id="tareas" class="accordion-collapse collapse" data-bs-parent="#comentariosAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Título</label>
+                                        <input type="text" class="form-control" placeholder="Título de la tarea/trabajo">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Descripción</label>
+                                        <textarea class="form-control" rows="3" placeholder="Descripción detallada..."></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Fecha de Entrega</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Adjuntar Archivo</label>
+                                        <input type="file" class="form-control" multiple>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-plus-circle me-1"></i> Publicar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Incidencias -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#incidencias">
+                                <i class="bi bi-flag-fill me-2"></i> Reporte de Incidencias
+                            </button>
+                        </h2>
+                        <div id="incidencias" class="accordion-collapse collapse" data-bs-parent="#comentariosAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Tipo de Incidencia</label>
+                                        <select class="form-select">
+                                            <option>Académica</option>
+                                            <option>Disciplinaria</option>
+                                            <option>Infraestructura</option>
+                                            <option>Otra</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Descripción</label>
+                                        <textarea class="form-control" rows="4" placeholder="Describa la incidencia..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="bi bi-exclamation-triangle me-1"></i> Reportar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pase de Salida -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paseSalida">
+                                <i class="bi bi-door-open me-2"></i> Registrar Pase de Salida
+                            </button>
+                        </h2>
+                        <div id="paseSalida" class="accordion-collapse collapse" data-bs-parent="#comentariosAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Alumno</label>
+                                        <select class="form-select">
+                                            <option selected>Seleccione un alumno...</option>
+                                            <option value="1">Alumno 1</option>
+                                            <option value="2">Alumno 2</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Hora de Salida</label>
+                                        <input type="time" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Motivo</label>
+                                        <textarea class="form-control" rows="3" placeholder="Motivo de la salida..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="bi bi-check-circle me-1"></i> Registrar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Perfil -->
+        <div class="tab-pane fade" id="perfilTab">
+            <div class="container py-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center mb-4">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 2rem;">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <h5 class="mt-3 mb-1" id="perfilNombre">Nombre del Docente</h5>
+                            <p class="text-muted" id="perfilEmail">correo@cobaed.edu.mx</p>
+                        </div>
+                        
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item">
+                                <strong>RFC:</strong>
+                                <span class="float-end" id="perfilRFC">XXXX000000XXX</span>
+                            </div>
+                            <div class="list-group-item">
+                                <strong>Plantel:</strong>
+                                <span class="float-end" id="perfilPlantel">Plantel 01</span>
+                            </div>
+                            <div class="list-group-item">
+                                <strong>Materias Asignadas:</strong>
+                                <span class="float-end" id="perfilMaterias">5</span>
+                            </div>
+                            <div class="list-group-item">
+                                <strong>Grupos:</strong>
+                                <span class="float-end" id="perfilGrupos">3</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <button class="btn btn-outline-primary w-100 mb-2">
+                                <i class="bi bi-pencil me-2"></i> Editar Perfil
+                            </button>
+                            <button class="btn btn-outline-secondary w-100">
+                                <i class="bi bi-key me-2"></i> Cambiar Contraseña
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Navigation -->
+    <div class="footer-nav">
+        <div class="row g-0">
+            <div class="col-3">
+                <button class="btn btn-light w-100 py-3 footer-btn" data-tab="reportes">
+                    <i class="bi bi-file-text d-block mb-1"></i>
+                    <small>Reportes</small>
+                </button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-light w-100 py-3 footer-btn" data-tab="comentarios">
+                    <i class="bi bi-chat-dots d-block mb-1"></i>
+                    <small>Comentarios</small>
+                </button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-light w-100 py-3 footer-btn" data-tab="perfil">
+                    <i class="bi bi-person d-block mb-1"></i>
+                    <small>Perfil</small>
+                </button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-light w-100 py-3" id="footerLogout">
+                    <i class="bi bi-box-arrow-right d-block mb-1 text-danger"></i>
+                    <small class="text-danger">Salir</small>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Check localStorage for cobaed_logo on page load
+            checkQRAccess();
+            
+            // Login form submission
+            $('#loginForm').on('submit', function(e) {
+                e.preventDefault();
+                const username = $('#username').val();
+                const password = $('#password').val();
+                
+                // Simulate login validation
+                if (username && password) {
+                    localStorage.setItem('cobaed_logo', 'true');
+                    localStorage.setItem('username', username);
+                    showTab('reportes');
+                    
+                    // Show success message
+                    alert('Inicio de sesión exitoso');
+                }
+            });
+            
+            // Footer navigation buttons
+            $('.footer-btn').on('click', function() {
+                const tab = $(this).data('tab');
+                showTab(tab);
+                $('.footer-btn').removeClass('btn-primary').addClass('btn-light');
+                $(this).removeClass('btn-light').addClass('btn-primary');
+            });
+            
+            // Menu navigation
+            $('.list-group-item[data-tab]').on('click', function(e) {
+                e.preventDefault();
+                const tab = $(this).data('tab');
+                showTab(tab);
+                $('#menuOffcanvas').offcanvas('hide');
+            });
+            
+            // Logout buttons
+            $('#footerLogout, #menuLogout').on('click', function(e) {
+                e.preventDefault();
+                logout();
+            });
+            
+            // Function to show specific tab
+            function showTab(tabName) {
+                $('.tab-pane').removeClass('show active');
+                $(`#${tabName}Tab`).addClass('show active');
+                
+                // Update footer button states
+                $('.footer-btn').removeClass('btn-primary').addClass('btn-light');
+                $(`.footer-btn[data-tab="${tabName}"]`).removeClass('btn-light').addClass('btn-primary');
+            }
+            
+            // Function to check QR access
+            function checkQRAccess() {
+                const hasAccess = localStorage.getItem('cobaed_logo');
+                
+                if (hasAccess === 'true') {
+                    // User came from QR or is logged in
+                    showTab('reportes');
+                    $('.footer-btn[data-tab="reportes"]').removeClass('btn-light').addClass('btn-primary');
+                } else {
+                    // Show login
+                    showTab('login');
+                }
+            }
+            
+            // Function to logout
+            function logout() {
+                if (confirm('¿Está seguro que desea cerrar sesión?')) {
+                    localStorage.removeItem('cobaed_logo');
+                    localStorage.removeItem('username');
+                    showTab('login');
+                    $('#loginForm'),[object],reset();
+                    $('#menuOffcanvas').offcanvas('hide');
+                }
+            }
+            
+            // Handle QR code access (simulate by checking URL parameter)
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('qr') === 'teacher') {
+                localStorage.setItem('cobaed_logo', 'true');
+                showTab('reportes');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,3541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>COBAED Estudiantes</title>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0d6efd">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 + Icons -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/this.css?v=1.03">
+
+
+</head>
+<body>
+
+<div class="app-shell">
+  <!-- Header -->
+  <header>
+    <div class="header-main">
+      <div class="school-logo">
+        <span>B</span> <!-- aquí puedes poner el logo real -->
+      </div>
+      <div class="title">COBAED Estudiantes</div>
+    </div>
+
+    <div class="header-student">
+      <div>
+        <div class="student-name" id="studentName">Juan Pérez</div>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-eye-slash" style="font-size:1.2rem;"></i>
+        <div class="avatar"></div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+
+  </header>
+  <footer>  
+        <nav class="top-tabs" role="tablist" aria-label="Main tabs">
+      <div class="tab-item active" role="tab" tabindex="0" data-tab="inicio">
+        <i class="bi bi-house-door-fill"></i>
+        <span>Inicio</span>
+      </div>
+      <div class="tab-item" role="tab" tabindex="0" data-tab="grupos">
+        <i class="bi bi-people"></i>
+        <span>Grupos</span>
+      </div>
+      <div class="tab-item" role="tab" tabindex="0" data-tab="deportes">
+        <i class="bi bi-trophy"></i>
+        <span>Deportes</span>
+      </div>
+      <div class="tab-item" role="tab" tabindex="0" data-tab="biblioteca">
+        <i class="bi bi-journal-bookmark"></i>
+        <span>Biblioteca</span>
+      </div>
+      <div class="tab-item" role="tab" tabindex="0" data-tab="mas">
+        <i class="bi bi-three-dots"></i>
+        <span>Más</span>
+      </div>
+    </nav>
+  </footer>
+
+  <!-- Contenido principal: Inicio tab -->
+  <main id="tab-inicio" class="px-2 py-3" role="tabpanel" aria-labelledby="tab-inicio">
+    <!-- Blog -->
+    <section class="c-card">
+      <div class="c-card-header">
+          <div class="c-tag blog ">
+            <i class="bi bi-chat-left-text-fill me-2 c-card-icon" ></i>
+            Blog</div>
+      </div>
+      <div class="c-card-body">
+        <div class="blog-title">Nuevo Hilo: “Tips para el examen de Cálculo”</div>
+        <div class="blog-meta">María G. · 2h</div>
+        <div class="blog-text">
+            “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh eu…”
+        </div>
+        <a href="#" class="link-s">Ver Hilo (15 comentarios)</a>
+      </div>
+    </section>
+
+    <!-- Deportes -->
+    <section class="c-card">
+      <div class="c-card-header w-100">
+        <div class="c-tag deportes">
+            <i class="bi bi-trophy me-2 c-card-icon"></i>
+            Deportes</div>
+      </div>
+      <div class="c-card-body">
+        <div class="score-meta">Resultado: Águilas vs. Tigres (Futbol Varonil)</div>
+        <div class="score-row">
+            <div class="score-big">2 - 1</div>
+        </div>
+        <div class="deportes-links">
+            <div><i class="bi bi-people"></i>Ver Alineaciones</div>
+            <div><i class="bi bi-table"></i>Tabla General</div>
+        </div>
+        </div> 
+    </section>
+
+    <!-- Grupo de estudio -->
+    <section class="c-card">
+      <div class="c-card-header">
+        <div class="c-tag estudio">
+            <i class="bi bi-people me-2 c-card-icon"></i>
+            Grupos de Estudio</div>
+      </div>
+      <div class="c-card-body">
+        <div class="study-title">Grupo “Física II - Repaso Final”</div>
+        <div class="blog-text">
+            Reunión hoy a las 5 PM en la biblioteca.
+        </div>
+        <button class="btn btn-success btn-pill w-100">
+            Unirse (5 miembros)
+        </button>
+      </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="c-card">
+      <div class="c-card-header">
+        <div class="c-tag galeria">
+            <i class="bi bi-images me-2 c-card-icon"></i> Galería de Fotos</div>
+      </div>
+      <div class="c-card-body">
+        <div class="gallery-grid">
+            <div>
+              <img src="../assets/img/galeria/1.jpg" alt="Foto 1" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div><img src="../assets/img/galeria/2.jpg" alt="Foto 1" style="width:100%; height:100%; object-fit:cover;"></div>
+            <div><img src="../assets/img/galeria/3.jpg" alt="Foto 1" style="width:100%; height:100%; object-fit:cover;"></div>
+            <div><img src="../assets/img/galeria/4.jpg" alt="Foto 1" style="width:100%; height:100%; object-fit:cover;"></div>
+            <div><img src="../assets/img/galeria/5.jpg" alt="Foto 1" style="width:100%; height:100%; object-fit:cover;"></div>
+            <div><img src="../assets/img/galeria/6.jpg" alt="Foto 1" style="width:100%; height:100%; object-fit:cover;"></div> 
+        </div>
+        <button class="btn btn-outline-success btn-pill w-100">
+            Ver Álbum Completo
+        </button>
+      </div>
+    </section>
+
+    <!-- Intercambio de libros -->
+    <section class="c-card mb-5">
+      <div class="c-card-header">
+        <div class="c-tag libros"> 
+            <i class="bi bi-book me-2 c-card-icon"></i> Biblioteca Virtual</div>
+      </div>
+      <div class="c-card-body">
+      <div class="book-row">
+        <div class="book-cover">
+          Algebra<br>Baldor
+        </div>
+        <div class="flex-grow-1">
+          <div class="book-meta">Libro Disponible: “Algebra Baldor”</div>
+          <button class="btn btn-warning btn-pill w-100">
+            Solicitar Préstamo
+          </button>
+        </div>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Placeholder panels for other tabs (under construction) -->
+  <div id="tab-grupos" class=" d-none" role="tabpanel" aria-labelledby="tab-grupos">
+    <section class="c-card text-center">
+      <div class="c-card-header">
+        <div class="c-tag estudio">
+          <i class="bi bi-tools me-2 c-card-icon"></i>
+          Grupos
+        </div>
+      </div>
+      <div class="c-card-body">
+        <!-- Pestaña de Grupos -->
+<div class="c-tab-content" id="grupos">
+  <div class="c-groups-section">
+    
+    <!-- Cabecera de grupos -->
+    <div class="c-groups-header mb-4">
+      <div class="c-search-groups">
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="bi bi-search"></i>
+          </span>
+          <input type="text" class="form-control" placeholder="Buscar grupos por nombre, tema o categoría...">
+          <button class="btn btn-primary">
+            <i class="bi bi-funnel"></i> Filtrar
+          </button>
+        </div>
+      </div>
+      <div class="c-groups-actions">
+        <button class="btn btn-success btn-sm">
+          <i class="bi bi-plus-circle me-1"></i> Crear Grupo
+        </button>
+      </div>
+    </div>
+    
+    <!-- Grid de grupos -->
+    <div class="c-groups-grid">
+      
+      <!-- Grupo 1: Equipo de Basket -->
+      <div class="c-group-card">
+        <div class="c-group-header">
+          <div class="c-group-thumb">
+            <div class="c-group-image" style="background: linear-gradient(135deg, #ff6b6b, #ffd166);">
+              <i class="bi bi-basketball"></i>
+            </div>
+          </div>
+          <div class="c-group-info">
+            <h5 class="c-group-name">Tiburones Basket COBAED</h5>
+            <div class="c-group-tags">
+              <span class="c-group-tag deportes">Deportes</span>
+              <span class="c-group-tag competitivo">Competitivo</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-group-description">
+          <p>Equipo oficial de baloncesto del COBAED. Entrenamientos, partidos y torneos intercolegiales.</p>
+        </div>
+        
+        <div class="c-group-stats">
+          <div class="c-group-stat">
+            <i class="bi bi-people-fill"></i>
+            <span>15/20 participantes</span>
+          </div>
+          <div class="c-group-stat">
+            <i class="bi bi-person-badge"></i>
+            <span>Mod: Carlos Ruiz</span>
+          </div>
+          <div class="c-group-stat">
+            <i class="bi bi-calendar-event"></i>
+            <span>Lun, Mie, Vie 16:00</span>
+          </div>
+        </div>
+        
+        <div class="c-group-badges">
+          <span class="c-badge abierto">
+            <i class="bi bi-door-open"></i> Abierto
+          </span>
+          <span class="c-badge oficial">
+            <i class="bi bi-award"></i> Oficial
+          </span>
+        </div>
+        
+        <!-- Participantes (colapsable) -->
+        <div class="c-group-members-collapse">
+          <button class="c-collapse-toggle" data-bs-toggle="collapse" data-bs-target="#basketMembers">
+            <i class="bi bi-chevron-down"></i> Ver 15 participantes
+          </button>
+          <div class="collapse" id="basketMembers">
+            <div class="c-members-list">
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #4cc9f0, #4361ee);">CR</div>
+                <span class="c-member-name">Carlos Ruiz (Mod)</span>
+              </div>
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #f72585, #7209b7);">AP</div>
+                <span class="c-member-name">Ana Pérez</span>
+              </div>
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #ffd166, #ff9e6d);">MG</div>
+                <span class="c-member-name">María González</span>
+              </div>
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #06d6a0, #4cc9f0);">LR</div>
+                <span class="c-member-name">Luis Ramírez</span>
+              </div>
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #7209b7, #4361ee);">+11</div>
+                <span class="c-member-name">Otros miembros</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-group-actions">
+          <button class="btn btn-warning btn-sm c-btn-action">
+            <i class="bi bi-person-plus"></i> Solicitar Unirme
+          </button>
+          <button class="btn btn-outline-secondary btn-sm c-btn-action">
+            <i class="bi bi-info-circle"></i> Más Info
+          </button>
+        </div>
+      </div>
+      
+      <!-- Grupo 2: Rondalla -->
+      <div class="c-group-card">
+        <div class="c-group-header">
+          <div class="c-group-thumb">
+            <div class="c-group-image" style="background: linear-gradient(135deg, #ff9e6d, #ff6b6b);">
+              <i class="bi bi-music-note-beamed"></i>
+            </div>
+          </div>
+          <div class="c-group-info">
+            <h5 class="c-group-name">Rondalla Armonía</h5>
+            <div class="c-group-tags">
+              <span class="c-group-tag musica">Música</span>
+              <span class="c-group-tag cultural">Cultural</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-group-description">
+          <p>Grupo musical tradicional. Aprendemos y tocamos música folklórica mexicana. ¡Todos los niveles son bienvenidos!</p>
+        </div>
+        
+        <div class="c-group-stats">
+          <div class="c-group-stat">
+            <i class="bi bi-people-fill"></i>
+            <span>8/12 participantes</span>
+          </div>
+          <div class="c-group-stat">
+            <i class="bi bi-person-badge"></i>
+            <span>Mod: Sofía Mendoza</span>
+          </div>
+          <div class="c-group-stat">
+            <i class="bi bi-calendar-event"></i>
+            <span>Martes y Jueves 17:00</span>
+          </div>
+        </div>
+        
+        <div class="c-group-badges">
+          <span class="c-badge abierto">
+            <i class="bi bi-door-open"></i> Abierto
+          </span>
+          <span class="c-badge principiantes">
+            <i class="bi bi-emoji-smile"></i> Principiantes OK
+          </span>
+        </div>
+        
+        <!-- Participantes -->
+        <div class="c-group-members-collapse">
+          <button class="c-collapse-toggle" data-bs-toggle="collapse" data-bs-target="#rondallaMembers">
+            <i class="bi bi-chevron-down"></i> Ver 8 participantes
+          </button>
+          <div class="collapse" id="rondallaMembers">
+            <div class="c-members-list">
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #ff6b6b, #ff9e6d);">SM</div>
+                <span class="c-member-name">Sofía Mendoza (Mod)</span>
+              </div>
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #4cc9f0, #4361ee);">JR</div>
+                <span class="c-member-name">Juan Rodríguez</span>
+              </div>
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #06d6a0, #4cc9f0);">+6</div>
+                <span class="c-member-name">Otros miembros</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-group-actions">
+          <button class="btn btn-warning btn-sm c-btn-action">
+            <i class="bi bi-person-plus"></i> Solicitar Unirme
+          </button>
+          <button class="btn btn-outline-secondary btn-sm c-btn-action">
+            <i class="bi bi-music-note-list"></i> Repertorio
+          </button>
+        </div>
+      </div>
+      
+      <!-- Grupo 3: Gamers -->
+      <div class="c-group-card">
+        <div class="c-group-header">
+          <div class="c-group-thumb">
+            <div class="c-group-image" style="background: linear-gradient(135deg, #7209b7, #4361ee);">
+              <i class="bi bi-joystick"></i>
+            </div>
+          </div>
+          <div class="c-group-info">
+            <h5 class="c-group-name">COBAED Gamers Elite</h5>
+            <div class="c-group-tags">
+              <span class="c-group-tag videojuegos">Videojuegos</span>
+              <span class="c-group-tag esports">eSports</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-group-description">
+          <p>Comunidad de gamers para torneos, partidas casuales y discusión de estrategias. Valorant, LoL, Fortnite y más.</p>
+        </div>
+        
+        <div class="c-group-stats">
+          <div class="c-group-stat">
+            <i class="bi bi-people-fill"></i>
+            <span>25/30 participantes</span>
+          </div>
+          <div class="c-group-stat">
+            <i class="bi bi-person-badge"></i>
+            <span>Mod: Alex "Vortex" Torres</span>
+          </div>
+          <div class="c-group-stat">
+            <i class="bi bi-calendar-event"></i>
+            <span>Flexible (Discord)</span>
+          </div>
+        </div>
+        
+        <div class="c-group-badges">
+          <span class="c-badge lleno">
+            <i class="bi bi-person-x"></i> Casi lleno
+          </span>
+          <span class="c-badge activo">
+            <i class="bi bi-lightning-charge"></i> Muy activo
+          </span>
+        </div>
+        
+        <!-- Participantes -->
+        <div class="c-group-members-collapse">
+          <button class="c-collapse-toggle" data-bs-toggle="collapse" data-bs-target="#gamersMembers">
+            <i class="bi bi-chevron-down"></i> Ver 25 participantes
+          </button>
+          <div class="collapse" id="gamersMembers">
+            <div class="c-members-list">
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #7209b7, #4361ee);">AT</div>
+                <span class="c-member-name">Alex Torres (Mod)</span>
+              </div>
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #f72585, #7209b7);">DG</div>
+                <span class="c-member-name">Diego García</span>
+              </div>
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #4cc9f0, #4361ee);">+23</div>
+                <span class="c-member-name">Otros miembros</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-group-actions">
+          <button class="btn btn-warning btn-sm c-btn-action">
+            <i class="bi bi-person-plus"></i> Solicitar Unirme
+          </button>
+          <button class="btn btn-outline-secondary btn-sm c-btn-action">
+            <i class="bi bi-discord"></i> Discord
+          </button>
+        </div>
+      </div>
+      
+      <!-- Grupo 4: Inglés Avanzado -->
+      <div class="c-group-card">
+        <div class="c-group-header">
+          <div class="c-group-thumb">
+            <div class="c-group-image" style="background: linear-gradient(135deg, #06d6a0, #4cc9f0);">
+              <i class="bi bi-translate"></i>
+            </div>
+          </div>
+          <div class="c-group-info">
+            <h5 class="c-group-name">English Mastery Club</h5>
+            <div class="c-group-tags">
+              <span class="c-group-tag idiomas">Idiomas</span>
+              <span class="c-group-tag academico">Académico</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-group-description">
+          <p>Práctica conversacional avanzada de inglés. Preparación para certificaciones y mejora de fluidez.</p>
+        </div>
+        
+        <div class="c-group-stats">
+          <div class="c-group-stat">
+            <i class="bi bi-people-fill"></i>
+            <span>10/15 participantes</span>
+          </div>
+          <div class="c-group-stat">
+            <i class="bi bi-person-badge"></i>
+            <span>Mod: Prof. Martínez</span>
+          </div>
+          <div class="c-group-stat">
+            <i class="bi bi-calendar-event"></i>
+            <span>Miércoles 15:00</span>
+          </div>
+        </div>
+        
+        <div class="c-group-badges">
+          <span class="c-badge privado">
+            <i class="bi bi-shield-lock"></i> Privado
+          </span>
+          <span class="c-badge certificacion">
+            <i class="bi bi-patch-check"></i> Con certificación
+          </span>
+        </div>
+        
+        <!-- Participantes -->
+        <div class="c-group-members-collapse">
+          <button class="c-collapse-toggle" data-bs-toggle="collapse" data-bs-target="#englishMembers">
+            <i class="bi bi-chevron-down"></i> Ver 10 participantes
+          </button>
+          <div class="collapse" id="englishMembers">
+            <div class="c-members-list">
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #06d6a0, #4cc9f0);">PM</div>
+                <span class="c-member-name">Prof. Martínez (Mod)</span>
+              </div>
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #ff9e6d, #ff6b6b);">VG</div>
+                <span class="c-member-name">Valeria Gómez</span>
+              </div>
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #f72585, #7209b7);">+8</div>
+                <span class="c-member-name">Otros miembros</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-group-actions">
+          <button class="btn btn-secondary btn-sm c-btn-action" disabled>
+            <i class="bi bi-envelope"></i> Solicitar por correo
+          </button>
+          <button class="btn btn-outline-secondary btn-sm c-btn-action">
+            <i class="bi bi-journal-text"></i> Requisitos
+          </button>
+        </div>
+      </div>
+      
+      <!-- Grupo 5: Ciencia y Tecnología -->
+      <div class="c-group-card">
+        <div class="c-group-header">
+          <div class="c-group-thumb">
+            <div class="c-group-image" style="background: linear-gradient(135deg, #4cc9f0, #4361ee);">
+              <i class="bi bi-cpu"></i>
+            </div>
+          </div>
+          <div class="c-group-info">
+            <h5 class="c-group-name">Club de Robótica</h5>
+            <div class="c-group-tags">
+              <span class="c-group-tag tecnologia">Tecnología</span>
+              <span class="c-group-tag ciencia">Ciencia</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-group-description">
+          <p>Diseño y construcción de robots. Participación en competencias nacionales. ¡Aprende programación y electrónica!</p>
+        </div>
+        
+        <div class="c-group-stats">
+          <div class="c-group-stat">
+            <i class="bi bi-people-fill"></i>
+            <span>12/12 participantes</span>
+          </div>
+          <div class="c-group-stat">
+            <i class="bi bi-person-badge"></i>
+            <span>Mod: Ing. López</span>
+          </div>
+          <div class="c-group-stat">
+            <i class="bi bi-calendar-event"></i>
+            <span>Viernes 16:00-18:00</span>
+          </div>
+        </div>
+        
+        <div class="c-group-badges">
+          <span class="c-badge lleno">
+            <i class="bi bi-person-x"></i> Lleno
+          </span>
+          <span class="c-badge competencia">
+            <i class="bi bi-trophy"></i> En competencia
+          </span>
+        </div>
+        
+        <!-- Participantes -->
+        <div class="c-group-members-collapse">
+          <button class="c-collapse-toggle" data-bs-toggle="collapse" data-bs-target="#roboticaMembers">
+            <i class="bi bi-chevron-down"></i> Ver 12 participantes
+          </button>
+          <div class="collapse" id="roboticaMembers">
+            <div class="c-members-list">
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #4cc9f0, #4361ee);">IL</div>
+                <span class="c-member-name">Ing. López (Mod)</span>
+              </div>
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #06d6a0, #4cc9f0);">RM</div>
+                <span class="c-member-name">Ricardo Morales</span>
+              </div>
+              <div class="c-member">
+                <div class="c-member-avatar" style="background: linear-gradient(135deg, #f72585, #7209b7);">+10</div>
+                <span class="c-member-name">Otros miembros</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-group-actions">
+          <button class="btn btn-danger btn-sm c-btn-action" disabled>
+            <i class="bi bi-person-dash"></i> Dejar grupo
+          </button>
+          <button class="btn btn-outline-secondary btn-sm c-btn-action">
+            <i class="bi bi-chat-left-text"></i> Foro interno
+          </button>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Crear nuevo grupo -->
+    <div class="c-create-group mt-5">
+      <div class="c-create-card">
+        <div class="c-create-icon">
+          <i class="bi bi-plus-circle"></i>
+        </div>
+        <div class="c-create-content">
+          <h5>¿No encuentras un grupo que te interese?</h5>
+          <p>Crea tu propio grupo estudiantil. Comparte tus intereses con compañeros que piensen igual.</p>
+          <button class="btn btn-success">
+            <i class="bi bi-plus-lg me-1"></i> Crear Nuevo Grupo
+          </button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+<script>
+  // Script solo para esta sección - NO afecta otros elementos
+  document.addEventListener('DOMContentLoaded', function() {
+    const groupsSection = document.querySelector('.c-groups-section');
+    if (!groupsSection) return;
+    
+    // Manejo de colapsables
+    groupsSection.querySelectorAll('.c-collapse-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !isExpanded);
+      });
+    });
+    
+    // Botones de solicitud de unión
+    groupsSection.querySelectorAll('.c-btn-action').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const groupCard = this.closest('.c-group-card');
+        const groupName = groupCard.querySelector('.c-group-name').textContent;
+        const buttonText = this.textContent.trim();
+        
+        if (buttonText.includes('Solicitar Unirme') || buttonText.includes('Solicitar por correo')) {
+          alert(`¡Solicitud enviada para unirte a "${groupName}"!\nEl moderador revisará tu solicitud pronto.`);
+          this.disabled = true;
+          this.innerHTML = '<i class="bi bi-hourglass-split me-1"></i> Solicitud enviada';
+          this.classList.remove('btn-warning');
+          this.classList.add('btn-secondary');
+        } else if (buttonText.includes('Dejar grupo')) {
+          if (confirm(`¿Estás seguro que quieres dejar el grupo "${groupName}"?`)) {
+            alert(`Has dejado el grupo "${groupName}".`);
+            // Aquí iría la lógica real para dejar el grupo
+          }
+        } else if (buttonText.includes('Más Info')) {
+          alert(`Información detallada sobre "${groupName}"\n\nRequisitos:\n- Ser alumno COBAED\n- Asistir a reuniones\n- Participar activamente`);
+        }
+      });
+    });
+    
+    // Botón de crear grupo
+    const createGroupBtn = groupsSection.querySelector('.c-create-content .btn-success');
+    if (createGroupBtn) {
+      createGroupBtn.addEventListener('click', function() {
+        alert('Función de creación de grupos\n\nPróximamente podrás crear tus propios grupos estudiantiles.');
+      });
+    }
+    
+    // Búsqueda de grupos
+    const searchInput = groupsSection.querySelector('.c-search-groups input');
+    const searchButton = groupsSection.querySelector('.c-search-groups .btn-primary');
+    
+    if (searchInput && searchButton) {
+      const performSearch = () => {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const groupCards = groupsSection.querySelectorAll('.c-group-card');
+        
+        groupCards.forEach(card => {
+          const groupName = card.querySelector('.c-group-name').textContent.toLowerCase();
+          const groupDesc = card.querySelector('.c-group-description').textContent.toLowerCase();
+          const groupTags = Array.from(card.querySelectorAll('.c-group-tag')).map(tag => tag.textContent.toLowerCase());
+          
+          const matches = groupName.includes(searchTerm) || 
+                          groupDesc.includes(searchTerm) || 
+                          groupTags.some(tag => tag.includes(searchTerm));
+          
+          card.style.display = matches ? '' : 'none';
+        });
+        
+        if (searchTerm) {
+          alert(`Buscando grupos con: "${searchTerm}"`);
+        }
+      };
+      
+      searchButton.addEventListener('click', performSearch);
+      searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          performSearch();
+        }
+      });
+    }
+  });
+</script>
+      </div>
+    </section>
+  </div>
+
+  <div id="tab-deportes" class="  d-none" role="tabpanel" aria-labelledby="tab-deportes">
+    <section class="c-card text-center">
+      <div class="c-card-header">
+        <div class="c-tag deportes">
+          <i class="bi bi-tools me-2 c-card-icon"></i>
+          Deportes
+        </div>
+      </div>
+      <div class="c-card-body">
+       <!-- Sección Deportes - COBAED & Global -->
+<div class="c-tab-content" id="sports">
+  <div class="c-sports-section">
+    
+    <!-- Filtros de deportes -->
+    <div class="c-sports-filters mb-4">
+      <div class="c-filter-buttons">
+        <button class="c-filter-btn active" data-filter="all">Todos</button>
+        <button class="c-filter-btn" data-filter="cobaed">COBAED</button>
+        <button class="c-filter-btn" data-filter="local">Local</button>
+        <button class="c-filter-btn" data-filter="nacional">Nacional</button>
+        <button class="c-filter-btn" data-filter="global">Global</button>
+        <button class="c-filter-btn" data-filter="tips">Consejos</button>
+      </div>
+      <div class="c-sports-news-badge">
+        <span class="badge bg-danger">
+          <i class="bi bi-lightning-charge"></i> 3 NOTICIAS NUEVAS
+        </span>
+      </div>
+    </div>
+    
+    <!-- Grid de tarjetas deportivas -->
+    <div class="c-sports-grid">
+      
+      <!-- Noticia 1: Resultado Voleibol -->
+      <div class="c-sports-card cobaed noticias" data-category="cobaed,noticias">
+        <div class="c-sports-card-header">
+          <div class="c-sports-tag result">Resultado</div>
+          <div class="c-sports-time">Hace 2 horas</div>
+        </div>
+        <div class="c-sports-card-body">
+          <div class="c-sports-team-logos">
+            <div class="c-team-logo" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
+              <i class="bi bi-volleyball"></i>
+            </div>
+            <div class="c-vs">VS</div>
+            <div class="c-team-logo" style="background: linear-gradient(135deg, #dc3545, #a4161a);">
+              CEC
+            </div>
+          </div>
+          <h5 class="c-sports-title">¡Victoria histórica! Voleibol COBAED Lomas</h5>
+          <div class="c-match-result">
+            <div class="c-result-score">
+              <span class="c-team-name">COBAED Lomas</span>
+              <span class="c-score">3 - 1</span>
+              <span class="c-team-name">CECyT Durango</span>
+            </div>
+            <div class="c-result-sets">
+              <span class="c-set">(25-21)</span>
+              <span class="c-set">(22-25)</span>
+              <span class="c-set">(25-19)</span>
+              <span class="c-set">(25-17)</span>
+            </div>
+          </div>
+          <p class="c-sports-summary">
+            El equipo de voleibol femenil de COBAED Lomas se impuso en un emocionante partido contra CECyT Durango. MVP: Ana Sánchez con 18 puntos.
+          </p>
+          <div class="c-sports-stats">
+            <div class="c-stat">
+              <i class="bi bi-eye"></i> 245 vistas
+            </div>
+            <div class="c-stat">
+              <i class="bi bi-chat-left"></i> 32 comentarios
+            </div>
+            <div class="c-stat">
+              <i class="bi bi-heart"></i> 156 likes
+            </div>
+          </div>
+        </div>
+        <div class="c-sports-card-footer">
+          <button class="btn btn-outline-primary btn-sm">
+            <i class="bi bi-play-btn"></i> Ver Resumen
+          </button>
+          <button class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-images"></i> Fotos
+          </button>
+        </div>
+      </div>
+      
+      <!-- Noticia 2: Adquisición de equipo -->
+      <div class="c-sports-card local noticias" data-category="local,noticias">
+        <div class="c-sports-card-header">
+          <div class="c-sports-tag breaking">EXCLUSIVO</div>
+          <div class="c-sports-time">Hoy</div>
+        </div>
+        <div class="c-sports-card-body">
+          <div class="c-sports-team-logos">
+            <div class="c-team-logo-lg" style="background: linear-gradient(135deg, #ff6b6b, #ffd166);">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z'/%3E%3C/svg%3E" alt="Caliente" style="width: 30px; height: 30px;">
+            </div>
+          </div>
+          <h5 class="c-sports-title">Caliente.mx adquiere Generales de Durango</h5>
+          <div class="c-sports-subtitle">
+            <i class="bi bi-arrow-right-circle"></i> Ahora: <strong>Caliente Generales</strong>
+          </div>
+          <p class="c-sports-summary">
+            La empresa Caliente.mx adquirió el equipo local de béisbol "Generales". Inversión de $50M MXN para renovar estadio y contratar talento internacional.
+          </p>
+          <div class="c-roster-preview">
+            <h6><i class="bi bi-people-fill"></i> Nuevo Roster Destacado:</h6>
+            <div class="c-players">
+              <span class="c-player">Miguel Sano (3B)</span>
+              <span class="c-player">José Urquidy (P)</span>
+              <span class="c-player">Roberto Osuna (CP)</span>
+              <span class="c-player">+22 jugadores</span>
+            </div>
+          </div>
+          <div class="c-calendar-preview">
+            <div class="c-next-game">
+              <i class="bi bi-calendar-event"></i> <strong>Próximo juego:</strong> 20 Mayo vs Toros de Tijuana
+            </div>
+          </div>
+        </div>
+        <div class="c-sports-card-footer">
+          <button class="btn btn-primary btn-sm">
+            <i class="bi bi-calendar-week"></i> Calendario Completo
+          </button>
+          <button class="btn btn-outline-danger btn-sm">
+            <i class="bi bi-ticket-perforated"></i> Comprar Boletos
+          </button>
+        </div>
+      </div>
+      
+      <!-- Consejos: Deportes en COBAED Lomas -->
+      <div class="c-sports-card cobaed tips" data-category="cobaed,tips">
+        <div class="c-sports-card-header">
+          <div class="c-sports-tag guide">Guía</div>
+          <div class="c-sports-time">Actualizado hoy</div>
+        </div>
+        <div class="c-sports-card-body">
+          <div class="c-sports-icon-lg">
+            <i class="bi bi-info-circle" style="color: #06d6a0; font-size: 2.5rem;"></i>
+          </div>
+          <h5 class="c-sports-title">Deportes Disponibles en COBAED Lomas</h5>
+          <p class="c-sports-summary">
+            ¿Quieres participar en deportes? Conoce todas las opciones disponibles en tu plantel:
+          </p>
+          <div class="c-sports-options">
+            <div class="c-sport-option">
+              <div class="c-sport-icon" style="background: linear-gradient(135deg, #4361ee, #4cc9f0);">
+                <i class="bi bi-basketball"></i>
+              </div>
+              <div class="c-sport-info">
+                <h6>Básquetbol</h6>
+                <p>Masculino y Femenino • Entrenador: Prof. Ramírez</p>
+              </div>
+              <span class="c-sport-status available">Disponible</span>
+            </div>
+            <div class="c-sport-option">
+              <div class="c-sport-icon" style="background: linear-gradient(135deg, #06d6a0, #4cc9f0);">
+                <i class="bi bi-volleyball"></i>
+              </div>
+              <div class="c-sport-info">
+                <h6>Voleibol</h6>
+                <p>Solo Femenino • Entrenadora: Profa. González</p>
+              </div>
+              <span class="c-sport-status available">Disponible</span>
+            </div>
+            <div class="c-sport-option">
+              <div class="c-sport-icon" style="background: linear-gradient(135deg, #ff6b6b, #ff9e6d);">
+                <i class="bi bi-heart-pulse"></i>
+              </div>
+              <div class="c-sport-info">
+                <h6>Acondicionamiento Físico</h6>
+                <p>Mixto • Gimnasio equipado</p>
+              </div>
+              <span class="c-sport-status available">Disponible</span>
+            </div>
+            <div class="c-sport-option">
+              <div class="c-sport-icon" style="background: linear-gradient(135deg, #7209b7, #f72585);">
+                <i class="bi bi-trophy"></i>
+              </div>
+              <div class="c-sport-info">
+                <h6>Ajedrez Competitivo</h6>
+                <p>Mixto • Torneos mensuales</p>
+              </div>
+              <span class="c-sport-status limited">Cupo limitado</span>
+            </div>
+          </div>
+        </div>
+        <div class="c-sports-card-footer">
+          <button class="btn btn-success btn-sm">
+            <i class="bi bi-clipboard-check"></i> Inscribirse
+          </button>
+          <button class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-question-circle"></i> Más Info
+          </button>
+        </div>
+      </div>
+      
+      <!-- Noticia 3: Mundial Sub-20 -->
+      <div class="c-sports-card global noticias" data-category="global,noticias">
+        <div class="c-sports-card-header">
+          <div class="c-sports-tag mundial">MUNDIAL</div>
+          <div class="c-sports-time">En vivo</div>
+        </div>
+        <div class="c-sports-card-body">
+          <div class="c-sports-team-logos">
+            <div class="c-flag-logo" style="background-color: #006847;">
+              <span style="color: white; font-weight: bold;">MEX</span>
+            </div>
+            <div class="c-vs">VS</div>
+            <div class="c-flag-logo" style="background-color: #ce1126;">
+              <span style="color: white; font-weight: bold;">ARG</span>
+            </div>
+          </div>
+          <h5 class="c-sports-title">Mundial Sub-20: México vs Argentina</h5>
+          <div class="c-live-match">
+            <div class="c-live-indicator">
+              <span class="c-live-dot"></span> EN VIVO
+            </div>
+            <div class="c-live-score">
+              <div class="c-live-team">
+                <span>México</span>
+                <span class="c-live-goal">2</span>
+              </div>
+              <div class="c-live-time">65'</div>
+              <div class="c-live-team">
+                <span class="c-live-goal">1</span>
+                <span>Argentina</span>
+              </div>
+            </div>
+            <div class="c-live-events">
+              <div class="c-event">
+                <i class="bi bi-soccer"></i> Gol de México (32')
+              </div>
+              <div class="c-event">
+                <i class="bi bi-card-text"></i> Tarjeta amarilla Argentina (45')
+              </div>
+            </div>
+          </div>
+          <div class="c-stream-info">
+            <i class="bi bi-tv"></i> Transmisión: TUDN •  <i class="bi bi-wifi"></i> Streaming: Vix+
+          </div>
+        </div>
+        <div class="c-sports-card-footer">
+          <button class="btn btn-danger btn-sm">
+            <i class="bi bi-play-circle"></i> Ver En Vivo
+          </button>
+          <button class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-bar-chart"></i> Estadísticas
+          </button>
+        </div>
+      </div>
+      
+      <!-- Calendario Deportivo -->
+      <div class="c-sports-card cobaed calendario" data-category="cobaed,calendario">
+        <div class="c-sports-card-header">
+          <div class="c-sports-tag schedule">Calendario</div>
+          <div class="c-sports-time">Próximos 7 días</div>
+        </div>
+        <div class="c-sports-card-body">
+          <h5 class="c-sports-title">Calendario Deportivo COBAED</h5>
+          <div class="c-schedule-list">
+            <div class="c-schedule-item">
+              <div class="c-schedule-date">
+                <div class="c-schedule-day">15</div>
+                <div class="c-schedule-month">MAY</div>
+              </div>
+              <div class="c-schedule-details">
+                <h6>Básquetbol vs Prepa 5</h6>
+                <p><i class="bi bi-clock"></i> 16:00 • <i class="bi bi-geo-alt"></i> Cancha principal</p>
+              </div>
+              <span class="c-schedule-status upcoming">Próximo</span>
+            </div>
+            <div class="c-schedule-item">
+              <div class="c-schedule-date">
+                <div class="c-schedule-day">17</div>
+                <div class="c-schedule-month">MAY</div>
+              </div>
+              <div class="c-schedule-details">
+                <h6>Torneo de Ajedrez Interplanteles</h6>
+                <p><i class="bi bi-clock"></i> 10:00 • <i class="bi bi-geo-alt"></i> Biblioteca central</p>
+              </div>
+              <span class="c-schedule-status upcoming">Próximo</span>
+            </div>
+            <div class="c-schedule-item">
+              <div class="c-schedule-date">
+                <div class="c-schedule-day">20</div>
+                <div class="c-schedule-month">MAY</div>
+              </div>
+              <div class="c-schedule-details">
+                <h6>Entrenamiento Atletismo</h6>
+                <p><i class="bi bi-clock"></i> 07:00 • <i class="bi bi-geo-alt"></i> Pista de atletismo</p>
+              </div>
+              <span class="c-schedule-status training">Entrenamiento</span>
+            </div>
+          </div>
+          <div class="c-schedule-legend">
+            <div class="c-legend-item">
+              <span class="c-legend-dot upcoming"></span> Próximo partido
+            </div>
+            <div class="c-legend-item">
+              <span class="c-legend-dot training"></span> Entrenamiento
+            </div>
+            <div class="c-legend-item">
+              <span class="c-legend-dot completed"></span> Finalizado
+            </div>
+          </div>
+        </div>
+        <div class="c-sports-card-footer">
+          <button class="btn btn-outline-primary btn-sm">
+            <i class="bi bi-calendar2-plus"></i> Agregar a mi calendario
+          </button>
+          <button class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-download"></i> Descargar Calendario
+          </button>
+        </div>
+      </div>
+      
+      <!-- Rankings y Estadísticas -->
+      <div class="c-sports-card nacional rankings" data-category="nacional,rankings">
+        <div class="c-sports-card-header">
+          <div class="c-sports-tag stats">Estadísticas</div>
+          <div class="c-sports-time">Temporada 2023</div>
+        </div>
+        <div class="c-sports-card-body">
+          <h5 class="c-sports-title">Liga Nacional Colegial - COBAED</h5>
+          <div class="c-rankings-table">
+            <div class="c-table-header">
+              <span>Pos</span>
+              <span>Plantel</span>
+              <span>PJ</span>
+              <span>PG</span>
+              <span>Pts</span>
+            </div>
+            <div class="c-table-row highlight">
+              <span class="c-position">1°</span>
+              <span class="c-team-name">COBAED Lomas</span>
+              <span>8</span>
+              <span>7</span>
+              <span class="c-points">21</span>
+            </div>
+            <div class="c-table-row">
+              <span class="c-position">2°</span>
+              <span class="c-team-name">COBAED Centro</span>
+              <span>8</span>
+              <span>6</span>
+              <span class="c-points">18</span>
+            </div>
+            <div class="c-table-row">
+              <span class="c-position">3°</span>
+              <span class="c-team-name">Preparatoria 5</span>
+              <span>8</span>
+              <span>5</span>
+              <span class="c-points">15</span>
+            </div>
+            <div class="c-table-row">
+              <span class="c-position">4°</span>
+              <span class="c-team-name">CECyT Durango</span>
+              <span>8</span>
+              <span>4</span>
+              <span class="c-points">12</span>
+            </div>
+          </div>
+          <div class="c-top-scorer">
+            <h6><i class="bi bi-trophy-fill"></i> Máximo Goleador:</h6>
+            <div class="c-player-highlight">
+              <div class="c-player-avatar">JR</div>
+              <div class="c-player-info">
+                <strong>Juan Ramírez</strong> (COBAED Lomas)
+                <div class="c-player-stats">12 goles • 5 asistencias</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="c-sports-card-footer">
+          <button class="btn btn-outline-primary btn-sm">
+            <i class="bi bi-graph-up"></i> Ver Estadísticas Completas
+          </button>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Widget lateral de deportes en vivo (opcional para versión desktop) -->
+    <div class="c-sports-sidebar">
+      <div class="c-live-widget">
+        <h6 class="c-widget-title">
+          <i class="bi bi-tv"></i> Deportes en Vivo
+        </h6>
+        <div class="c-live-stream">
+          <div class="c-stream-item">
+            <span class="c-stream-sport">⚽ Liga MX</span>
+            <span class="c-stream-match">América vs Chivas</span>
+            <span class="c-stream-channel">TUDN</span>
+          </div>
+          <div class="c-stream-item">
+            <span class="c-stream-sport">🎾 ATP Masters</span>
+            <span class="c-stream-match">Alcaraz vs Djokovic</span>
+            <span class="c-stream-channel">ESPN</span>
+          </div>
+          <div class="c-stream-item">
+            <span class="c-stream-sport">🏀 NBA Playoffs</span>
+            <span class="c-stream-match">Lakers vs Warriors</span>
+            <span class="c-stream-channel">NBA TV</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="c-polls-widget">
+        <h6 class="c-widget-title">
+          <i class="bi bi-bar-chart"></i> Encuesta Rápida
+        </h6>
+        <div class="c-poll-question">
+          ¿Qué deporte debería agregar COBAED Lomas?
+        </div>
+        <div class="c-poll-options">
+          <div class="c-poll-option">
+            <input type="radio" name="sportPoll" id="poll1">
+            <label for="poll1">Fútbol Soccer</label>
+          </div>
+          <div class="c-poll-option">
+            <input type="radio" name="sportPoll" id="poll2">
+            <label for="poll2">Natación</label>
+          </div>
+          <div class="c-poll-option">
+            <input type="radio" name="sportPoll" id="poll3">
+            <label for="poll3">Artes Marciales</label>
+          </div>
+          <div class="c-poll-option">
+            <input type="radio" name="sportPoll" id="poll4">
+            <label for="poll4">Gimnasia</label>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-sm w-100 mt-2">
+          <i class="bi bi-check2-circle"></i> Votar
+        </button>
+      </div>
+      
+      <div class="c-highlight-widget">
+        <h6 class="c-widget-title">
+          <i class="bi bi-star"></i> Deportista Destacado
+        </h6>
+        <div class="c-highlight-player">
+          <div class="c-player-photo" style="background: linear-gradient(135deg, #4361ee, #4cc9f0);">
+            AS
+          </div>
+          <div class="c-player-details">
+            <strong>Ana Sánchez</strong>
+            <div class="c-player-sport">Voleibol COBAED Lomas</div>
+            <div class="c-player-achievement">
+              <i class="bi bi-award"></i> MVP del Partido
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+<script>
+  // Script solo para esta sección - NO afecta otros elementos
+  document.addEventListener('DOMContentLoaded', function() {
+    const sportsSection = document.querySelector('.c-sports-section');
+    if (!sportsSection) return;
+    
+    // Filtrado de tarjetas
+    const filterButtons = sportsSection.querySelectorAll('.c-filter-btn');
+    const sportsCards = sportsSection.querySelectorAll('.c-sports-card');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remover active de todos los botones
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Activar botón clickeado
+        this.classList.add('active');
+        
+        const filterValue = this.getAttribute('data-filter');
+        
+        // Mostrar/ocultar tarjetas según filtro
+        sportsCards.forEach(card => {
+          if (filterValue === 'all') {
+            card.style.display = '';
+          } else {
+            const categories = card.getAttribute('data-category').split(',');
+            if (categories.includes(filterValue)) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+    
+    // Botones de acción
+    sportsSection.querySelectorAll('.c-sports-card-footer .btn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const card = this.closest('.c-sports-card');
+        const cardTitle = card.querySelector('.c-sports-title')?.textContent || 'Deporte';
+        const buttonText = this.textContent.trim();
+        
+        if (buttonText.includes('Ver Resumen')) {
+          alert(`Cargando resumen del partido: ${cardTitle}`);
+        } else if (buttonText.includes('Comprar Boletos')) {
+          alert(`Redirigiendo a compra de boletos para: ${cardTitle}`);
+        } else if (buttonText.includes('Inscribirse')) {
+          alert(`Formulario de inscripción para deportes COBAED`);
+        } else if (buttonText.includes('Ver En Vivo')) {
+          alert(`Reproduciendo transmisión en vivo: ${cardTitle}`);
+        } else if (buttonText.includes('Agregar a mi calendario')) {
+          alert(`Evento agregado a tu calendario personal`);
+        }
+      });
+    });
+    
+    // Encuesta rápida
+    const voteButton = sportsSection.querySelector('.c-polls-widget .btn-primary');
+    if (voteButton) {
+      voteButton.addEventListener('click', function() {
+        const selectedOption = sportsSection.querySelector('input[name="sportPoll"]:checked');
+        if (selectedOption) {
+          const optionText = selectedOption.nextElementSibling.textContent;
+          alert(`¡Gracias por votar por "${optionText}"! Tu voto ha sido registrado.`);
+          
+          // Deshabilitar botón después de votar
+          this.disabled = true;
+          this.innerHTML = '<i class="bi bi-check2-circle"></i> Votado';
+        } else {
+          alert('Por favor, selecciona una opción antes de votar.');
+        }
+      });
+    }
+    
+    // Simular actualización en vivo (solo para demo)
+    const liveMatch = sportsSection.querySelector('.c-live-match');
+    if (liveMatch) {
+      let minutes = 65;
+      let mexicoScore = 2;
+      let argentinaScore = 1;
+      
+      // Actualizar tiempo cada minuto
+      setInterval(() => {
+        if (minutes < 90) {
+          minutes++;
+          const timeElement = liveMatch.querySelector('.c-live-time');
+          if (timeElement) {
+            timeElement.textContent = `${minutes}'`;
+          }
+          
+          // Simular evento ocasional
+          if (minutes === 70 || minutes === 85) {
+            const eventsList = liveMatch.querySelector('.c-live-events');
+            const newEvent = document.createElement('div');
+            newEvent.className = 'c-event';
+            newEvent.innerHTML = `<i class="bi bi-${Math.random() > 0.5 ? 'soccer' : 'card-text'}"></i> ${Math.random() > 0.5 ? 'Ocasiónde gol' : 'Falta cometida'} (${minutes}')`;
+            eventsList.appendChild(newEvent);
+          }
+        }
+      }, 10000); // Cada 10 segundos en la demo
+    }
+    
+    // Efecto hover en tarjetas
+    sportsCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.zIndex = '10';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.zIndex = '';
+      });
+    });
+  });
+</script>
+      </div>
+    </section>
+  </div>
+
+  <div id="tab-biblioteca" class="  d-none" role="tabpanel" aria-labelledby="tab-biblioteca">
+ 
+        <!-- Intercambio de libros y Club de Lectura Virtual -->
+<section class="c-card mb-5 c-library-section">
+  <div class="c-card-header">
+    <div class="c-tag libros">
+      <i class="bi bi-book-half me-2 c-card-icon"></i> Biblioteca Virtual & Club de Lectura
+    </div>
+     
+  </div>
+  
+  <div class="c-card-body">
+    <!-- Pestañas de navegación -->
+    <div class="c-library-tabs mb-4">
+      <button class="c-tab active" data-tab="disponibles">Libros Disponibles</button>
+      <button class="c-tab" data-tab="club">Club de Lectura</button>
+      <button class="c-tab" data-tab="mis-libros">Mis Préstamos</button>
+    </div>
+    
+    <!-- Contenido de pestaña: Libros Disponibles -->
+    <div class="c-tab-content active" id="disponibles">
+      <div class="c-book-grid">
+        <!-- Libro 1 -->
+       <div class="c-book-card">
+  <div class="c-book-cover">
+    <div class="c-book-thumb" style="background: linear-gradient(135deg, #d31027, #ea384d);">
+      <img src="../assets/img/books/l2.jpg" alt="Álgebra Baldor" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div class="c-book-badge disponible">Disponible</div>
+  </div>
+  <div class="c-book-info">
+    <h6 class="c-book-title">Álgebra</h6>
+    <p class="c-book-author">Aurelio Baldor</p>
+    <div class="c-book-meta">
+      <span class="c-book-meta-item"><i class="bi bi-clock"></i> 576 páginas</span>
+      <span class="c-book-meta-item"><i class="bi bi-star-fill"></i> 4.9</span>
+    </div>
+    <p class="c-book-summary">El texto clásico indispensable para el estudio de las matemáticas en bachillerato.</p>
+    <div class="c-book-actions">
+      <button class="btn btn-warning btn-sm c-btn-pill">
+        <i class="bi bi-bookmark-check"></i> Solicitar
+      </button>
+      <button class="btn btn-outline-secondary btn-sm c-btn-pill">
+        <i class="bi bi-info-circle"></i> Resumen
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="c-book-card">
+  <div class="c-book-cover">
+    <div class="c-book-thumb" style="background: linear-gradient(135deg, #e6d5b8, #b08d55);">
+            <img src="../assets/img/books/l1.jpg" alt="Álgebra Baldor" style="width:100%; height:100%; object-fit:cover;">
+
+    </div>
+    <div class="c-book-badge reservado" style="background-color: #ffca2c; color: #000;">En Sala</div>
+  </div>
+  <div class="c-book-info">
+    <h6 class="c-book-title">Historia de México I</h6>
+    <p class="c-book-author">Academia Cobaed</p>
+    <div class="c-book-meta">
+      <span class="c-book-meta-item"><i class="bi bi-clock"></i> Tercer Semestre</span>
+      <span class="c-book-meta-item"><i class="bi bi-star-fill"></i> 4.5</span>
+    </div>
+    <p class="c-book-summary">Análisis de los procesos históricos desde el México antiguo hasta el Virreinato.</p>
+    <div class="c-book-actions">
+      <button class="btn btn-warning btn-sm c-btn-pill">
+        <i class="bi bi-bookmark-check"></i> Solicitar
+      </button>
+      <button class="btn btn-outline-secondary btn-sm c-btn-pill">
+        <i class="bi bi-info-circle"></i> Resumen
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="c-book-card">
+  <div class="c-book-cover">
+    <div class="c-book-thumb" style="background: linear-gradient(135deg, #004e92, #000428);">
+            <img src="../assets/img/books/l4.jpg" alt="Álgebra Baldor" style="width:100%; height:100%; object-fit:cover;">
+
+    </div>
+    <div class="c-book-badge disponible">Disponible</div>
+  </div>
+  <div class="c-book-info">
+    <h6 class="c-book-title">El Principito</h6>
+    <p class="c-book-author">Antoine de Saint-Exupéry</p>
+    <div class="c-book-meta">
+      <span class="c-book-meta-item"><i class="bi bi-clock"></i> 96 páginas</span>
+      <span class="c-book-meta-item"><i class="bi bi-star-fill"></i> 5.0</span>
+    </div>
+    <p class="c-book-summary">Un piloto perdido en el desierto conoce a un pequeño príncipe de otro planeta.</p>
+    <div class="c-book-actions">
+      <button class="btn btn-warning btn-sm c-btn-pill">
+        <i class="bi bi-bookmark-check"></i> Solicitar
+      </button>
+      <button class="btn btn-outline-secondary btn-sm c-btn-pill">
+        <i class="bi bi-info-circle"></i> Resumen
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="c-book-card">
+  <div class="c-book-cover">
+    <div class="c-book-thumb" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+      <img src="../assets/img/books/l3.jpg" alt="Álgebra Baldor" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div class="c-book-badge disponible">Disponible</div>
+  </div>
+  <div class="c-book-info">
+    <h6 class="c-book-title">Cien años de soledad</h6>
+    <p class="c-book-author">Gabriel García Márquez</p>
+    <div class="c-book-meta">
+      <span class="c-book-meta-item"><i class="bi bi-clock"></i> 496 páginas</span>
+      <span class="c-book-meta-item"><i class="bi bi-star-fill"></i> 4.9</span>
+    </div>
+    <p class="c-book-summary">La historia de la familia Buendía en el pueblo ficticio de Macondo.</p>
+    <div class="c-book-actions">
+      <button class="btn btn-warning btn-sm c-btn-pill">
+        <i class="bi bi-bookmark-check"></i> Solicitar
+      </button>
+      <button class="btn btn-outline-secondary btn-sm c-btn-pill">
+        <i class="bi bi-info-circle"></i> Resumen
+      </button>
+    </div>
+  </div>
+</div>
+        
+       
+        
+        <!-- Libro 3 -->
+        <div class="c-book-card">
+          <div class="c-book-cover">
+            <div class="c-book-thumb" style="background: linear-gradient(135deg, #7209b7, #f72585);">
+              El<br>Alquimista
+            </div>
+            <div class="c-book-badge disponible">Disponible</div>
+          </div>
+          <div class="c-book-info">
+            <h6 class="c-book-title">El Alquimista</h6>
+            <p class="c-book-author">Paulo Coelho</p>
+            <div class="c-book-meta">
+              <span class="c-book-meta-item"><i class="bi bi-clock"></i> 208 páginas</span>
+              <span class="c-book-meta-item"><i class="bi bi-star-fill"></i> 4.7</span>
+            </div>
+            <p class="c-book-summary">Santiago, un joven pastor, emprende un viaje en busca de un tesoro...</p>
+            <div class="c-book-actions">
+              <button class="btn btn-warning btn-sm c-btn-pill">
+                <i class="bi bi-bookmark-check"></i> Solicitar
+              </button>
+              <button class="btn btn-outline-secondary btn-sm c-btn-pill">
+                <i class="bi bi-people"></i> Club
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contenido de pestaña: Club de Lectura -->
+    <div class="c-tab-content" id="club">
+      <div class="c-club-section">
+        <div class="c-club-header">
+          <div class="c-club-current">
+            <h6 class="c-club-title">Lectura Actual del Club</h6>
+            <div class="c-club-book">
+              <div class="c-club-thumb" style="background: linear-gradient(135deg, #4361ee, #4cc9f0);">
+                La<br>Sombra<br>del<br>Viento
+              </div>
+              <div class="c-club-info">
+                <h5>La Sombra del Viento</h5>
+                <p class="c-club-author">Carlos Ruiz Zafón</p>
+                <div class="c-club-progress">
+                  <div class="c-progress-bar">
+                    <div class="c-progress-fill" style="width: 65%"></div>
+                  </div>
+                  <span>65% leído por el club</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-club-events">
+          <h6 class="c-club-subtitle">Próximos Eventos</h6>
+          <div class="c-club-event">
+            <div class="c-event-date">
+              <div class="c-event-day">15</div>
+              <div class="c-event-month">MAY</div>
+            </div>
+            <div class="c-event-details">
+              <h6>Discusión: Capítulos 5-8</h6>
+              <p><i class="bi bi-clock"></i> 16:00 hrs | <i class="bi bi-camera-video"></i> Zoom</p>
+            </div>
+            <button class="btn btn-primary btn-sm c-btn-pill">
+              <i class="bi bi-calendar-plus"></i> Unirme
+            </button>
+          </div>
+          
+          <div class="c-club-event">
+            <div class="c-event-date">
+              <div class="c-event-day">22</div>
+              <div class="c-event-month">MAY</div>
+            </div>
+            <div class="c-event-details">
+              <h6>Votación: Próximo Libro</h6>
+              <p><i class="bi bi-clock"></i> Todo el día | <i class="bi bi-chat-square-text"></i> Foro</p>
+            </div>
+            <button class="btn btn-outline-primary btn-sm c-btn-pill">
+              <i class="bi bi-check2-circle"></i> Votar
+            </button>
+          </div>
+        </div>
+        
+        <div class="c-club-discussion">
+          <h6 class="c-club-subtitle">Discusión Reciente</h6>
+          <div class="c-discussion-post">
+            <div class="c-discussion-avatar">MG</div>
+            <div class="c-discussion-content">
+              <h6>María González</h6>
+              <p>¿Qué opinan del personaje de Julián Carax?</p>
+              <div class="c-discussion-meta">
+                <span><i class="bi bi-heart"></i> 12</span>
+                <span><i class="bi bi-chat-left"></i> 5 respuestas</span>
+                <span>Hace 2 horas</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-outline-secondary btn-sm w-100 mt-3">
+            <i class="bi bi-chat-left-dots"></i> Unirse a la Discusión
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contenido de pestaña: Mis Préstamos -->
+    <div class="c-tab-content" id="mis-libros">
+      <div class="c-my-books">
+        <div class="c-book-loan">
+          <div class="c-loan-status prestamo-activo">
+            <i class="bi bi-bookmark-check-fill"></i> Activo
+          </div>
+          <div class="c-loan-book">
+            <div class="c-loan-thumb" style="background: linear-gradient(135deg, #ff9e6d, #ff6b6b);">
+              Rayuela
+            </div>
+            <div class="c-loan-details">
+              <h6>Rayuela</h6>
+              <p class="c-loan-author">Julio Cortázar</p>
+              <div class="c-loan-deadline">
+                <i class="bi bi-calendar-check"></i> Vence: 25 Mayo 2023
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-success btn-sm c-btn-pill">
+            <i class="bi bi-arrow-clockwise"></i> Renovar
+          </button>
+        </div>
+        
+        <div class="c-book-loan">
+          <div class="c-loan-status prestamo-pendiente">
+            <i class="bi bi-hourglass-split"></i> En Espera
+          </div>
+          <div class="c-loan-book">
+            <div class="c-loan-thumb" style="background: linear-gradient(135deg, #4cc9f0, #4361ee);">
+              1984
+            </div>
+            <div class="c-loan-details">
+              <h6>1984</h6>
+              <p class="c-loan-author">George Orwell</p>
+              <div class="c-loan-deadline">
+                <i class="bi bi-people"></i> Posición 3 en la lista
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-outline-secondary btn-sm c-btn-pill">
+            <i class="bi bi-x-circle"></i> Cancelar
+          </button>
+        </div>
+        
+        <div class="c-history">
+          <h6 class="c-history-title">Historial de Lectura</h6>
+          <div class="c-history-item">
+            <div class="c-history-thumb" style="background: linear-gradient(135deg, #ccc, #999);">
+              CR
+            </div>
+            <div class="c-history-details">
+              <h6>Crónica de una Muerte Anunciada</h6>
+              <p>Devuelto: 10 Abril 2023 | Calificación: ★★★★★</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Solicitar Nuevo Libro -->
+    <div class="c-book-request mt-4">
+      <h6 class="c-request-title">
+        <i class="bi bi-search me-2"></i>¿No encuentras el libro que buscas?
+      </h6>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Título, autor o ISBN del libro que deseas...">
+        <button class="btn btn-primary">
+          <i class="bi bi-send"></i> Solicitar
+        </button>
+      </div>
+      <div class="c-request-note mt-2">
+        <small><i class="bi bi-info-circle"></i> Revisaremos tu solicitud y lo agregaremos a la biblioteca si es posible.</small>
+      </div>
+    </div>
+  </div>
+ 
+
+
+
+<script>
+  // Script solo para esta sección - NO afecta otros elementos
+  document.addEventListener('DOMContentLoaded', function() {
+    const librarySection = document.querySelector('.c-library-section');
+    if (!librarySection) return;
+    
+    // Funcionalidad de tabs
+    const tabs = librarySection.querySelectorAll('.c-tab');
+    const tabContents = librarySection.querySelectorAll('.c-tab-content');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const tabId = this.getAttribute('data-tab');
+        
+        // Remover clase active de todos
+        tabs.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        // Activar tab clickeado
+        this.classList.add('active');
+        librarySection.querySelector(`#${tabId}`).classList.add('active');
+      });
+    });
+    
+    // Botones de acción de libros
+    librarySection.querySelectorAll('.c-book-actions button').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const bookCard = this.closest('.c-book-card');
+        const bookTitle = bookCard.querySelector('.c-book-title').textContent;
+        
+        if (this.textContent.includes('Solicitar')) {
+          alert(`¡Solicitud enviada para "${bookTitle}"!\nTe notificaremos cuando esté disponible.`);
+        } else if (this.textContent.includes('Resumen')) {
+          alert(`Resumen de "${bookTitle}"\n\nEsta es una breve descripción del libro...`);
+        }
+      });
+    });
+    
+    // Solicitar nuevo libro
+    const requestButton = librarySection.querySelector('.c-book-request .btn-primary');
+    const requestInput = librarySection.querySelector('.c-book-request input');
+    
+    if (requestButton && requestInput) {
+      requestButton.addEventListener('click', function() {
+        const bookRequest = requestInput.value.trim();
+        if (bookRequest) {
+          alert(`¡Solicitud enviada para: "${bookRequest}"!\nEl equipo de biblioteca revisará tu petición.`);
+          requestInput.value = '';
+        } else {
+          alert('Por favor, escribe el título, autor o ISBN del libro que deseas solicitar.');
+        }
+      });
+      
+      requestInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          requestButton.click();
+        }
+      });
+    }
+  });
+</script>
+      </div>
+    </section>
+  </div>
+
+  <div id="tab-mas" class="px-2 py-4 d-none" role="tabpanel" aria-labelledby="tab-mas">
+    <section class="c-card text-center">
+      <div class="c-card-header">
+        <div class="c-tag">
+          <i class="bi bi-tools me-2 c-card-icon"></i>
+          Más
+        </div>
+      </div>
+      <div class="c-card-body">
+        <h5 class="mb-2">En Construcción</h5>
+        <p class="mb-0">Más funcionalidades llegarán pronto.</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (function(){
+      const tabs = document.querySelectorAll('.top-tabs .tab-item');
+      const panels = {
+        inicio: document.getElementById('tab-inicio'),
+        grupos: document.getElementById('tab-grupos'),
+        deportes: document.getElementById('tab-deportes'),
+        biblioteca: document.getElementById('tab-biblioteca'),
+        mas: document.getElementById('tab-mas')
+      };
+
+      function activateTab(tabEl){
+        const key = tabEl.dataset.tab;
+        // toggle active class
+        tabs.forEach(t => t.classList.toggle('active', t === tabEl));
+        // show/hide panels
+        Object.keys(panels).forEach(k => {
+          if (!panels[k]) return;
+          panels[k].classList.toggle('d-none', k !== key);
+        });
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => activateTab(tab));
+        tab.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activateTab(tab);
+          }
+        });
+      });
+
+      // ensure initial state matches markup
+      const initial = document.querySelector('.top-tabs .tab-item.active') || tabs[0];
+      activateTab(initial);
+    })();
+  </script>
+</div>
+
+<div class="fab-add" id="scanQrBtn">
+<i class="bi bi-qr-code"></i>
+</div>
+
+<div class="modal fade" id="qrScannerModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-qr-code-scan me-2"></i>Escanear Código QR
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="video-preview">
+                        <video id="video"></video>
+                      <!--  <div class="scanner-overlay">
+                            <div class="scanner-line"></div>
+                        </div>
+                        -->
+                    </div>
+                    
+                    <div class="mb-3">
+                        <button id="startCamera" class="btn btn-primary me-2">
+                            <i class="bi bi-camera-video me-1"></i> Activar Cámara
+                        </button>
+                        <button id="switchCamera" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left-right me-1"></i> Cambiar Cámara
+                        </button>
+                    </div>
+                    
+                    <div id="qrResult" class="alert alert-success d-none">
+                        <i class="bi bi-check-circle me-2"></i>
+                        <span id="resultText"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="modal fade" id="checkinModal" tabindex="-1" aria-labelledby="checkinModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="checkinModalLabel">
+                    <i class="bi bi-box-arrow-in-right me-2"></i> Check-in
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <section class="c-checkin-success">
+  <div class="c-success-container">
+    <!-- Icono de éxito -->
+    <div class="c-success-icon">
+      <i class="bi bi-check-circle-fill"></i>
+    </div>
+    
+    <!-- Mensaje principal -->
+    <div class="c-success-message">
+      <h2 class="c-success-title">¡Registro Exitoso!</h2>
+      <p class="c-success-subtitle">Asistencia registrada correctamente</p>
+    </div>
+    
+    <!-- Información del alumno -->
+    <div class="c-student-info">
+      <div class="c-student-avatar">
+        MG
+      </div>
+      <div class="c-student-details">
+        <h3 class="c-student-name">María González Rodríguez</h3>
+        <div class="c-student-meta">
+          <span class="c-student-id">Matrícula: 2023123456</span>
+          <span class="c-student-group">5° Semestre - Grupo A</span>
+        </div>
+        <div class="c-checkin-time">
+          <i class="bi bi-clock"></i>
+          <span>Registrado a las 08:15 AM</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Resumen del check-in -->
+    <div class="c-checkin-summary">
+      <div class="c-summary-header">
+        <h4 class="c-summary-title">
+          <i class="bi bi-calendar-check"></i>
+          Últimos 5 registros
+        </h4>
+        <span class="c-attendance-streak">
+          <i class="bi bi-fire"></i>
+          12 días consecutivos
+        </span>
+      </div>
+      
+    <div class="c-checkin-history">
+        <table class="table table-sm table-striped">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="current">
+                    <td>Hoy</td>
+                    <td>08:15 AM</td>
+                </tr>
+                <tr>
+                    <td>Ayer</td>
+                    <td>08:05 AM</td>
+                </tr>
+                <tr>
+                    <td>Lun</td>
+                    <td>10:30 AM</td>
+                </tr>
+                <tr>
+                    <td>Vie</td>
+                    <td>07:55 AM</td>
+                </tr>
+                <tr>
+                    <td>Jue</td>
+                    <td>08:25 AM</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+      
+      
+      <div class="c-attendance-stats">
+        <div class="c-stat-item">
+          <div class="c-stat-value">95%</div>
+          <div class="c-stat-label">Asistencia total</div>
+        </div>
+        <div class="c-stat-item">
+          <div class="c-stat-value">18</div>
+          <div class="c-stat-label">Días presentes</div>
+        </div>
+        <div class="c-stat-item">
+          <div class="c-stat-value">1</div>
+          <div class="c-stat-label">Días ausente</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Acciones -->
+    <div class="c-checkin-actions">
+       
+      <button class="c-action-btn secondary">
+        <i class="bi bi-bar-chart"></i>
+        Ver estadísticas completas
+      </button>
+    </div>
+    
+    <!-- Mensaje de cierre -->
+    <div class="c-checkin-footer">
+      <p class="c-footer-text">
+        <i class="bi bi-info-circle"></i>
+        Recuerda registrar tu asistencia en cada clase. ¡Buen trabajo!
+      </p>
+    </div>
+  </div>
+</section>
+
+ 
+ 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="bookBorrowModal" tabindex="-1" aria-labelledby="bookBorrowModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookBorrowModalLabel">Solicitar Préstamo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+               <section class="c-library-borrow">
+  <div class="c-borrow-container">
+    <!-- Encabezado -->
+    <div class="c-borrow-header">
+      <h2 class="c-borrow-title">
+        <i class="bi bi-book-half"></i>
+        Préstamo de Libro
+      </h2>
+      <div class="c-borrow-badge">
+        <span class="c-library-badge">
+          <i class="bi bi-shield-check"></i> Biblioteca COBAED
+        </span>
+      </div>
+    </div>
+    
+    <!-- Libro a prestar -->
+    <div class="c-book-to-borrow">
+      <div class="c-book-main">
+        <div class="c-book-cover-large">
+          <div class="c-book-thumbnail">
+            <div class="c-book-thumb-content" style="background: linear-gradient(135deg, #4361ee, #3a0ca3);">
+              <span class="c-book-thumb-title">Álgebra</span>
+              <span class="c-book-thumb-author">Baldor</span>
+            </div>
+          </div>
+          <div class="c-book-status">
+            <span class="c-availability available">
+              <i class="bi bi-check-circle"></i> Disponible
+            </span>
+          </div>
+        </div>
+        
+        <div class="c-book-details">
+          <h3 class="c-book-title">Álgebra de Baldor</h3>
+          <p class="c-book-author">Aurelio Baldor</p>
+          
+          <div class="c-book-meta">
+            <div class="c-meta-item">
+              <i class="bi bi-tag"></i>
+              <span>Matemáticas</span>
+            </div>
+            <div class="c-meta-item">
+              <i class="bi bi-hash"></i>
+              <span>ISBN: 978-607-550-206-7</span>
+            </div>
+            <div class="c-meta-item">
+              <i class="bi bi-calendar"></i>
+              <span>Edición: 2020</span>
+            </div>
+            <div class="c-meta-item">
+              <i class="bi bi-file-text"></i>
+              <span>576 páginas</span>
+            </div>
+          </div>
+          
+          <div class="c-book-description">
+            <h4 class="c-description-title">Descripción:</h4>
+            <p class="c-description-text">
+              El clásico libro de álgebra que ha guiado a generaciones de estudiantes. Contiene teoría, 
+              ejercicios y problemas resueltos. Incluye temas desde operaciones básicas hasta ecuaciones 
+              complejas. Versión actualizada con ejercicios adicionales.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Estado físico del libro -->
+    <div class="c-book-condition">
+      <h4 class="c-condition-title">
+        <i class="bi bi-clipboard-check"></i>
+        Estado Físico del Libro
+      </h4>
+      
+      <div class="c-condition-grid">
+        <div class="c-condition-item good">
+          <div class="c-condition-icon">
+            <i class="bi bi-check-circle-fill"></i>
+          </div>
+          <div class="c-condition-info">
+            <h6>Lomo</h6>
+            <p>Intacto, sin desprendimientos</p>
+          </div>
+        </div>
+        
+        <div class="c-condition-item fair">
+          <div class="c-condition-icon">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+          </div>
+          <div class="c-condition-info">
+            <h6>Portada</h6>
+            <p>Marcas de uso ligero</p>
+          </div>
+        </div>
+        
+        <div class="c-condition-item good">
+          <div class="c-condition-icon">
+            <i class="bi bi-check-circle-fill"></i>
+          </div>
+          <div class="c-condition-info">
+            <h6>Páginas</h6>
+            <p>Completas, sin rasgaduras</p>
+          </div>
+        </div>
+        
+        <div class="c-condition-item poor">
+          <div class="c-condition-icon">
+            <i class="bi bi-x-circle-fill"></i>
+          </div>
+          <div class="c-condition-info">
+            <h6>Esquinas</h6>
+            <p>Doblez moderado en esquina inferior</p>
+          </div>
+        </div>
+        
+        <div class="c-condition-item good">
+          <div class="c-condition-icon">
+            <i class="bi bi-check-circle-fill"></i>
+          </div>
+          <div class="c-condition-info">
+            <h6>Anotaciones</h6>
+            <p>Sin marcas ni subrayados</p>
+          </div>
+        </div>
+        
+        <div class="c-condition-item fair">
+          <div class="c-condition-icon">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+          </div>
+          <div class="c-condition-info">
+            <h6>Olor</h6>
+            <p>Ligero olor a papel antiguo</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="c-condition-summary">
+        <div class="c-condition-rating">
+          <div class="c-rating-label">Estado general:</div>
+          <div class="c-rating-stars">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+            <i class="bi bi-star"></i>
+            <span class="c-rating-text">3.5/5 - Aceptable</span>
+          </div>
+        </div>
+        <div class="c-condition-notes">
+          <p><strong>Nota:</strong> Este libro presenta desgaste normal por uso. Aún es completamente funcional para estudio.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Información del préstamo -->
+    <div class="c-loan-info">
+      <h4 class="c-loan-title">
+        <i class="bi bi-calendar-event"></i>
+        Detalles del Préstamo
+      </h4>
+      
+      <div class="c-loan-details">
+        <div class="c-loan-item">
+          <div class="c-loan-icon">
+            <i class="bi bi-calendar-plus"></i>
+          </div>
+          <div class="c-loan-content">
+            <h6>Fecha de Préstamo</h6>
+            <p class="c-loan-date">10 de Diciembre, 2025</p>
+          </div>
+        </div>
+        
+        <div class="c-loan-item">
+          <div class="c-loan-icon">
+            <i class="bi bi-calendar-check"></i>
+          </div>
+          <div class="c-loan-content">
+            <h6>Fecha de Devolución</h6>
+            <p class="c-loan-date return-due">18 de Diciembre</p>
+            <div class="c-loan-duration">
+              <i class="bi bi-clock-history"></i>
+              <span>7 días de préstamo</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-loan-item">
+          <div class="c-loan-icon">
+            <i class="bi bi-cash-coin"></i>
+          </div>
+          <div class="c-loan-content">
+            <h6>Multa por retraso</h6>
+            <p class="c-loan-fine">$10 MXN por día</p>
+            <div class="c-loan-warning">
+              <i class="bi bi-exclamation-triangle"></i>
+              <span>Se aplica después de fecha límite</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="c-loan-item">
+          <div class="c-loan-icon">
+            <i class="bi bi-person-circle"></i>
+          </div>
+          <div class="c-loan-content">
+            <h6>Responsable</h6>
+            <p class="c-loan-librarian">Bibliotecaria: Lic. Elena Martínez</p>
+            <div class="c-loan-contact">
+              <i class="bi bi-telephone"></i>
+              <span>Ext. 305 para renovaciones</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="c-loan-countdown">
+        <div class="c-countdown-header">
+          <h6><i class="bi bi-hourglass-split"></i> Tiempo restante:</h6>
+          <span class="c-countdown-days">14 días</span>
+        </div>
+        <div class="c-countdown-bar">
+          <div class="c-countdown-progress" style="width: 100%"></div>
+        </div>
+        <div class="c-countdown-labels">
+          <span>Hoy</span>
+          <span>Fecha límite</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Términos y condiciones -->
+    <div class="c-loan-terms">
+      <div class="c-terms-header">
+        <h5><i class="bi bi-file-text"></i> Términos del Préstamo</h5>
+        <div class="c-terms-toggle">
+          <i class="bi bi-chevron-down"></i>
+        </div>
+      </div>
+      <div class="c-terms-content">
+        <ul class="c-terms-list">
+          <li><i class="bi bi-check"></i> No escribir, subrayar ni dañar el libro</li>
+          <li><i class="bi bi-check"></i> Devolver en la fecha establecida</li>
+          <li><i class="bi bi-check"></i> Reportar cualquier daño preexistente no registrado</li>
+          <li><i class="bi bi-check"></i> No prestar el libro a terceros</li>
+          <li><i class="bi bi-check"></i> Responsabilidad por pérdida o daño severo</li>
+        </ul>
+        <div class="c-terms-check">
+          <input type="checkbox" id="acceptTerms">
+          <label for="acceptTerms">He leído y acepto los términos del préstamo</label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Acciones -->
+    <div class="c-borrow-actions">
+      <button class="c-action-btn c-action-confirm" id="confirmBorrow">
+        <i class="bi bi-bookmark-check"></i>
+        Confirmar Préstamo
+      </button>
+      <button class="c-action-btn c-action-cancel">
+        <i class="bi bi-x-circle"></i>
+        Cancelar
+      </button>
+    </div>
+    
+    <!-- Footer informativo -->
+    <div class="c-borrow-footer">
+      <div class="c-footer-info">
+        <i class="bi bi-info-circle"></i>
+        <p>
+          Recuerda devolver el libro en la biblioteca antes de la fecha límite. 
+          Puedes renovar el préstamo una vez si no hay lista de espera.
+        </p>
+      </div>
+      <div class="c-footer-qr">
+        <div class="c-qr-placeholder">
+          <i class="bi bi-qr-code"></i>
+        </div>
+        <span class="c-qr-text">Escanea para recibir recordatorio</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="confirmBorrowBtn">Solicitar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cafeteriaModal" tabindex="-1" aria-labelledby="cafeteriaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cafeteriaModalLabel"><i class="bi bi-shop-window me-2"></i>Cafetería</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+               <section class="c-cafeteria-checkout">
+  <div class="c-checkout-container">
+    <!-- Encabezado -->
+    <div class="c-checkout-header">
+      <div class="c-checkout-title">
+        <i class="bi bi-cart-check"></i>
+        <h2>Pedido Cafetería COBAED</h2>
+      </div>
+      <div class="c-checkout-badge">
+        <span class="c-cafeteria-badge">
+          <i class="bi bi-qr-code-scan"></i> Escaneado exitoso
+        </span>
+      </div>
+    </div>
+    
+    <!-- Información del pedido -->
+    <div class="c-order-info">
+      <div class="c-order-meta">
+        <div class="c-meta-item">
+          <i class="bi bi-clock"></i>
+          <div>
+            <span class="c-meta-label">Hora</span>
+            <span class="c-meta-value">11:30 AM</span>
+          </div>
+        </div>
+        <div class="c-meta-item">
+          <i class="bi bi-calendar"></i>
+          <div>
+            <span class="c-meta-label">Fecha</span>
+            <span class="c-meta-value">15 Mayo 2023</span>
+          </div>
+        </div>
+        <div class="c-meta-item">
+          <i class="bi bi-shop"></i>
+          <div>
+            <span class="c-meta-label">Cafetería</span>
+            <span class="c-meta-value">Plantel Lomas</span>
+          </div>
+        </div>
+        <div class="c-meta-item">
+          <i class="bi bi-receipt"></i>
+          <div>
+            <span class="c-meta-label">Orden #</span>
+            <span class="c-meta-value">CF-2023-01587</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Items del carrito -->
+    <div class="c-cart-items">
+      <h3 class="c-cart-title">
+        <i class="bi bi-basket"></i>
+        Tu Pedido
+      </h3>
+      
+      <div class="c-items-list">
+        <!-- Item 1 -->
+        <div class="c-cart-item">
+          <div class="c-item-thumb">
+            <div class="c-item-image" style="background: linear-gradient(135deg, #ff9e6d, #ff6b6b);">
+              <i class="bi bi-egg-fried"></i>
+            </div>
+          </div>
+          <div class="c-item-details">
+            <h4 class="c-item-name">Mollete con Deshebrada</h4>
+            <p class="c-item-description">Pan bolillo con carne deshebrada, frijoles y queso gratinado</p>
+            <div class="c-item-tags">
+              <span class="c-item-tag breakfast">Desayuno</span>
+              <span class="c-item-tag popular">Popular</span>
+            </div>
+          </div>
+          <div class="c-item-quantity">
+            <button class="c-qty-btn minus">
+              <i class="bi bi-dash"></i>
+            </button>
+            <span class="c-qty-value">1</span>
+            <button class="c-qty-btn plus">
+              <i class="bi bi-plus"></i>
+            </button>
+          </div>
+          <div class="c-item-price">
+            <span class="c-price-amount">$25.00</span>
+            <button class="c-remove-btn">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="c-cart-item">
+          <div class="c-item-thumb">
+            <div class="c-item-image" style="background: linear-gradient(135deg, #06d6a0, #4cc9f0);">
+              <i class="bi bi-cup-straw"></i>
+            </div>
+          </div>
+          <div class="c-item-details">
+            <h4 class="c-item-name">Agua de Horchata</h4>
+            <p class="c-item-description">Bebida refrescante de arroz con canela y vainilla. 500ml</p>
+            <div class="c-item-tags">
+              <span class="c-item-tag drink">Bebida</span>
+              <span class="c-item-tag cold">Fría</span>
+            </div>
+          </div>
+          <div class="c-item-quantity">
+            <button class="c-qty-btn minus">
+              <i class="bi bi-dash"></i>
+            </button>
+            <span class="c-qty-value">1</span>
+            <button class="c-qty-btn plus">
+              <i class="bi bi-plus"></i>
+            </button>
+          </div>
+          <div class="c-item-price">
+            <span class="c-price-amount">$12.00</span>
+            <button class="c-remove-btn">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="c-cart-item">
+          <div class="c-item-thumb">
+            <div class="c-item-image" style="background: linear-gradient(135deg, #7209b7, #f72585);">
+              <i class="bi bi-candy"></i>
+            </div>
+          </div>
+          <div class="c-item-details">
+            <h4 class="c-item-name">Skwincles de Tamarindo</h4>
+            <p class="c-item-description">Dulces ácidos de tamarindo con chile. Paquete 50g</p>
+            <div class="c-item-tags">
+              <span class="c-item-tag snack">Botana</span>
+              <span class="c-item-tag spicy">Picante</span>
+            </div>
+          </div>
+          <div class="c-item-quantity">
+            <button class="c-qty-btn minus">
+              <i class="bi bi-dash"></i>
+            </button>
+            <span class="c-qty-value">1</span>
+            <button class="c-qty-btn plus">
+              <i class="bi bi-plus"></i>
+            </button>
+          </div>
+          <div class="c-item-price">
+            <span class="c-price-amount">$10.00</span>
+            <button class="c-remove-btn">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Agregar más items -->
+      <div class="c-add-more">
+        <button class="c-add-item-btn">
+          <i class="bi bi-plus-circle"></i>
+          Agregar más productos
+        </button>
+      </div>
+    </div>
+    
+    <!-- Wallet virtual -->
+    <div class="c-wallet-section">
+      <h3 class="c-wallet-title">
+        <i class="bi bi-wallet2"></i>
+        Tu Billetera Virtual COBAED
+      </h3>
+      
+      <div class="c-balance-display">
+        <div class="c-balance-current">
+          <div class="c-balance-label">Saldo Actual</div>
+          <div class="c-balance-amount">
+            <span class="c-balance-currency">$</span>
+            <span class="c-balance-value" id="currentBalance">150.00</span>
+          </div>
+          <div class="c-balance-status">
+            <i class="bi bi-check-circle"></i>
+            <span>Saldo suficiente</span>
+          </div>
+        </div>
+        
+        <div class="c-balance-calc">
+          <div class="c-balance-row">
+            <span>Subtotal:</span>
+            <span class="c-calc-amount" id="subtotalAmount">$47.00</span>
+          </div>
+          <div class="c-balance-row">
+            <span>IVA (16%):</span>
+            <span class="c-calc-amount" id="taxAmount">$7.52</span>
+          </div>
+          <div class="c-balance-row c-balance-total">
+            <span>Total a pagar:</span>
+            <span class="c-calc-amount c-total-amount" id="totalAmount">$54.52</span>
+          </div>
+          <div class="c-balance-row c-balance-after">
+            <span>Saldo después:</span>
+            <span class="c-calc-amount c-after-amount" id="afterBalance">$95.48</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Métodos de recarga -->
+      <div class="c-recharge-options">
+        <h4 class="c-recharge-title">
+          <i class="bi bi-lightning-charge"></i>
+          Recargar rápidamente
+        </h4>
+        <div class="c-recharge-buttons">
+          <button class="c-recharge-btn" data-amount="50">
+            <span class="c-recharge-amount">+$50</span>
+            <span class="c-recharge-bonus">Sin comisión</span>
+          </button>
+          <button class="c-recharge-btn" data-amount="100">
+            <span class="c-recharge-amount">+$100</span>
+            <span class="c-recharge-bonus">+$5 bonus</span>
+          </button>
+          <button class="c-recharge-btn" data-amount="200">
+            <span class="c-recharge-amount">+$200</span>
+            <span class="c-recharge-bonus">+$15 bonus</span>
+          </button>
+          <button class="c-recharge-btn" data-amount="custom">
+            <span class="c-recharge-amount">Otro monto</span>
+            <span class="c-recharge-bonus">Personalizado</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Cupones y promociones -->
+    <div class="c-promo-section">
+      <div class="c-promo-header">
+        <h4>
+          <i class="bi bi-ticket-perforated"></i>
+          ¿Tienes un cupón?
+        </h4>
+        <button class="c-promo-toggle">
+          <i class="bi bi-chevron-down"></i>
+        </button>
+      </div>
+      <div class="c-promo-content">
+        <div class="c-coupon-input">
+          <input type="text" placeholder="Ingresa código de cupón" class="c-coupon-field">
+          <button class="c-coupon-apply">Aplicar</button>
+        </div>
+        <div class="c-available-coupons">
+          <div class="c-coupon-item">
+            <div class="c-coupon-code">
+              <strong>CAFE10</strong>
+              <span>10% descuento</span>
+            </div>
+            <div class="c-coupon-desc">
+              Válido en alimentos de cafetería
+            </div>
+          </div>
+          <div class="c-coupon-item">
+            <div class="c-coupon-code">
+              <strong>BEBIDA5</strong>
+              <span>$5 en bebidas</span>
+            </div>
+            <div class="c-coupon-desc">
+              En compras mayores a $20
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Resumen final -->
+    <div class="c-summary-section">
+      <div class="c-summary-card">
+        <div class="c-summary-row">
+          <span>Productos:</span>
+          <span>3 items</span>
+        </div>
+        <div class="c-summary-row">
+          <span>Subtotal:</span>
+          <span>$47.00</span>
+        </div>
+        <div class="c-summary-row">
+          <span>IVA:</span>
+          <span>$7.52</span>
+        </div>
+        <div class="c-summary-row c-summary-total">
+          <span>Total:</span>
+          <span class="c-final-total">$54.52</span>
+        </div>
+        <div class="c-summary-row c-summary-savings">
+          <span>
+            <i class="bi bi-piggy-bank"></i>
+            Ahorras:
+          </span>
+          <span class="c-savings-amount">$0.00</span>
+        </div>
+      </div>
+      
+      <div class="c-time-estimate">
+        <div class="c-time-icon">
+          <i class="bi bi-clock-history"></i>
+        </div>
+        <div class="c-time-info">
+          <h6>Tiempo estimado de preparación:</h6>
+          <p class="c-time-value">8-12 minutos</p>
+          <p class="c-time-note">Tu orden estará lista en la ventanilla #3</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Acciones finales -->
+    <div class="c-checkout-actions">
+      <button class="c-action-btn c-action-pay" id="confirmPayment">
+        <i class="bi bi-credit-card"></i>
+        Pagar con Wallet COBAED
+      </button>
+      <button class="c-action-btn c-action-cancel">
+        <i class="bi bi-x-circle"></i>
+        Cancelar orden
+      </button>
+    </div>
+    
+    <!-- Footer -->
+    <div class="c-checkout-footer">
+      <div class="c-footer-security">
+        <i class="bi bi-shield-check"></i>
+        <p>Pago seguro • Tus datos están protegidos • Sin comisiones adicionales</p>
+      </div>
+      <div class="c-footer-receipt">
+        <button class="c-receipt-btn">
+          <i class="bi bi-receipt"></i>
+          Recibo digital
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* CSS limitado solo a esta sección */
+  .c-cafeteria-checkout {
+    --c-cafe-primary: #ff6b6b;
+    --c-cafe-secondary: #ff9e6d;
+    --c-cafe-success: #06d6a0;
+    --c-cafe-warning: #ffd166;
+    --c-cafe-purple: #7209b7;
+    --c-cafe-dark: #212529;
+    --c-cafe-light: #f8f9fa;
+  }
+  
+  .c-cafeteria-checkout .c-checkout-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Encabezado */
+  .c-cafeteria-checkout .c-checkout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--c-cafe-light);
+  }
+  
+  .c-cafeteria-checkout .c-checkout-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .c-cafeteria-checkout .c-checkout-title h2 {
+    font-weight: 700;
+    color: var(--c-cafe-dark);
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  
+  .c-cafeteria-checkout .c-checkout-title i {
+    font-size: 2rem;
+    color: var(--c-cafe-primary);
+  }
+  
+  .c-cafeteria-checkout .c-cafeteria-badge {
+    background: linear-gradient(135deg, var(--c-cafe-primary), var(--c-cafe-secondary));
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* Información del pedido */
+  .c-cafeteria-checkout .c-order-info {
+    margin-bottom: 30px;
+  }
+  
+  .c-cafeteria-checkout .c-order-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .c-cafeteria-checkout .c-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: var(--c-cafe-light);
+    border-radius: 12px;
+  }
+  
+  .c-cafeteria-checkout .c-meta-item i {
+    font-size: 1.5rem;
+    color: var(--c-cafe-primary);
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .c-cafeteria-checkout .c-meta-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 4px;
+  }
+  
+  .c-cafeteria-checkout .c-meta-value {
+    font-weight: 600;
+    color: var(--c-cafe-dark);
+    font-size: 1.1rem;
+  }
+  
+  /* Items del carrito */
+  .c-cafeteria-checkout .c-cart-items {
+    margin-bottom: 30px;
+  }
+  
+  .c-cafeteria-checkout .c-cart-title {
+    font-weight: 700;
+    color: var(--c-cafe-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+  
+  .c-cafeteria-checkout .c-items-list {
+    margin-bottom: 20px;
+  }
+  
+  .c-cafeteria-checkout .c-cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.2s;
+  }
+  
+  .c-cafeteria-checkout .c-cart-item:hover {
+    background-color: rgba(255, 107, 107, 0.05);
+  }
+  
+  .c-cafeteria-checkout .c-cart-item:last-child {
+    border-bottom: none;
+  }
+  
+  .c-cafeteria-checkout .c-item-thumb {
+    flex-shrink: 0;
+  }
+  
+  .c-cafeteria-checkout .c-item-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .c-cafeteria-checkout .c-item-details {
+    flex-grow: 1;
+  }
+  
+  .c-cafeteria-checkout .c-item-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--c-cafe-dark);
+    font-size: 1.1rem;
+  }
+  
+  .c-cafeteria-checkout .c-item-description {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  
+  .c-cafeteria-checkout .c-item-tags {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .c-cafeteria-checkout .c-item-tag {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-weight: 600;
+  }
+  
+  .c-cafeteria-checkout .c-item-tag.breakfast {
+    background-color: rgba(255, 107, 107, 0.15);
+    color: var(--c-cafe-primary);
+  }
+  
+  .c-cafeteria-checkout .c-item-tag.popular {
+    background-color: rgba(255, 209, 102, 0.15);
+    color: #ff9e6d;
+  }
+  
+  .c-cafeteria-checkout .c-item-tag.drink {
+    background-color: rgba(6, 214, 160, 0.15);
+    color: var(--c-cafe-success);
+  }
+  
+  .c-cafeteria-checkout .c-item-tag.cold {
+    background-color: rgba(76, 201, 240, 0.15);
+    color: #4cc9f0;
+  }
+  
+  .c-cafeteria-checkout .c-item-tag.snack {
+    background-color: rgba(114, 9, 183, 0.15);
+    color: var(--c-cafe-purple);
+  }
+  
+  .c-cafeteria-checkout .c-item-tag.spicy {
+    background-color: rgba(255, 107, 107, 0.2);
+    color: #dc3545;
+  }
+  
+  .c-cafeteria-checkout .c-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  
+  .c-cafeteria-checkout .c-qty-btn {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #dee2e6;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-cafe-dark);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .c-cafeteria-checkout .c-qty-btn:hover {
+    border-color: var(--c-cafe-primary);
+    color: var(--c-cafe-primary);
+  }
+  
+  .c-cafeteria-checkout .c-qty-value {
+    font-weight: 600;
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  
+  .c-cafeteria-checkout .c-item-price {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+  }
+  
+  .c-cafeteria-checkout .c-price-amount {
+    font-weight: 700;
+    color: var(--c-cafe-dark);
+    font-size: 1.2rem;
+    min-width: 70px;
+    text-align: right;
+  }
+  
+  .c-cafeteria-checkout .c-remove-btn {
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+  }
+  
+  .c-cafeteria-checkout .c-remove-btn:hover {
+    background-color: rgba(220, 53, 69, 0.1);
+  }
+  
+  .c-cafeteria-checkout .c-add-more {
+    text-align: center;
+  }
+  
+  .c-cafeteria-checkout .c-add-item-btn {
+    background: var(--c-cafe-light);
+    border: 2px dashed #dee2e6;
+    color: var(--c-cafe-primary);
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .c-cafeteria-checkout .c-add-item-btn:hover {
+    background: rgba(255, 107, 107, 0.1);
+    border-color: var(--c-cafe-primary);
+  }
+  
+  /* Wallet virtual */
+  .c-cafeteria-checkout .c-wallet-section {
+    margin-bottom: 30px;
+  }
+  
+  .c-cafeteria-checkout .c-wallet-title {
+    font-weight: 700;
+    color: var(--c-cafe-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+  
+  .c-cafeteria-checkout .c-balance-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 25px;
+  }
+  
+  .c-cafeteria-checkout .c-balance-current {
+    background: linear-gradient(135deg, var(--c-cafe-success), #05c08f);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+  }
+  
+  .c-cafeteria-checkout .c-balance-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 10px;
+  }
+  
+  .c-cafeteria-checkout .c-balance-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .c-cafeteria-checkout .c-balance-currency {
+    font-size: 1.5rem;
+    vertical-align: top;
+  }
+  
+  .c-cafeteria-checkout .c-balance-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .c-cafeteria-checkout .c-balance-calc {
+    background: var(--c-cafe-light);
+    padding: 25px;
+    border-radius: 15px;
+  }
+  
+  .c-cafeteria-checkout .c-balance-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #dee2e6;
+  }
+  
+  .c-cafeteria-checkout .c-balance-row:last-child {
+    border-bottom: none;
+  }
+  
+  .c-cafeteria-checkout .c-balance-total {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--c-cafe-dark);
+  }
+  
+  .c-cafeteria-checkout .c-balance-after {
+    background: rgba(6, 214, 160, 0.1);
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+  
+  .c-cafeteria-checkout .c-calc-amount {
+    font-weight: 600;
+  }
+  
+  .c-cafeteria-checkout .c-total-amount {
+    color: var(--c-cafe-primary);
+    font-size: 1.2rem;
+  }
+  
+  .c-cafeteria-checkout .c-after-amount {
+    color: var(--c-cafe-success);
+    font-size: 1.2rem;
+  }
+  
+  /* Opciones de recarga */
+  .c-cafeteria-checkout .c-recharge-options {
+    margin-top: 25px;
+  }
+  
+  .c-cafeteria-checkout .c-recharge-title {
+    font-weight: 600;
+    color: var(--c-cafe-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+  }
+  
+  .c-cafeteria-checkout .c-recharge-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+  
+  .c-cafeteria-checkout .c-recharge-btn {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .c-cafeteria-checkout .c-recharge-btn:hover {
+    border-color: var(--c-cafe-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.1);
+  }
+  
+  .c-cafeteria-checkout .c-recharge-amount {
+    font-weight: 700;
+    color: var(--c-cafe-dark);
+    font-size: 1.1rem;
+  }
+  
+  .c-cafeteria-checkout .c-recharge-bonus {
+    font-size: 0.8rem;
+    color: var(--c-cafe-success);
+  }
+  
+  /* Promociones */
+  .c-cafeteria-checkout .c-promo-section {
+    background: var(--c-cafe-light);
+    border-radius: 15px;
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+  
+  .c-cafeteria-checkout .c-promo-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .c-cafeteria-checkout .c-promo-header h4 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--c-cafe-dark);
+  }
+  
+  .c-cafeteria-checkout .c-promo-content {
+    padding: 0 20px 20px;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .c-cafeteria-checkout .c-coupon-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .c-cafeteria-checkout .c-coupon-field {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+  
+  .c-cafeteria-checkout .c-coupon-field:focus {
+    outline: none;
+    border-color: var(--c-cafe-primary);
+  }
+  
+  .c-cafeteria-checkout .c-coupon-apply {
+    background: var(--c-cafe-primary);
+    color: white;
+    border: none;
+    padding: 0 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .c-cafeteria-checkout .c-coupon-apply:hover {
+    background: #e05656;
+  }
+  
+  /* Resumen final */
+  .c-cafeteria-checkout .c-summary-section {
+    margin-bottom: 30px;
+  }
+  
+  .c-cafeteria-checkout .c-summary-card {
+    background: var(--c-cafe-light);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .c-cafeteria-checkout .c-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .c-cafeteria-checkout .c-summary-row:last-child {
+    border-bottom: none;
+  }
+  
+  .c-cafeteria-checkout .c-summary-total {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--c-cafe-dark);
+  }
+  
+  .c-cafeteria-checkout .c-summary-savings {
+    background: rgba(255, 209, 102, 0.15);
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    color: #ff9e6d;
+    font-weight: 600;
+  }
+  
+  .c-cafeteria-checkout .c-final-total {
+    color: var(--c-cafe-primary);
+    font-size: 1.3rem;
+  }
+  
+  .c-cafeteria-checkout .c-savings-amount {
+    color: var(--c-cafe-success);
+  }
+  
+  .c-cafeteria-checkout .c-time-estimate {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 158, 109, 0.1));
+    border-radius: 15px;
+    border-left: 4px solid var(--c-cafe-primary);
+  }
+  
+  .c-cafeteria-checkout .c-time-icon {
+    font-size: 2rem;
+    color: var(--c-cafe-primary);
+    flex-shrink: 0;
+  }
+  
+  .c-cafeteria-checkout .c-time-info h6 {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--c-cafe-dark);
+  }
+  
+  .c-cafeteria-checkout .c-time-value {
+    font-weight: 700;
+    color: var(--c-cafe-primary);
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  
+  .c-cafeteria-checkout .c-time-note {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin: 0;
+  }
+  
+  /* Acciones finales */
+  .c-cafeteria-checkout .c-checkout-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .c-cafeteria-checkout .c-action-btn {
+    flex: 1;
+    padding: 20px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .c-cafeteria-checkout .c-action-pay {
+    background: var(--c-cafe-primary);
+    color: white;
+  }
+  
+  .c-cafeteria-checkout .c-action-pay:hover {
+    background: #e05656;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+  }
+  
+  .c-cafeteria-checkout .c-action-cancel {
+    background: white;
+    color: #6c757d;
+    border: 2px solid #dee2e6;
+  }
+  
+  .c-cafeteria-checkout .c-action-cancel:hover {
+    background: #f8f9fa;
+    border-color: #6c757d;
+    transform: translateY(-2px);
+  }
+  
+  /* Footer */
+  .c-cafeteria-checkout .c-checkout-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 2px solid var(--c-cafe-light);
+  }
+  
+  .c-cafeteria-checkout .c-footer-security {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+  
+  .c-cafeteria-checkout .c-footer-security i {
+    color: var(--c-cafe-success);
+    font-size: 1.2rem;
+  }
+  
+  .c-cafeteria-checkout .c-receipt-btn {
+    background: none;
+    border: 2px solid #dee2e6;
+    color: var(--c-cafe-dark);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .c-cafeteria-checkout .c-receipt-btn:hover {
+    border-color: var(--c-cafe-primary);
+    color: var(--c-cafe-primary);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .c-cafeteria-checkout .c-checkout-container {
+      padding: 20px;
+    }
+    
+    .c-cafeteria-checkout .c-checkout-header {
+      flex-direction: column;
+      gap: 15px;
+      text-align: center;
+    }
+    
+    .c-cafeteria-checkout .c-order-meta {
+      grid-template-columns: 1fr;
+    }
+    
+    .c-cafeteria-checkout .c-cart-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
+    }
+    
+    .c-cafeteria-checkout .c-item-tags {
+      justify-content: center;
+    }
+    
+    .c-cafeteria-checkout .c-item-price {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .c-cafeteria-checkout .c-balance-display {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .c-cafeteria-checkout .c-recharge-buttons {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .c-cafeteria-checkout .c-checkout-actions {
+      flex-direction: column;
+    }
+    
+    .c-cafeteria-checkout .c-checkout-footer {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+    
+    .c-cafeteria-checkout .c-time-estimate {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Script solo para esta sección
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.querySelector('.c-cafeteria-checkout');
+    if (!section) return;
+    
+    // Variables de estado
+    let currentBalance = 150.00;
+    let subtotal = 47.00;
+    let taxRate = 0.16;
+    let taxAmount = subtotal * taxRate;
+    let totalAmount = subtotal + taxAmount;
+    
+    // Actualizar cálculos iniciales
+    function updateCalculations() {
+      taxAmount = subtotal * taxRate;
+      totalAmount = subtotal + taxAmount;
+      const afterBalance = currentBalance - totalAmount;
+      
+      section.querySelector('#subtotalAmount').textContent = `$${subtotal.toFixed(2)}`;
+      section.querySelector('#taxAmount').textContent = `$${taxAmount.toFixed(2)}`;
+      section.querySelector('#totalAmount').textContent = `$${totalAmount.toFixed(2)}`;
+      section.querySelector('#afterBalance').textContent = `$${afterBalance.toFixed(2)}`;
+      
+      // Actualizar saldo después en el resumen
+      section.querySelector('.c-final-total').textContent = `$${totalAmount.toFixed(2)}`;
+      
+      // Actualizar estado del saldo
+      const balanceStatus = section.querySelector('.c-balance-status');
+      if (afterBalance >= 0) {
+        balanceStatus.innerHTML = '<i class="bi bi-check-circle"></i> Saldo suficiente';
+        balanceStatus.style.color = 'white';
+      } else {
+        balanceStatus.innerHTML = '<i class="bi bi-exclamation-triangle"></i> Saldo insuficiente';
+        balanceStatus.style.color = '#ffd166';
+      }
+    }
+    
+    // Manejar cambios en cantidad
+    section.querySelectorAll('.c-qty-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const item = this.closest('.c-cart-item');
+        const qtyElement = item.querySelector('.c-qty-value');
+        const priceElement = item.querySelector('.c-price-amount');
+        let qty = parseInt(qtyElement.textContent);
+        const price = parseFloat(priceElement.textContent.replace('$', ''));
+        
+        if (this.classList.contains('plus')) {
+          qty++;
+        } else if (this.classList.contains('minus') && qty > 1) {
+          qty--;
+        }
+        
+        qtyElement.textContent = qty;
+        const newPrice = (price * qty) / (qty === 1 ? 1 : qty - 1);
+        priceElement.textContent = `$${(newPrice * qty).toFixed(2)}`;
+        
+        // Recalcular subtotal
+        subtotal = 0;
+        section.querySelectorAll('.c-price-amount').forEach(p => {
+          subtotal += parseFloat(p.textContent.replace('$', ''));
+        });
+        
+        updateCalculations();
+      });
+    });
+    
+    // Botones de eliminar
+    section.querySelectorAll('.c-remove-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const item = this.closest('.c-cart-item');
+        const price = parseFloat(item.querySelector('.c-price-amount').textContent.replace('$', ''));
+        
+        if (confirm('¿Eliminar este producto del carrito?')) {
+          item.style.opacity = '0';
+          item.style.transform = 'translateX(-20px)';
+          
+          setTimeout(() => {
+            item.remove();
+            subtotal -= price;
+            updateCalculations();
+          }, 300);
+        }
+      });
+    });
+    
+    // Recarga de saldo
+    section.querySelectorAll('.c-recharge-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const amount = this.getAttribute('data-amount');
+        let rechargeAmount = 0;
+        let bonus = 0;
+        
+        switch (amount) {
+          case '50':
+            rechargeAmount = 50;
+            break;
+          case '100':
+            rechargeAmount = 100;
+            bonus = 5;
+            break;
+          case '200':
+            rechargeAmount = 200;
+            bonus = 15;
+            break;
+          case 'custom':
+            const customAmount = prompt('Ingresa el monto a recargar:');
+            if (customAmount && !isNaN(customAmount) && customAmount > 0) {
+              rechargeAmount = parseFloat(customAmount);
+            }
+            break;
+        }
+        
+        if (rechargeAmount > 0) {
+          currentBalance += rechargeAmount + bonus;
+          section.querySelector('#currentBalance').textContent = currentBalance.toFixed(2);
+          updateCalculations();
+          
+          alert(`¡Recarga exitosa! +$${rechargeAmount.toFixed(2)}${bonus > 0 ? ` + $${bonus.toFixed(2)} bonus` : ''}`);
+        }
+      });
+    });
+    
+    // Aplicar cupón
+    const applyCouponBtn = section.querySelector('.c-coupon-apply');
+    const couponField = section.querySelector('.c-coupon-field');
+    
+    if (applyCouponBtn && couponField) {
+      applyCouponBtn.addEventListener('click', function() {
+        const couponCode = couponField.value.trim().toUpperCase();
+        
+        if (!couponCode) {
+          alert('Por favor ingresa un código de cupón');
+          return;
+        }
+        
+        let discount = 0;
+        let message = '';
+        
+        switch (couponCode) {
+          case 'CAFE10':
+            discount = subtotal * 0.10;
+            message = '¡10% de descuento aplicado!';
+            break;
+          case 'BEBIDA5':
+            if (subtotal >= 20) {
+              discount = 5;
+              message = '¡$5 de descuento en bebidas aplicado!';
+            } else {
+              alert('Este cupón requiere compra mínima de $20');
+              return;
+            }
+            break;
+          default:
+            alert('Cupón inválido o expirado');
+            return;
+        }
+        
+        subtotal -= discount;
+        updateCalculations();
+        
+        // Mostrar ahorros
+        const savingsElement = section.querySelector('.c-savings-amount');
+        savingsElement.textContent = `$${discount.toFixed(2)}`;
+        
+        alert(message);
+        couponField.value = '';
+      });
+    }
+    
+    // Confirmar pago
+    const confirmPaymentBtn = section.querySelector('#confirmPayment');
+    if (confirmPaymentBtn) {
+      confirmPaymentBtn.addEventListener('click', function() {
+        const afterBalance = currentBalance - totalAmount;
+        
+        if (afterBalance < 0) {
+          alert('Saldo insuficiente. Por favor recarga tu wallet.');
+          return;
+        }
+        
+        // Confirmar términos
+        const termsCheck = section.querySelector('#acceptTerms');
+        if (termsCheck && !termsCheck.checked) {
+          alert('Debes aceptar los términos y condiciones para continuar');
+          return;
+        }
+        
+        // Procesar pago
+        currentBalance = afterBalance;
+        section.querySelector('#currentBalance').textContent = currentBalance.toFixed(2);
+        
+        // Simular procesamiento
+        this.innerHTML = '<i class="bi bi-hourglass-split"></i> Procesando...';
+        this.disabled = true;
+        
+        setTimeout(() => {
+          alert(`¡Pago exitoso! $${totalAmount.toFixed(2)} debitados de tu wallet.\nTu orden #CF-2023-01587 está siendo preparada.`);
+          this.innerHTML = '<i class="bi bi-check-circle"></i> Pago realizado';
+          this.style.background = '#06d6a0';
+          
+          // Mostrar recibo
+          const receiptBtn = section.querySelector('.c-receipt-btn');
+          if (receiptBtn) {
+            receiptBtn.style.background = '#4361ee';
+            receiptBtn.style.color = 'white';
+          }
+        }, 2000);
+      });
+    }
+    
+    // Inicializar cálculos
+    updateCalculations();
+  });
+</script>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Include jsQR library for QR decoding -->
+    
+<!-- jQuery + Bootstrap JS -->
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/qr-scanner.umd.min.js"></script>
+ 
+<script src="assets/js/this.js?v=1.10">  </script> 
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+      .then(() => console.log('Service Worker Registrado'))
+      .catch((err) => console.error('Error SW:', err));
+  }
+</script>
+<script src="assets/js/native-push.min.js"></script>
+<script src="assets/js/native-geo.min.js"></script>
+</body>
+</html>
