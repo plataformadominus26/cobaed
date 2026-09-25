@@ -6,8 +6,12 @@
     date_default_timezone_set('America/Mexico_City');
 
     if (isset($_REQUEST["u"])) {
-        $sql = "SELECT * FROM usuarios WHERE email='" . $_REQUEST["u"] . "' AND pwd='" . $_REQUEST["p"] . "'";
-        $result = $db->query($sql)->fetch_assoc();
+        $u = (string)$_REQUEST["u"];
+        $p = (string)($_REQUEST["p"] ?? "");
+        $st = $db->prepare("SELECT * FROM usuarios WHERE email = ? AND pwd = ?");
+        $st->bind_param("ss", $u, $p);
+        $st->execute();
+        $result = $u !== "" ? $st->get_result()->fetch_assoc() : null;
         $r = [];
         if ($result) {
             $r["ok"] = true;

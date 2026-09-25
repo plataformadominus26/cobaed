@@ -10,16 +10,15 @@ require_once __DIR__ . "/config.php";
 
 if(isset($_REQUEST["email"]) && isset($_REQUEST["password"])) {
      
-    $email = $db->real_escape_string($_REQUEST["email"]); // Basic sanitization
-    $password = $_REQUEST["password"];
+    $email = (string)$_REQUEST["email"];
+    $password = (string)$_REQUEST["password"];
     $r = [];
 
-    // Prepared statement approach (better)
-    $sql="SELECT * FROM usuarios a ";
-    $sql.=" where email = '$email' and pwd='$password' and  activo = 1 LIMIT 1" ;
+    $st = $db->prepare("SELECT * FROM usuarios WHERE email = ? AND pwd = ? AND activo = 1 LIMIT 1");
+    $st->bind_param("ss", $email, $password);
+    $st->execute();
 
-    
-    if($row = $db->query($sql)->fetch_assoc()) {
+    if($email !== "" && $row = $st->get_result()->fetch_assoc()) {
             $r["ok"] = true;
             $r["tkn"] = $row["token"];
             $r["nombre"] = $row["nombre"];
@@ -28,7 +27,7 @@ if(isset($_REQUEST["email"]) && isset($_REQUEST["password"])) {
          
         } else {
             $r["ok"] = false;
-            $r["mensaje"] = "Credencialesx incorrectas". $sql;
+            $r["mensaje"] = "Credenciales incorrectas";
         }
 
     header('Content-Type: application/json');

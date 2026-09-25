@@ -12,11 +12,12 @@
         case "login":
             $username=$_REQUEST["username"];
             $password=$_REQUEST["password"];
-            $sql="SELECT * FROM alumnos WHERE (email='".$_REQUEST["username"]."'";
-            $sql.=" or telefono='".$_REQUEST["username"]."'";
-            $sql.=" or matricula='".$_REQUEST["username"]."')";
-            $sql.=" AND pwd='".$_REQUEST["password"]."'";
-            $row=$db->query($sql)->fetch_assoc();
+            $username=(string)$username;
+            $password=(string)$password;
+            $st=$db->prepare("SELECT * FROM alumnos WHERE (email=? OR telefono=? OR matricula=?) AND pwd=?");
+            $st->bind_param("ssss", $username, $username, $username, $password);
+            $st->execute();
+            $row = trim($username) !== "" ? $st->get_result()->fetch_assoc() : null;
             if($row) {
                 $row["ok"]="true";
                 $retVal=json_encode($row);
